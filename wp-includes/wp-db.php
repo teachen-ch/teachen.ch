@@ -791,6 +791,7 @@ class wpdb {
 		if ( ! isset( $collate ) ) {
 			$collate = $this->collate;
 		}
+		
 		if ( $this->has_cap( 'collation' ) && ! empty( $charset ) ) {
 			$set_charset_succeeded = true;
 
@@ -2783,7 +2784,7 @@ class wpdb {
 				$charset = 'ascii';
 			}
 		}
-
+		
 		$this->table_charset[ $tablekey ] = $charset;
 		return $charset;
 	}
