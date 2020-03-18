@@ -1,0 +1,4 @@
+.env
+wpcontent/cache/
+wpcontent/uploads/
+wpcontent/updraft/
