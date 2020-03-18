@@ -2,7 +2,7 @@
 
 function getDotEnv() {
 	# .env file needs to reside along wp-config.php
-	$dotenv = dirname( __FILE__ ) . '/.env';
+	$dotenv = dirname( __FILE__ ) . '/../.env';
   $env_lines = file($dotenv);
   $env = [];
   foreach ($env_lines as $line) {
