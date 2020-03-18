@@ -19,8 +19,7 @@ function getDotEnv() {
 
 $env = getDotEnv();
 
-/** Enable W3 Total Cache */
-define('WP_CACHE', true); // Added by W3 Total Cache
+
 
 define('CONCATENATE_SCRIPTS', false);
 define('DISALLOW_FILE_EDIT', true);
@@ -52,8 +51,6 @@ foreach ($dbvalues as $dbvalue) {
     define($dbvalue, $env[$dbvalue]);
 }
 
-define('WP_DEBUG', 1);
-
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
 
@@ -78,7 +75,7 @@ foreach ($saltykeys as $saltykey) {
 }
 
 
-$otherkeys = array('WP_SITEURL', 'WP_HOME', 'S3_UPLOADS_BUCKET', 'S3_UPLOADS_REGION', 'S3_UPLOADS_KEY', 'S3_UPLOADS_SECRET' );
+$otherkeys = array('WP_SITEURL', 'WP_HOME', 'S3_UPLOADS_BUCKET', 'S3_UPLOADS_REGION', 'S3_UPLOADS_KEY', 'S3_UPLOADS_SECRET', 'WP_DEBUG' );
 /** -------------------------------------------------------------*/
 foreach ($otherkeys as $otherkey) {
     define($otherkey, $env[$otherkey]);
