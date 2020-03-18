@@ -1,0 +1,13 @@
+- hosts: all
+  gather_facts: False
+
+  tasks:
+    - apt: { name: [python3-setuptools, python-pip], state: present }
+    - pip: { name: PyMySQL }
+  become: yes
+
+- hosts: wp
+  roles:
+    - server
+    - php
+    - wordpress

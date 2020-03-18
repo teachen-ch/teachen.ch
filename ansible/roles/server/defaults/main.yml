@@ -1,0 +1,6 @@
+---
+# defaults file for server
+wp_mysql_db: dbteachen
+wp_mysql_user: teachen
+wp_mysql_password: lkjasdf09asdfasdf8234lkjs
+wp_mysql_host: ls-de8818c370c98a0156a6673b0e097878570258dc.c2sqzapve2hj.eu-central-1.rds.amazonaws.com
