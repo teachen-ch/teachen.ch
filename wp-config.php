@@ -78,7 +78,7 @@ foreach ($saltykeys as $saltykey) {
 }
 
 
-$otherkeys = array('WP_SITEURL', 'WP_HOME' );
+$otherkeys = array('WP_SITEURL', 'WP_HOME', 'S3_UPLOADS_BUCKET', 'S3_UPLOADS_REGION', 'S3_UPLOADS_KEY', 'S3_UPLOADS_SECRET' );
 /** -------------------------------------------------------------*/
 foreach ($otherkeys as $otherkey) {
     define($otherkey, $env[$otherkey]);
