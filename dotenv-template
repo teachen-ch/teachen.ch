@@ -1,0 +1,29 @@
+
+### Main Config
+WP_ENV = development
+WP_HOME = http://localhost:3000/
+WP_SITEURL = http://localhost:3000/
+WP_DEBUG = 1
+
+### Database Config
+DB_HOST = db.teachen.ch
+DB_NAME = dbteachen
+DB_USER = teachen
+DB_PASSWORD = some_password
+DB_PREFIX = G4ZqkF_
+
+### S3-Config
+S3_UPLOADS_BUCKET = teachen-uploads
+S3_UPLOADS_REGION = eu-central-1
+S3_UPLOADS_KEY = AKIAXABHCQBGKRDL3XJR
+S3_UPLOADS_SECRET = some_secret
+
+### Salts & Hashes
+AUTH_KEY = some_key
+SECURE_AUTH_KEY = some_key
+LOGGED_IN_KEY = some_key
+NONCE_KEY = some_key
+AUTH_SALT = some_key
+SECURE_AUTH_SALT = some_key
+LOGGED_IN_SALT = some_key
+NONCE_SALT = some_key
