@@ -1,10 +1,14 @@
 <?php
 
 function getDotEnv() {
-	# .env file needs to reside along wp-config.php
-	$dotenv = dirname( __FILE__ ) . '/../.env';
-  $env_lines = file($dotenv);
-  $env = [];
+  # .env file needs to reside along wp-config.php
+  $env_file = dirname( __FILE__ ) . '/../.env';
+  if (file_exists($env_file)) {
+    $env_lines = file($env_file);
+  } else {
+    $env_lines = [];
+  }
+  $env = getenv();
   foreach ($env_lines as $line) {
     $line = chop(preg_replace("/^\#.*/", "", $line));
     if ($line == "") {
