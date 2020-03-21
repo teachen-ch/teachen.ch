@@ -1,0 +1,299 @@
+0000.000 (0) Opened log file at time: Thu, 19 Mar 2020 20:37:12 +0000 on http://localhost:3000
+0000.002 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.22 WP: 5.3.2 PHP: 7.4.3 (cli-server, Darwin stefan-macbookpro.home 19.2.0 Darwin Kernel Version 19.2.0: Sat Nov  9 03:47:04 PST 2019; root:xnu-6153.61.1~20/RELEASE_X86_64 x86_64) MySQL: 5.7.28 WPLANG: de_CH_informal Server: PHP 7.4.3 Development Server safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 6M | 4M) multisite: N openssl: OpenSSL 1.1.1d  10 Sep 2019 mcrypt: N LANG: en_US.UTF-8 ZipArchive::addFile: Y
+0000.003 (0) Free space on disk containing Updraft's temporary directory: 45107.5 MB
+0000.005 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.005 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.013 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1584510489, seconds_ago=139743)
+0000.015 (0) Set semaphore last lock (fd) time to 2020-03-19 20:37:12
+0000.016 (0) Semaphore lock (fd) complete
+0000.018 (0) Backup run: resumption=0, nonce=6a8013e770f0, file_nonce=6a8013e770f0 begun at=1584650232 (0s ago), job type=backup
+0000.019 (0) Scheduling a resumption (1) after 300 seconds (1584650532) in case this run gets aborted
+0000.036 (0) Checking if we have a zip executable available
+0000.037 (0) Testing: /usr/bin/zip
+0000.049 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.050 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.050 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.051 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.052 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.060 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.061 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.073 (0) Working binary zip found: /usr/bin/zip
+0000.075 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.075 (0) Creation of backups of directories: beginning
+0000.077 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.552 (0) Total entities for the zip file: 1730 directories, 6893 files (0 skipped as non-modified), 82.7 MB
+0000.557 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.562 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.566 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.570 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.574 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.575 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.4 MB, 6893 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0000.820 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: size is now: 1.40 MB
+0000.825 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 600 files added (on-disk size: 1448.1 KB)
+0000.829 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 700 files added (on-disk size: 1448.1 KB)
+0000.833 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 800 files added (on-disk size: 1448.1 KB)
+0000.838 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 900 files added (on-disk size: 1448.1 KB)
+0000.842 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1000 files added (on-disk size: 1448.1 KB)
+0000.843 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.3 MB, 6893 files batched, 501 (1002) added so far); re-opening (prior size: 1448.1 KB)
+0001.094 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: size is now: 2.50 MB
+0001.099 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1100 files added (on-disk size: 2530.3 KB)
+0001.103 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1200 files added (on-disk size: 2530.3 KB)
+0001.107 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1300 files added (on-disk size: 2530.3 KB)
+0001.112 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1400 files added (on-disk size: 2530.3 KB)
+0001.116 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1500 files added (on-disk size: 2530.3 KB)
+0001.116 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5 MB, 6893 files batched, 501 (1503) added so far); re-opening (prior size: 2530.3 KB)
+0001.399 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: size is now: 4.20 MB
+0001.404 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1600 files added (on-disk size: 4342.8 KB)
+0001.408 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1700 files added (on-disk size: 4342.8 KB)
+0001.413 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1800 files added (on-disk size: 4342.8 KB)
+0001.417 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 1900 files added (on-disk size: 4342.8 KB)
+0001.421 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2000 files added (on-disk size: 4342.8 KB)
+0001.421 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.1 MB, 6893 files batched, 501 (2004) added so far); re-opening (prior size: 4342.8 KB)
+0001.687 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: size is now: 5.90 MB
+0001.692 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2100 files added (on-disk size: 6001.5 KB)
+0001.697 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2200 files added (on-disk size: 6001.5 KB)
+0001.701 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2300 files added (on-disk size: 6001.5 KB)
+0001.705 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2400 files added (on-disk size: 6001.5 KB)
+0001.709 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2500 files added (on-disk size: 6001.5 KB)
+0001.710 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.4 MB, 6893 files batched, 501 (2505) added so far); re-opening (prior size: 6001.5 KB)
+0002.020 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: size is now: 8.10 MB
+0002.026 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2600 files added (on-disk size: 8312.9 KB)
+0002.030 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2700 files added (on-disk size: 8312.9 KB)
+0002.034 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2800 files added (on-disk size: 8312.9 KB)
+0002.039 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 2900 files added (on-disk size: 8312.9 KB)
+0002.043 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3000 files added (on-disk size: 8312.9 KB)
+0002.044 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (19.1 MB, 6893 files batched, 501 (3006) added so far); re-opening (prior size: 8312.9 KB)
+0003.021 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: size is now: 13.20 MB
+0003.027 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3100 files added (on-disk size: 13478.6 KB)
+0003.031 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3200 files added (on-disk size: 13478.6 KB)
+0003.036 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3300 files added (on-disk size: 13478.6 KB)
+0003.040 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3400 files added (on-disk size: 13478.6 KB)
+0003.044 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3500 files added (on-disk size: 13478.6 KB)
+0003.045 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.5 MB, 6893 files batched, 501 (3507) added so far); re-opening (prior size: 13478.6 KB)
+0003.305 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3600 files added (on-disk size: 14093 KB)
+0003.310 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3700 files added (on-disk size: 14093 KB)
+0003.314 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3800 files added (on-disk size: 14093 KB)
+0003.318 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 3900 files added (on-disk size: 14093 KB)
+0003.323 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4000 files added (on-disk size: 14093 KB)
+0003.324 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.1 MB, 6893 files batched, 501 (4008) added so far); re-opening (prior size: 14093 KB)
+0003.656 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4100 files added (on-disk size: 15316.6 KB)
+0003.661 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4200 files added (on-disk size: 15316.6 KB)
+0003.665 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4300 files added (on-disk size: 15316.6 KB)
+0003.669 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4400 files added (on-disk size: 15316.6 KB)
+0003.673 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4500 files added (on-disk size: 15316.6 KB)
+0003.674 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (15.1 MB, 6893 files batched, 501 (4509) added so far); re-opening (prior size: 15316.6 KB)
+0004.563 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: size is now: 20.20 MB
+0004.568 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4600 files added (on-disk size: 20637.1 KB)
+0004.573 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4700 files added (on-disk size: 20637.1 KB)
+0004.578 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4800 files added (on-disk size: 20637.1 KB)
+0004.582 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 4900 files added (on-disk size: 20637.1 KB)
+0004.586 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5000 files added (on-disk size: 20637.1 KB)
+0004.587 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (3.5 MB, 6893 files batched, 501 (5010) added so far); re-opening (prior size: 20637.1 KB)
+0004.946 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5100 files added (on-disk size: 21829.8 KB)
+0004.950 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5200 files added (on-disk size: 21829.8 KB)
+0004.954 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5300 files added (on-disk size: 21829.8 KB)
+0004.956 (0) File skipped due to unexpected name mismatch (locale: en_US.UTF-8): file=/Users/stefan/code/teachen/web/wp-content/plugins/S3-Uploads/vendor/mtdowling/jmespath.php/bin/jp.php add_as=plugins/S3-Uploads/vendor/bin/jp.php
+0004.958 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5400 files added (on-disk size: 21829.8 KB)
+0004.962 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5500 files added (on-disk size: 21829.8 KB)
+0004.963 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.3 MB, 6893 files batched, 501 (5511) added so far); re-opening (prior size: 21829.8 KB)
+0005.375 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5600 files added (on-disk size: 23084.7 KB)
+0005.380 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5700 files added (on-disk size: 23084.7 KB)
+0005.385 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5800 files added (on-disk size: 23084.7 KB)
+0005.389 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 5900 files added (on-disk size: 23084.7 KB)
+0005.393 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 6000 files added (on-disk size: 23084.7 KB)
+0005.395 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.3 MB, 6893 files batched, 501 (6012) added so far); re-opening (prior size: 23084.7 KB)
+0005.673 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 6100 files added (on-disk size: 23519.3 KB)
+0005.677 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 6200 files added (on-disk size: 23519.3 KB)
+0005.681 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 6300 files added (on-disk size: 23519.3 KB)
+0005.686 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 6400 files added (on-disk size: 23519.3 KB)
+0005.690 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 6500 files added (on-disk size: 23519.3 KB)
+0005.691 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (7.1 MB, 6893 files batched, 501 (6513) added so far); re-opening (prior size: 23519.3 KB)
+0006.115 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 6600 files added (on-disk size: 24456.4 KB)
+0006.120 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 6700 files added (on-disk size: 24456.4 KB)
+0006.124 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip.tmp: 6800 files added (on-disk size: 24456.4 KB)
+0006.757 (0) Created plugins zip (0) - 25279.9 KB in 6.7 s (3785.3 KB/s) (sha1: 7761a1816232dc6386f12777b5cf2284ee2d8310, sha256: f568816889a88bc1860d7bf5c5d20dad17c1e072d836b33a33c9c9b9db8bdbfe)
+0006.759 (0) Beginning creation of dump of themes (split every: 400 MB)
+0006.778 (0) Total entities for the zip file: 56 directories, 255 files (0 skipped as non-modified), 4.6 MB
+0006.782 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.786 (0) Zip: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0007.009 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-themes.zip.tmp: size is now: 2.70 MB
+0007.037 (0) Created themes zip (0) - 2786.4 KB in 0.3 s (10048.4 KB/s) (sha1: 803594fd508b1c83823c82729354fce2e0bac9f0, sha256: c1bcb3bcecdc5bbb539f5234ec37ebd4039413cbb0d926bdb07dc1c14e26d93b)
+0007.039 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0007.040 (0) Looking for candidates to backup in: s3://teachen-uploads/uploads
+0007.438 (0) finding files: 2020: adding to list (1)
+0007.440 (0) finding files: wpcf7_uploads: adding to list (2)
+0007.443 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0007.445 (0) Unexpected: path (uploads/2020) fails both is_file() and is_dir()
+0007.446 (0) Unexpected: path (uploads/wpcf7_uploads) fails both is_file() and is_dir()
+0007.446 (0) Did not create uploads zip (0) - not needed
+0007.448 (0) Beginning backup of other directories found in the content directory (index: 0)
+0007.449 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0007.449 (0) Looking for candidates to backup in: /Users/stefan/code/teachen/web/wp-content
+0007.450 (0) finding files: upgrade: skipping: excluded by options
+0007.450 (0) finding files: index.php: adding to list (1)
+0007.451 (0) finding files: cache: skipping: excluded by options
+0007.451 (0) finding files: plugins: skipping: this is the plugins directory
+0007.452 (0) finding files: updraft: skipping: this is the updraft directory
+0007.452 (0) finding files: languages: adding to list (2)
+0007.453 (0) finding files: w3tc-config: adding to list (3)
+0007.453 (0) finding files: themes: skipping: this is the themes directory
+0007.456 (0) Total entities for the zip file: 4 directories, 35 files (0 skipped as non-modified), 2.4 MB
+0007.581 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-others.zip.tmp: size is now: 0.70 MB
+0007.591 (0) Created others zip (0) - 713.7 KB in 0.1 s (5234.1 KB/s) (sha1: 3ffe46f2348b6653800bc0170e1838152abcb75c, sha256: 350dfd7c3e620d6149352be29aea556b8709e39c4ff262766630ebd3e77b693a)
+0007.594 (0) Saving backup status to database (elements: 6)
+0007.596 (0) Beginning creation of database dump (WordPress DB)
+0007.599 (0) Testing potential mysqldump binary: /usr/local/bin/mysqldump
+0007.685 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `G4ZqkF_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */; (truncated - 1254 bytes total)
+0007.688 (0) Working binary mysqldump found: /usr/local/bin/mysqldump
+0007.695 (0) Table G4ZqkF_options: Total expected rows (approximate): 338
+0007.703 (0) Table G4ZqkF_options: Total rows added: 334 in 0.01 seconds
+0007.705 (0) Table G4ZqkF_options: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_options.table.gz - 32.6 KB)
+0007.707 (0) Table G4ZqkF_users: Total expected rows (approximate): 2
+0007.709 (0) Table G4ZqkF_users: Total rows added: 2 in 0.00 seconds
+0007.709 (0) Table G4ZqkF_users: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_users.table.gz - 0.6 KB)
+0007.712 (0) Table G4ZqkF_usermeta: Total expected rows (approximate): 45
+0007.714 (0) Table G4ZqkF_usermeta: Total rows added: 45 in 0.00 seconds
+0007.714 (0) Table G4ZqkF_usermeta: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_usermeta.table.gz - 1.5 KB)
+0007.717 (0) Table G4ZqkF_commentmeta: Total expected rows (approximate): 3
+0007.718 (0) Table G4ZqkF_commentmeta: Total rows added: 3 in 0.00 seconds
+0007.719 (0) Table G4ZqkF_commentmeta: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_commentmeta.table.gz - 0.5 KB)
+0007.721 (0) Table G4ZqkF_comments: Total expected rows (approximate): 0
+0007.722 (0) Table G4ZqkF_comments: Total rows added: 1 in 0.00 seconds
+0007.723 (0) Table G4ZqkF_comments: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_comments.table.gz - 0.7 KB)
+0007.725 (0) Table G4ZqkF_links: Total expected rows (approximate): 0
+0007.726 (0) Table G4ZqkF_links: Total rows added: 0 in 0.00 seconds
+0007.727 (0) Table G4ZqkF_links: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_links.table.gz - 0.4 KB)
+0007.729 (0) Table G4ZqkF_postmeta: Total expected rows (approximate): 253
+0007.732 (0) Table G4ZqkF_postmeta: Total rows added: 253 in 0.00 seconds
+0007.733 (0) Table G4ZqkF_postmeta: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_postmeta.table.gz - 11 KB)
+0007.735 (0) Table G4ZqkF_posts: Total expected rows (approximate): 157
+0007.742 (0) Table G4ZqkF_posts: Total rows added: 161 in 0.01 seconds
+0007.743 (0) Table G4ZqkF_posts: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_posts.table.gz - 25.6 KB)
+0007.746 (0) Table G4ZqkF_term_relationships: Total expected rows (approximate): 52
+0007.747 (0) Table G4ZqkF_term_relationships: Total rows added: 55 in 0.00 seconds
+0007.748 (0) Table G4ZqkF_term_relationships: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_term_relationships.table.gz - 0.5 KB)
+0007.751 (0) Table G4ZqkF_term_taxonomy: Total expected rows (approximate): 16
+0007.752 (0) Table G4ZqkF_term_taxonomy: Total rows added: 16 in 0.00 seconds
+0007.753 (0) Table G4ZqkF_term_taxonomy: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_term_taxonomy.table.gz - 1.1 KB)
+0007.756 (0) Table G4ZqkF_termmeta: Total expected rows (approximate): 0
+0007.757 (0) Table G4ZqkF_termmeta: Total rows added: 0 in 0.00 seconds
+0007.758 (0) Table G4ZqkF_termmeta: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_termmeta.table.gz - 0.4 KB)
+0007.760 (0) Table G4ZqkF_terms: Total expected rows (approximate): 16
+0007.762 (0) Table G4ZqkF_terms: Total rows added: 16 in 0.00 seconds
+0007.762 (0) Table G4ZqkF_terms: finishing file (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_terms.table.gz - 0.6 KB)
+0007.764 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_options.table.gz (1/12): adding to final database dump
+0007.770 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_users.table.gz (2/12): adding to final database dump
+0007.771 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_usermeta.table.gz (3/12): adding to final database dump
+0007.772 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_commentmeta.table.gz (4/12): adding to final database dump
+0007.772 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_comments.table.gz (5/12): adding to final database dump
+0007.773 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_links.table.gz (6/12): adding to final database dump
+0007.773 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_postmeta.table.gz (7/12): adding to final database dump
+0007.775 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_posts.table.gz (8/12): adding to final database dump
+0007.780 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_term_relationships.table.gz (9/12): adding to final database dump
+0007.781 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_term_taxonomy.table.gz (10/12): adding to final database dump
+0007.781 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_termmeta.table.gz (11/12): adding to final database dump
+0007.782 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db-table-G4ZqkF_terms.table.gz (12/12): adding to final database dump
+0007.783 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db.gz: finished writing out complete database file (48 KB)
+0007.787 (0) Total database tables backed up: 12 (backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db.gz, size: 74535, sha1: 59e8438e935dc9550758d69e99ea2bfa17f7c92e, sha256: 287bba41480f6d2d18c95116db19c54a271a87fb43e6c2f59463226cabf10460)
+0007.791 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0007.791 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0007.792 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-others.zip: others: This file has not yet been successfully uploaded: will queue
+0007.792 (0) backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db.gz: db: This file has not yet been successfully uploaded: will queue
+0007.793 (0) Saving backup history. Total backup size: 28.2 MB
+0007.794 (0) Requesting upload of the files that have not yet been successfully uploaded (4)
+0007.796 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)
+0007.796 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-627d3cf7ef910aa1ce11ebabed2b7f4b)
+0010.976 (0) Google Drive: quota usage: used=153.1 MB, total=15360 MB, available=15206.9 MB
+0010.977 (0) Google Drive: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip: Attempting to upload to Google Drive (into folder id: 1dl2XV9FSxQLE_9tjkpZUZTn_9xAbZ08Q)
+0011.819 (0) Googledrive chunked upload: 4.1 % uploaded (1048576)
+0012.155 (0) Googledrive chunked upload: 8.1 % uploaded (2097152)
+0012.395 (0) Googledrive chunked upload: 12.2 % uploaded (3145728)
+0012.908 (0) Googledrive chunked upload: 16.2 % uploaded (4194304)
+0013.262 (0) Googledrive chunked upload: 20.3 % uploaded (5242880)
+0013.558 (0) Googledrive chunked upload: 24.3 % uploaded (6291456)
+0013.780 (0) Googledrive chunked upload: 28.4 % uploaded (7340032)
+0014.036 (0) Googledrive chunked upload: 32.4 % uploaded (8388608)
+0014.273 (0) Googledrive chunked upload: 36.5 % uploaded (9437184)
+0014.564 (0) Googledrive chunked upload: 40.5 % uploaded (10485760)
+0014.829 (0) Googledrive chunked upload: 44.6 % uploaded (11534336)
+0015.053 (0) Googledrive chunked upload: 48.6 % uploaded (12582912)
+0015.350 (0) Googledrive chunked upload: 52.7 % uploaded (13631488)
+0015.583 (0) Googledrive chunked upload: 56.7 % uploaded (14680064)
+0015.852 (0) Googledrive chunked upload: 60.8 % uploaded (15728640)
+0016.100 (0) Googledrive chunked upload: 64.8 % uploaded (16777216)
+0016.348 (0) Googledrive chunked upload: 68.9 % uploaded (17825792)
+0016.605 (0) Googledrive chunked upload: 72.9 % uploaded (18874368)
+0016.864 (0) Googledrive chunked upload: 77 % uploaded (19922944)
+0017.127 (0) Googledrive chunked upload: 81 % uploaded (20971520)
+0017.501 (0) Googledrive chunked upload: 85.1 % uploaded (22020096)
+0017.753 (0) Googledrive chunked upload: 89.1 % uploaded (23068672)
+0017.982 (0) Googledrive chunked upload: 93.2 % uploaded (24117248)
+0018.207 (0) Googledrive chunked upload: 97.2 % uploaded (25165824)
+0019.743 (0) Googledrive chunked upload: 100 % uploaded (25165824)
+0019.746 (0) Google Drive: OK: Archive backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip uploaded in 8.77 seconds
+0019.746 (0) Recording as successfully uploaded: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip
+0019.750 (0) Deleting local file: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-plugins.zip: OK
+0020.356 (0) Google Drive: quota usage: used=177.7 MB, total=15360 MB, available=15182.3 MB
+0020.358 (0) Google Drive: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-themes.zip: Attempting to upload to Google Drive (into folder id: 1dl2XV9FSxQLE_9tjkpZUZTn_9xAbZ08Q)
+0020.936 (0) Googledrive chunked upload: 36.7 % uploaded (1048576)
+0021.186 (0) Googledrive chunked upload: 73.5 % uploaded (2097152)
+0022.510 (0) Googledrive chunked upload: 100 % uploaded (2097152)
+0022.513 (0) Google Drive: OK: Archive backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-themes.zip uploaded in 2.15 seconds
+0022.513 (0) Recording as successfully uploaded: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-themes.zip
+0022.515 (0) Deleting local file: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-themes.zip: OK
+0023.121 (0) Google Drive: quota usage: used=180.5 MB, total=15360 MB, available=15179.5 MB
+0023.122 (0) Google Drive: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-others.zip: Attempting to upload to Google Drive (into folder id: 1dl2XV9FSxQLE_9tjkpZUZTn_9xAbZ08Q)
+0024.659 (0) Googledrive chunked upload: 100 % uploaded
+0024.662 (0) Google Drive: OK: Archive backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-others.zip uploaded in 1.54 seconds
+0024.662 (0) Recording as successfully uploaded: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-others.zip
+0024.664 (0) Deleting local file: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-others.zip: OK
+0024.944 (0) Google Drive: quota usage: used=181.2 MB, total=15360 MB, available=15178.8 MB
+0024.946 (0) Google Drive: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db.gz: Attempting to upload to Google Drive (into folder id: 1dl2XV9FSxQLE_9tjkpZUZTn_9xAbZ08Q)
+0026.502 (0) Googledrive chunked upload: 100 % uploaded
+0026.504 (0) Google Drive: OK: Archive backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db.gz uploaded in 1.56 seconds
+0026.505 (0) Recording as successfully uploaded: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db.gz
+0026.506 (0) Deleting local file: backup_2020-03-19-2037__OnlineLernen_und_OfflineE_6a8013e770f0-db.gz: OK
+0026.508 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=3, retain_db=3
+0026.508 (0) Number of backup sets in history: 4; groups (db): 1
+0026.509 (0) Examining (for databases) backup set with group_id=0, nonce=6a8013e770f0, datestamp=1584650232 (Mar 19 2020 20:37:12)
+0026.510 (0) This backup set is the backup set just made, so will not be deleted.
+0026.510 (0) Examining (for databases) backup set with group_id=0, nonce=a28f265fde15, datestamp=1584510489 (Mar 18 2020 05:48:09)
+0026.510 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0026.511 (0) Examining (for databases) backup set with group_id=0, nonce=766de845fb4c, datestamp=1584422480 (Mar 17 2020 05:21:20)
+0026.511 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0026.511 (0) Examining (for databases) backup set with group_id=0, nonce=2ec9658998c2, datestamp=1584328707 (Mar 16 2020 03:18:27)
+0026.511 (0) 1584328707: db: this set includes a database (backup_2020-03-16-0318__OnlineLernen_und_OfflineE_2ec9658998c2-db.gz); db count is now 3
+0026.511 (0) 1584328707: db: over retain limit (3); will delete this database
+0026.511 (0) Delete file: backup_2020-03-16-0318__OnlineLernen_und_OfflineE_2ec9658998c2-db.gz, service=googledrive
+0027.182 (0) Google Drive: backup_2020-03-16-0318__OnlineLernen_und_OfflineE_2ec9658998c2-db.gz: Deletion failed: file was not found
+0027.185 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0027.185 (0) Number of backup sets in history: 4; groups (files): 1
+0027.186 (0) Examining (for files) backup set with nonce=6a8013e770f0, datestamp=1584650232 (Mar 19 2020 20:37:12)
+0027.186 (0) This backup set is the backup set just made, so will not be deleted.
+0027.186 (0) This backup set is the backup set just made, so will not be deleted.
+0027.187 (0) This backup set is the backup set just made, so will not be deleted.
+0027.187 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0027.187 (0) Examining (for files) backup set with nonce=a28f265fde15, datestamp=1584510489 (Mar 18 2020 05:48:09)
+0027.187 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0027.187 (0) Examining (for files) backup set with nonce=766de845fb4c, datestamp=1584422480 (Mar 17 2020 05:21:20)
+0027.187 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0027.187 (0) Examining (for files) backup set with nonce=2ec9658998c2, datestamp=1584328707 (Mar 16 2020 03:18:27)
+0027.187 (0) plugins: over retain limit (3); will delete this file entity
+0027.187 (0) themes: over retain limit (3); will delete this file entity
+0027.187 (0) others: over retain limit (3); will delete this file entity
+0027.187 (0) Delete file: backup_2020-03-16-0318__OnlineLernen_und_OfflineE_2ec9658998c2-plugins.zip, service=googledrive
+0027.188 (0) Delete file: backup_2020-03-16-0318__OnlineLernen_und_OfflineE_2ec9658998c2-themes.zip, service=googledrive
+0027.188 (0) Delete file: backup_2020-03-16-0318__OnlineLernen_und_OfflineE_2ec9658998c2-others.zip, service=googledrive
+0027.537 (0) Google Drive: backup_2020-03-16-0318__OnlineLernen_und_OfflineE_2ec9658998c2-plugins.zip: Deletion failed: file was not found
+0027.538 (0) Google Drive: backup_2020-03-16-0318__OnlineLernen_und_OfflineE_2ec9658998c2-themes.zip: Deletion failed: file was not found
+0027.539 (0) Google Drive: backup_2020-03-16-0318__OnlineLernen_und_OfflineE_2ec9658998c2-others.zip: Deletion failed: file was not found
+0027.541 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0027.541 (0) Retain: saving new backup history (sets now: 4) and finishing retain operation
+0027.544 (0) Resume backup (6a8013e770f0, 0): finish run
+0027.545 (0) Decremented the semaphore (fd) by 1
+0027.546 (0) Semaphore (fd) unlocked
+0027.546 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0027.548 (0) Fetching RSS news feed
+0027.696 (0) Fetched RSS news feed; result is a: SimplePie
+0027.724 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: st.ni...
+0027.777 (0) The backup apparently succeeded and is now complete

@@ -36,6 +36,11 @@ if ( is_singular() ) {
 				<span class="screen-reader-text"><?php _e( 'Categories', 'twentytwenty' ); ?></span>
 				<div class="entry-categories-inner">
 					<?php the_category( ' ' ); ?>
+					<?php if (has_tag() ) {?>
+							<span id="tag_links">
+								<?php echo get_the_tag_list('','',''); ?>
+							</span>
+					<?php } ?>
 				</div><!-- .entry-categories-inner -->
 			</div><!-- .entry-categories -->
 
