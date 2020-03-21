@@ -6538,7 +6538,7 @@ a.to-the-top > * {
 }
 
 #tag_links a[href$="tag/teamwork/"], .tagcloud a[href$="tag/teamwork/"] {
-  background-color: #7dd181 !important;
+  background-color: #00A1E4 !important;
   border: 0px !important;
   color: white !important;
 }
