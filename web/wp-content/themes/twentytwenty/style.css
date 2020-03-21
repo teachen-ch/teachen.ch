@@ -4100,17 +4100,6 @@ div.comment:first-of-type {
 
 /* Font Families ----------------------------- */
 
-.widget_text p,
-.widget_text ol,
-.widget_text ul,
-.widget_text dl,
-.widget_text dt,
-.widget-content .rssSummary {
-  font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond,
-    "Times New Roman", serif;
-  letter-spacing: normal;
-}
-
 .widget-content cite,
 .widget-content figcaption,
 .widget-content .wp-caption-text {
@@ -4136,6 +4125,7 @@ div.comment:first-of-type {
 .widget_nav_menu ul,
 .widget_recent_comments ul,
 .widget_recent_entries ul,
+.widget_text ul, 
 .widget_rss ul {
   list-style: none;
   margin: 0;
@@ -4248,13 +4238,13 @@ div.comment:first-of-type {
 
 /* Widget: Recent Entries -------------------- */
 
-.widget_recent_entries a {
+.widget_text a, .widget_recent_entries a {
   font-weight: 700;
   text-decoration: none;
 }
 
-.widget_recent_entries a:focus,
-.widget_recent_entries a:hover {
+.widget_text a:focus, .widget_recent_entries a:focus,
+.widget_text a:hover, .widget_recent_entries a:hover {
   text-decoration: underline;
 }
 
