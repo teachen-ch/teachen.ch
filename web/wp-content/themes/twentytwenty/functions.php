@@ -57,18 +57,27 @@ function teachen_current_img_url() {
 		}
 }
 
-function teachen_social_meta() {
-	$title = get_the_title();
-	$desc = get_the_excerpt();
-	$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-	$img = teachen_current_img_url();
+function teachen_social_meta_data() {
+	$social = [];
+	$social['title'] = get_the_title();
+	$social['desc'] = get_the_excerpt();
+	$social['url'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+	$social['img'] = teachen_current_img_url();
 
 	if ($_SERVER['REQUEST_URI'] == "/") {
-		$title = '😀 Online-Lernen und Offline-Erleben';
-		$desc = 'Kreative Ideen für Unterricht zu Hause';
-		$img = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_smile.png';
-	} 
+		$social['title'] = '😀 Online-Lernen und Offline-Erleben';
+		$social['desc'] = 'Kreative Ideen für Unterricht zu Hause';
+		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_smile.png';
+	}
+	return $social;
+}
 
+function teachen_social_meta() {
+	$social = teachen_social_meta_data();
+	$title = $social['title'];
+	$desc = $social['desc'];
+	$url = $social['url'];
+	$img = $social['img'];
 	echo "<meta property='og:title' content='$title'/>\n";
 	echo "<meta property='og:description' content='$desc'/>\n";
 	echo "<meta property='og:url' content='$url'/>\n";
