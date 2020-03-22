@@ -82,8 +82,8 @@ function teachen_social_meta() {
 	echo '<meta name="description" property="og:description" content="'.$desc.'"/>';
 	echo '<meta name="url" property="og:url" content="'.$url.'"/>';
 	echo '<meta name="image" property="og:image" content="'.$img.'"/>';
-	echo '<link rel="alternate" type="application/json+oembed" href=""/>';
-	echo '<link rel="alternate" type="text/xml+oembed" href=""/>';
+	#echo '<link rel="alternate" type="application/json+oembed" href=""/>';
+	#echo '<link rel="alternate" type="text/xml+oembed" href=""/>';
 }
 
 function wpb_rand_posts() { 
