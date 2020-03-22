@@ -67,7 +67,7 @@ function teachen_social_meta_data() {
 	if ($_SERVER['REQUEST_URI'] == "/") {
 		$social['title'] = '😀 Online-Lernen und Offline-Erleben';
 		$social['desc'] = 'Kreative Ideen für Unterricht zu Hause';
-		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_smile.png';
+		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_smile-1.png';
 	}
 	return $social;
 }
@@ -82,6 +82,8 @@ function teachen_social_meta() {
 	echo '<meta name="description" property="og:description" content="'.$desc.'"/>';
 	echo '<meta name="url" property="og:url" content="'.$url.'"/>';
 	echo '<meta name="image" property="og:image" content="'.$img.'"/>';
+	echo '<link rel="alternate" type="application/json+oembed" href=""/>';
+	echo '<link rel="alternate" type="text/xml+oembed" href=""/>';
 }
 
 function wpb_rand_posts() { 

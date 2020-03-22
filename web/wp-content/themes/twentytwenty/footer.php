@@ -30,10 +30,8 @@
 				</ul>
 				<div class="heateorSssClear"></div></div></div></div>
 
-
-						<p class="powered-by-swisscom" style="text-align:center">supported with ❤️ by swisscom
-
-
+				<p class="powered-by-swisscom" style="text-align:center">supported with ❤️ by swisscom
+				
 			</footer><!-- #site-footer -->
 
 		<?php wp_footer(); ?>
