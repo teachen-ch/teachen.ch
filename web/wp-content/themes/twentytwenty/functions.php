@@ -56,6 +56,11 @@ function teachen_current_img_url() {
 			}
 		}
 }
+function disable_oembed_head() {
+	remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+}
+add_action( 'init', 'disable_oembed_head', 9999 );
+
 
 function teachen_social_meta_data() {
 	$social = [];
@@ -91,8 +96,8 @@ function teachen_social_meta() {
 	echo '<meta name="description" property="og:description" content="'.$desc.'"/>';
 	echo '<meta name="url" property="og:url" content="'.$url.'"/>';
 	echo '<meta name="image" property="og:image" content="'.$img.'"/>';
-	echo '<link rel="alternate" type="application/json+oembed" href=""/>';
-	echo '<link rel="alternate" type="text/xml+oembed" href=""/>';
+	#echo '<link rel="alternate" type="application/json+oembed" href=""/>';
+	#echo '<link rel="alternate" type="text/xml+oembed" href=""/>';
 }
 
 function teachen_social_meta_icons() {
