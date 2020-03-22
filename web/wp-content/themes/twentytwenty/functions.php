@@ -59,11 +59,20 @@ function teachen_current_img_url() {
 
 function teachen_social_meta_data() {
 	$social = [];
-	$social['title'] = get_the_title()." | Unterricht zu Hause";
-	$social['desc'] = strip_tags(get_the_excerpt());
+	$social['title'] = get_the_title()."!";
+	$social['desc'] = 'Eine Idee für Unterricht zu Hause. Hast Du auch eine kreative Idee, was Kinder zu Hause erleben und erfahren können in diesen Tagen?';
 	$social['url'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	$social['img'] = teachen_current_img_url();
-
+	
+	if (is_category()) {
+		$social['title'] = "Unterricht zu Hause «".single_cat_title('', false)."»";
+		$social['desc'] = "Hast Du auch kreative Ideen zum Teilen?";
+	}
+	if (is_tag()) {
+		$social['title'] = "Unterricht zu Hause «".single_tag_title('', false)."»";
+		$social['desc'] = "Hast Du auch kreative Ideen zum Teilen?";
+	}
+	// Homepage
 	if ($_SERVER['REQUEST_URI'] == "/") {
 		$social['title'] = 'teachen.ch 😀Online-Lernen und Offline-Erleben im Unterricht zu Hause';
 		$social['desc'] = 'Eltern und Lehrer sind gefordert mit dem Unterricht zu Hause? Lasst uns gemeinsam kreative Ideen sammeln, wie Kinder ihre Zeit sinnvoll verbringen können. 😀 Online-Lernen und Offline-Erleben 👉';
@@ -84,6 +93,25 @@ function teachen_social_meta() {
 	echo '<meta name="image" property="og:image" content="'.$img.'"/>';
 	#echo '<link rel="alternate" type="application/json+oembed" href=""/>';
 	#echo '<link rel="alternate" type="text/xml+oembed" href=""/>';
+}
+
+function teachen_social_meta_icons() {
+	$social = teachen_social_meta_data();
+	$url = htmlentities(urlencode($social['url'])); 
+	$desc = htmlentities(urlencode($social['desc'])); 
+	$title = htmlentities(urlencode($social['title']));	
+	?>
+	<div class="social_sharing_container">
+		<ul class="social_sharing_ul">
+			<li class="social_SharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Facebook" title="Facebook" class="social_Sharing social_FacebookBackground" onclick="socialPop(&quot;https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>&quot;)"><ss style="display:block;border-radius:999px;" class="social_SharingSvg social_FacebookSvg"></ss></i></li>
+			<li class="social_SharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Twitter" title="Twitter" class="social_Sharing social_TwitterBackground" onclick="socialPop(&quot;http://twitter.com/intent/tweet?via=teachen_ch&amp;text=<?php echo $title."+".$desc ?>&amp;url=<?php echo $url; ?>&quot;)"><ss style="display:block;border-radius:999px;" class="social_SharingSvg social_TwitterSvg"></ss></i></li>
+			<li class="social_SharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Linkedin" title="Linkedin" class="social_Sharing social_LinkedinBackground" onclick="socialPop(&quot;https://www.linkedin.com/sharing/share-offsite/?mini=true&amp;url=<?php echo $url; ?>&amp;title=<?php echo $title; ?>&amp;summary=<?php echo $desc?>&quot;)"><ss style="display:block;border-radius:999px;" class="social_SharingSvg social_LinkedinSvg"></ss></i></li>
+			<!-- <li class="social_SharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Whatsapp" title="Whatsapp" class="social_Sharing social_WhatsappBackground"><a href="https://web.whatsapp.com/send?text=<?php echo $title; ?> <?php echo $url ?>" rel="nofollow noopener" target="_blank"><ss style="display:block" class="social_SharingSvg social_WhatsappSvg"></ss></a></i></li>
+			<li class="social_SharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Pinterest" title="Pinterest" class="social_Sharing social_PinterestBackground" onclick="javascript:void( (function() {var e=document.createElement('script' );e.setAttribute('type','text/javascript' );e.setAttribute('charset','UTF-8' );e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());"><ss style="display:block;border-radius:999px;" class="social_SharingSvg social_PinterestSvg"></ss></i></li>-->
+		</ul>
+		<div class="social_Clear"></div>
+	</div>
+	<?php 
 }
 
 function wpb_rand_posts() { 

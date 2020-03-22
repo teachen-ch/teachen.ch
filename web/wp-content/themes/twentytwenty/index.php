@@ -111,6 +111,9 @@ get_header();
 
 </main><!-- #site-content -->
 
+
+<?php teachen_social_meta_icons(); ?>
+
 <?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>
 
 <?php

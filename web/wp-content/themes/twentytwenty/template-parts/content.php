@@ -63,22 +63,10 @@
 
 		}
 
-		if (is_single() && get_post_type() == "post") {
-					$social = teachen_social_meta_data();
-					$url = urlencode($social['url']);
-					$title = urlencode($social['title']);
-				?>
-
-				<div class="heateor_sss_sharing_container heateor_sss_horizontal_sharing" style="margin: 3em 0 -2em 0em;" heateor-sss-data-href="<?php echo $social['url'] ?><div class="widget widget_heateor_sss_sharing">
-				<ul class="heateor_sss_sharing_ul">
-					<li class="heateorSssSharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Facebook" title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="socialPop(&quot;https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>&quot;)"><ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss></i></li>
-					<li class="heateorSssSharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Twitter" title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="socialPop(&quot;http://twitter.com/intent/tweet?via=teachen_ch&amp;text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>&quot;)"><ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss></i></li>
-					<li class="heateorSssSharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Linkedin" title="Linkedin" class="heateorSssSharing heateorSssLinkedinBackground" onclick="socialPop(&quot;http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $url; ?>&amp;title=<?php echo $title; ?>&quot;)"><ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssLinkedinSvg"></ss></i></li>
-					<!-- <li class="heateorSssSharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Whatsapp" title="Whatsapp" class="heateorSssSharing heateorSssWhatsappBackground"><a href="https://web.whatsapp.com/send?text=<?php echo $title; ?> <?php echo $url ?>" rel="nofollow noopener" target="_blank"><ss style="display:block" class="heateorSssSharingSvg heateorSssWhatsappSvg"></ss></a></i></li>
-					<li class="heateorSssSharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Pinterest" title="Pinterest" class="heateorSssSharing heateorSssPinterestBackground" onclick="javascript:void( (function() {var e=document.createElement('script' );e.setAttribute('type','text/javascript' );e.setAttribute('charset','UTF-8' );e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());"><ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssPinterestSvg"></ss></i></li>-->
-				</ul>
-				<div class="heateorSssClear"></div></div></div></div>
-		<?php } ?>
+		if (is_single()) {
+			teachen_social_meta_icons();
+		} 
+		?>
 
 	</div><!-- .section-inner -->
 
