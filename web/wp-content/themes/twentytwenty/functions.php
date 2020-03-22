@@ -59,7 +59,7 @@ function teachen_current_img_url() {
 
 function teachen_social_meta_data() {
 	$social = [];
-	$social['title'] = get_the_title();
+	$social['title'] = get_the_title()." | Unterricht zu Hause";
 	$social['desc'] = get_the_excerpt();
 	$social['url'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	$social['img'] = teachen_current_img_url();
@@ -81,7 +81,7 @@ function teachen_social_meta() {
 	echo '<meta name="title" property="og:title" content="'.$title.'"/>';
 	echo '<meta name="description" property="og:description" content="'.$desc.'"/>';
 	echo '<meta name="url" property="og:url" content="'.$url.'"/>';
-	echo '<meta name="image" property="og:image" content=""'.$img.'"/>';
+	echo '<meta name="image" property="og:image" content="'.$img.'"/>';
 }
 
 function wpb_rand_posts() { 
