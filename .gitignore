@@ -1,4 +1,8 @@
 .env
-wpcontent/cache/
-wpcontent/uploads/
-wpcontent/updraft/
+web/wp-content/cache/
+web/wp-content/uploads/
+web/wp-content/updraft/log*
+uploads/
+backup/
+.DS_Store
+
