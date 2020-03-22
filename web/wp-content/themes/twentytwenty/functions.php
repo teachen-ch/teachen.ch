@@ -70,11 +70,11 @@ function teachen_social_meta_data() {
 	$social['img'] = teachen_current_img_url();
 	
 	if (is_category()) {
-		$social['title'] = "Unterricht zu Hause «".single_cat_title('', false)."» ";
+		$social['title'] = "Unterricht zu Hause in «".single_cat_title('', false)."»!";
 		$social['desc'] = "Hast Du auch kreative Ideen zum Teilen?";
 	}
 	if (is_tag()) {
-		$social['title'] = "Unterricht zu Hause «".single_tag_title('', false)."» ";
+		$social['title'] = "Unterricht zu Hause «".single_tag_title('', false)."»!";
 		$social['desc'] = "Hast Du auch kreative Ideen zum Teilen?";
 	}
 	// Homepage
