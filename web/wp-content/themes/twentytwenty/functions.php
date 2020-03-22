@@ -60,7 +60,7 @@ function teachen_current_img_url() {
 function teachen_social_meta_data() {
 	$social = [];
 	$social['title'] = get_the_title()." | Unterricht zu Hause";
-	$social['desc'] = get_the_excerpt();
+	$social['desc'] = strip_tags(get_the_excerpt());
 	$social['url'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	$social['img'] = teachen_current_img_url();
 
