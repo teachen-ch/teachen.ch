@@ -18,13 +18,10 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
+		<?php teachen_social_meta_tags(); ?>
+
 		<link rel="profile" href="https://gmpg.org/xfn/11">
 		<?php wp_head(); ?>
-
-
-		<?php 
-		teachen_social_meta();
-		?>
 
 		<script>
 			function socialPop(e){window.open(e,"popUpWindow","height=400,width=600,left=400,top=100,resizable,scrollbars,toolbar=0,personalbar=0,menubar=no,location=no,directories=no,status")};
