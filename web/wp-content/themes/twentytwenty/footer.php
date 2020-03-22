@@ -13,14 +13,15 @@
 
 ?>
 
-		<?php
-			$social = teachen_social_meta_data();
-			$url = urlencode($social['url']);
-			$title = urlencode($social['title']);
-		?>
-
 			<footer id="site-footer" role="contentinfo" class="header-footer-group">
-			<div class="heateor_sss_sharing_container heateor_sss_horizontal_sharing" heateor-sss-data-href="<?php echo $social['url'] ?><div class="widget widget_heateor_sss_sharing">
+
+				<?php
+					$social = teachen_social_meta_data();
+					$url = urlencode($social['url']);
+					$title = urlencode($social['title']);
+				?>
+
+				<div class="heateor_sss_sharing_container heateor_sss_horizontal_sharing" heateor-sss-data-href="<?php echo $social['url'] ?><div class="widget widget_heateor_sss_sharing">
 				<ul class="heateor_sss_sharing_ul">
 					<li class="heateorSssSharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Facebook" title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="socialPop(&quot;https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>&quot;)"><ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss></i></li>
 					<li class="heateorSssSharingRound"><i style="width:40px;height:40px;border-radius:999px;" alt="Twitter" title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="socialPop(&quot;http://twitter.com/intent/tweet?via=teachen&amp;text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>&quot;)"><ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss></i></li>
