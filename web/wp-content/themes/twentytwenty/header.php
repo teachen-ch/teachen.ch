@@ -22,6 +22,11 @@
 
 		<?php wp_head(); ?>
 
+
+		<?php 
+		teachen_social_meta();
+		?>
+
 	</head>
 
 	<body <?php body_class(); ?>>
@@ -179,11 +184,6 @@
 				get_template_part( 'template-parts/modal-search' );
 			}
 			?>
-
-		<?php 
-		teachen_social_meta();
-		?>
-
 		</header><!-- #site-header -->
 
 
