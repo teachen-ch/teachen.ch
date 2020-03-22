@@ -59,22 +59,22 @@ function teachen_current_img_url() {
 
 function teachen_social_meta_data() {
 	$social = [];
-	$social['title'] = get_the_title()."!";
-	$social['desc'] = 'Eine Idee für Unterricht zu Hause. Hast Du auch eine kreative Idee, was Kinder zu Hause erleben und erfahren können in diesen Tagen?';
+	$social['title'] = get_the_title()."! ";
+	$social['desc'] = 'Hast Du auch kreative Ideen, was Kinder jetzt zu Hause erleben und erfahren können?';
 	$social['url'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	$social['img'] = teachen_current_img_url();
 	
 	if (is_category()) {
-		$social['title'] = "Unterricht zu Hause «".single_cat_title('', false)."»";
+		$social['title'] = "Unterricht zu Hause «".single_cat_title('', false)."» ";
 		$social['desc'] = "Hast Du auch kreative Ideen zum Teilen?";
 	}
 	if (is_tag()) {
-		$social['title'] = "Unterricht zu Hause «".single_tag_title('', false)."»";
+		$social['title'] = "Unterricht zu Hause «".single_tag_title('', false)."» ";
 		$social['desc'] = "Hast Du auch kreative Ideen zum Teilen?";
 	}
 	// Homepage
 	if ($_SERVER['REQUEST_URI'] == "/") {
-		$social['title'] = 'teachen.ch 😀Online-Lernen und Offline-Erleben im Unterricht zu Hause';
+		$social['title'] = 'teachen.ch 😀Online-Lernen und Offline-Erleben im Unterricht zu Hause. ';
 		$social['desc'] = 'Eltern und Lehrer sind gefordert mit dem Unterricht zu Hause? Lasst uns gemeinsam kreative Ideen sammeln, wie Kinder ihre Zeit sinnvoll verbringen können. 😀 Online-Lernen und Offline-Erleben 👉';
 		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_smile-1.png';
 	}
@@ -87,12 +87,12 @@ function teachen_social_meta() {
 	$desc = $social['desc'];
 	$url = $social['url'];
 	$img = $social['img'];
-	echo '<meta name="title" property="og:title" content="'.$title."–".$desc.'"/>';
+	echo '<meta name="title" property="og:title" content="'.$title.$desc.'"/>';
 	echo '<meta name="description" property="og:description" content="'.$desc.'"/>';
 	echo '<meta name="url" property="og:url" content="'.$url.'"/>';
 	echo '<meta name="image" property="og:image" content="'.$img.'"/>';
-	#echo '<link rel="alternate" type="application/json+oembed" href=""/>';
-	#echo '<link rel="alternate" type="text/xml+oembed" href=""/>';
+	echo '<link rel="alternate" type="application/json+oembed" href=""/>';
+	echo '<link rel="alternate" type="text/xml+oembed" href=""/>';
 }
 
 function teachen_social_meta_icons() {
