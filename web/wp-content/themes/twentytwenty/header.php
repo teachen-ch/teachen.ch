@@ -180,7 +180,13 @@
 			}
 			?>
 
+		<?php 
+		teachen_social_meta();
+		?>
+
 		</header><!-- #site-header -->
+
+
 
 		<?php
 		// Output the menu modal.

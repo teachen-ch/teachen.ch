@@ -43,6 +43,38 @@ function wpdocs_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
+function teachen_current_img_url() {
+	$args = array(
+		'numberposts' => 1, 'post_mime_type' => 'image', 'post_parent' => get_the_ID(), 'post_status' => null,
+		'post_type' => 'attachment'
+		);
+	$attachments = get_children($args);
+		if ($attachments) {
+			foreach ($attachments as $a) {
+				$img = wp_get_attachment_image_src($a->ID, 'thumbnail');
+				return $img[0];
+			}
+		}
+}
+
+function teachen_social_meta() {
+	$title = get_the_title();
+	$desc = get_the_excerpt();
+	$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+	$img = teachen_current_img_url();
+
+	if ($_SERVER['REQUEST_URI'] == "/") {
+		$title = '😀 Online-Lernen und Offline-Erleben';
+		$desc = 'Kreative Ideen für Unterricht zu Hause';
+		$img = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_smile.png';
+	} 
+
+	echo "<meta property='og:title' content='$title'/>\n";
+	echo "<meta property='og:description' content='$desc'/>\n";
+	echo "<meta property='og:url' content='$url'/>\n";
+	echo "<meta property='og:image' content='$img'/>\n";
+}
+
 function wpb_rand_posts() { 
 	$string = "";
 	$args = array(
