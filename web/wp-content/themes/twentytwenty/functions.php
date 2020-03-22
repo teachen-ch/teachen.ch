@@ -78,10 +78,10 @@ function teachen_social_meta() {
 	$desc = $social['desc'];
 	$url = $social['url'];
 	$img = $social['img'];
-	echo "<meta property='og:title' content='$title'/>\n";
-	echo "<meta property='og:description' content='$desc'/>\n";
-	echo "<meta property='og:url' content='$url'/>\n";
-	echo "<meta property='og:image' content='$img'/>\n";
+	echo '<meta name="title" property="og:title" content="'.$title.'"/>';
+	echo '<meta name="description" property="og:description" content="'.$desc.'"/>';
+	echo '<meta name="url" property="og:url" content="'.$url.'"/>';
+	echo '<meta name="image" property="og:image" content=""'.$img.'"/>';
 }
 
 function wpb_rand_posts() { 
