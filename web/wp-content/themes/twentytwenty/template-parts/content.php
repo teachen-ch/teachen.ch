@@ -63,7 +63,7 @@
 
 		}
 
-		if (is_single()) {
+		if (is_single() || is_page()) {
 			teachen_social_meta_icons();
 		} 
 		?>

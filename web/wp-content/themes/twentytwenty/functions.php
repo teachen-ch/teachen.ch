@@ -64,7 +64,7 @@ add_action( 'init', 'disable_oembed_head', 9999 );
 
 function teachen_social_meta_data() {
 	$social = [];
-	$social['title'] = get_the_title()."! ";
+	$social['title'] = get_the_title()."!";
 	$social['desc'] = 'Hast Du auch kreative Ideen, was Kinder jetzt zu Hause erleben und erfahren können?';
 	$social['url'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	$social['img'] = teachen_current_img_url();
@@ -79,7 +79,7 @@ function teachen_social_meta_data() {
 	}
 	// Homepage
 	if ($_SERVER['REQUEST_URI'] == "/") {
-		$social['title'] = 'teachen.ch 😀Online-Lernen und Offline-Erleben im Unterricht zu Hause. ';
+		$social['title'] = 'teachen.ch 😀Online-Lernen und Offline-Erleben im Unterricht zu Hause.';
 		$social['desc'] = 'Hast Du auch kreative Ideen zum Teilen?';
 		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_smile-1.png';
 	}
