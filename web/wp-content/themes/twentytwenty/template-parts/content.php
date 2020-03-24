@@ -65,6 +65,7 @@
 
 		if (is_single() || is_page()) {
 			teachen_social_meta_icons();
+			teachen_tipps();
 		} 
 		?>
 

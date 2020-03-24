@@ -79,7 +79,7 @@ function teachen_social_meta_data() {
 	}
 	// Homepage
 	if ($_SERVER['REQUEST_URI'] == "/") {
-		$social['title'] = 'teachen.ch 😀Online-Lernen und Offline-Erleben im Unterricht zu Hause.';
+		$social['title'] = '😀Online-Lernen und Offline-Erleben im Unterricht zu Hause.';
 		$social['desc'] = 'Hast Du auch kreative Ideen zum Teilen?';
 		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_smile-1.png';
 	}
@@ -117,6 +117,20 @@ function teachen_social_meta_icons() {
 		<div class="social_Clear"></div>
 	</div>
 	<?php 
+}
+
+function teachen_tipps() {?>
+  <div style="text-align: center;">
+  <p>Möchtest Du <a href="/teachen-tipps">tägliche Tipps</a> zum Unterricht zu Hause erhalten?</p>
+	<form action="https://newsletter.teachen.ch/subscribe" method="POST" accept-charset="utf-8">
+		<input type="email" name="email" placeholder="name@email.ch" id="email" style="display: inline; width: auto;"> &nbsp;
+		<input type="hidden" value="Is14hZa0SseIVDNFNGP1oQ">
+		<input type="hidden" name="subform" value="yes">
+		<input type="submit" name="submit" value="👉 Anmelden" id="submit">
+		<div style="display:none;"><label for="hp">HP</label><br><input type="text" name="hp" id="hp"></div>
+	</form>
+	</div>
+	<?php
 }
 
 function wpb_rand_posts() { 

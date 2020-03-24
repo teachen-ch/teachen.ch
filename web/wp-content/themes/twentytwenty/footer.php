@@ -15,7 +15,9 @@
 
 			<footer id="site-footer" role="contentinfo" class="header-footer-group">
 
-			<p class="powered-by-swisscom" style="text-align:center">supported with ❤️ by swisscom
+			<p class="powered-by-swisscom" style="text-align:center">supported with ❤️ by swisscom</p>
+
+			<?php teachen_social_meta_icons();?>
 				
 			</footer><!-- #site-footer -->
 
