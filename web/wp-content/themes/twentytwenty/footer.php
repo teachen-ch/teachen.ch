@@ -15,6 +15,13 @@
 
 			<footer id="site-footer" role="contentinfo" class="header-footer-group">
 
+			<div class="entry-categories">
+				<span class="screen-reader-text">Kategorien</span>
+				<div class="entry-categories-inner">
+					<?php wp_list_categories(["title_li" => '', "separator" => '']) ?>
+				</div>
+			</div>
+			
 			<p class="powered-by-swisscom" style="text-align:center">supported with ❤️ by swisscom</p>
 
 			<?php teachen_social_meta_icons();?>

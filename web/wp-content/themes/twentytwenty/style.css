@@ -6968,6 +6968,19 @@ li.social_facebook_recommend .fb-like span iframe {
   padding: 0.6em 1em;
   color: white !important;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wp-block-categories.entry-categories-inner {
+  margin: auto;
+}
+
+
+.entry-categories-inner li {
+  list-style-type: none !important;
+  margin: 0;
 }
 
 .tagcloud a {
