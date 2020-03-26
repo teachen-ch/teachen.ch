@@ -4,5 +4,6 @@ web/wp-content/uploads/
 web/wp-content/updraft/log*
 uploads/
 backup/
+project/
 .DS_Store
 
