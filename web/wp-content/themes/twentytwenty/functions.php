@@ -120,10 +120,10 @@ function teachen_social_meta_icons() {
 }
 
 function teachen_tipps() {?>
-  <div style="text-align: center;">
+  <div class="entry-content" style="text-align: center;">
   <p>Möchtest Du <a href="/teachen-tipps">tägliche Tipps</a> zum Unterricht zu Hause erhalten?</p>
 	<form action="https://newsletter.teachen.ch/subscribe" method="POST" accept-charset="utf-8">
-		<input type="email" name="email" placeholder="name@email.ch" id="email" style="display: inline; width: auto;"> &nbsp;
+		<input type="email" name="email" placeholder="name@email.ch" id="email" style="display: inline; width: auto;margin-bottom:1rem;"> &nbsp;
 		<input type="hidden" name="list" value="Is14hZa0SseIVDNFNGP1oQ">
 		<input type="hidden" name="subform" value="yes">
 		<input type="submit" name="submit" value="👉 Anmelden" id="submit">
