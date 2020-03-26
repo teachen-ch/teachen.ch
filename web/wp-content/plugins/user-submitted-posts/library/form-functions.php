@@ -38,6 +38,7 @@ function usp_get_form_vars() {
 	
 	$usp_current_user = wp_get_current_user();
 	$usp_user_name    = $usp_current_user->user_login;
+	$usp_user_email   = $usp_current_user->user_email;
 	$usp_user_url     = $usp_current_user->user_url;
 	
 	if ($usp_options['disable_required']) {
@@ -64,11 +65,17 @@ function usp_get_form_vars() {
 		
 	}
 	
-	$usp_display_name = (is_user_logged_in() && $usp_options['usp_use_author']) ? false : true;
-	$usp_display_url  = (is_user_logged_in() && $usp_options['usp_use_url'])    ? false : true;
+	$usp_display_name  = (is_user_logged_in() && $usp_options['usp_use_author']) ? false : true;
+	$usp_display_email = (is_user_logged_in() && $usp_options['usp_use_email'])  ? false : true;
+	$usp_display_url   = (is_user_logged_in() && $usp_options['usp_use_url'])    ? false : true;
+	
+	$usp_existing_tags = (isset($usp_options['usp_existing_tags']) && !empty($usp_options['usp_existing_tags'])) ? true : false;
 	
 	$usp_recaptcha_public  = (isset($usp_options['recaptcha_public'])  && !empty($usp_options['recaptcha_public']))  ? true : false;
 	$usp_recaptcha_private = (isset($usp_options['recaptcha_private']) && !empty($usp_options['recaptcha_private'])) ? true : false;
+	
+	$usp_recaptcha_version = isset($usp_options['recaptcha_version']) ? $usp_options['recaptcha_version'] : 2;
+	$usp_recaptcha_display = isset($usp_options['usp_recaptcha'])     ? $usp_options['usp_recaptcha']     : '';
 	
 	$usp_data_sitekey = isset($usp_options['recaptcha_public']) ? $usp_options['recaptcha_public'] : '';
 	
@@ -76,22 +83,50 @@ function usp_get_form_vars() {
 	$usp_custom_label = isset($usp_options['custom_label']) ? $usp_options['custom_label'] : '';
 	
 	$options = array(
-					'usp_user_name'         => $usp_user_name, 
-					'usp_user_url'          => $usp_user_url, 
-					'usp_required'          => $usp_required, 
-					'usp_captcha'           => $usp_captcha, 
-					'multiple_cats'         => $multiple_cats, 
-					'category_class'        => $category_class, 
-					'usp_display_name'      => $usp_display_name, 
-					'usp_display_url'       => $usp_display_url, 
-					'usp_recaptcha_public'  => $usp_recaptcha_public, 
-					'usp_recaptcha_private' => $usp_recaptcha_private, 
-					'usp_data_sitekey'      => $usp_data_sitekey, 
-					'usp_custom_name'       => $usp_custom_name, 
+					'usp_user_name'         => $usp_user_name,
+					'usp_user_email'        => $usp_user_email,
+					'usp_user_url'          => $usp_user_url,
+					'usp_required'          => $usp_required,
+					'usp_captcha'           => $usp_captcha,
+					'multiple_cats'         => $multiple_cats,
+					'category_class'        => $category_class,
+					'usp_display_name'      => $usp_display_name,
+					'usp_display_email'     => $usp_display_email,
+					'usp_display_url'       => $usp_display_url,
+					'usp_existing_tags'     => $usp_existing_tags,
+					'usp_recaptcha_public'  => $usp_recaptcha_public,
+					'usp_recaptcha_private' => $usp_recaptcha_private,
+					'usp_recaptcha_version' => $usp_recaptcha_version,
+					'usp_recaptcha_display' => $usp_recaptcha_display,
+					'usp_data_sitekey'      => $usp_data_sitekey,
+					'usp_custom_name'       => $usp_custom_name,
 					'usp_custom_label'      => $usp_custom_label
 				);
 	
 	return $options;
+	
+}
+
+function usp_get_tag_options() {
+	
+	$output = '';
+	
+	$args = array('hide_empty' => 0);
+	
+	$args = apply_filters('usp_get_tag_options_args', $args); // ref @ https://bit.ly/33Ad99z
+	
+	$tags = get_tags($args);
+	
+	foreach ($tags as $tag) {
+		
+		$name = isset($tag->name) ? $tag->name : '';
+		$slug = isset($tag->slug) ? $tag->slug : '';
+		
+		$output .= '<option value="'. esc_attr($slug) .'">'. esc_html($name) .'</option>';
+		
+	}
+	
+	return $output;
 	
 }
 

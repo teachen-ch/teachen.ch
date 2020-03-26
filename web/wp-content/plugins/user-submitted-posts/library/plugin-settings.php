@@ -257,6 +257,26 @@ function usp_custom_display() {
 
 
 
+function usp_recaptcha_version() {
+	
+	$recaptcha_version = array(
+		
+		2 => array(
+			'value' => 2,
+			'label' => esc_html__('v2 (I&rsquo;m not a robot)', 'usp')
+		),
+		3 => array(
+			'value' => 3,
+			'label' => esc_html__('v3 (Hidden reCaptcha)', 'usp')
+		),
+	);
+	
+	return $recaptcha_version;
+	
+}
+
+
+
 function usp_form_field_options($args) {
 	
 	global $usp_options;
@@ -667,10 +687,10 @@ function usp_auto_display_options($item) {
 	
 	global $usp_options;
 	
-	$usp_image_display  = usp_image_display();
-	$usp_email_display  = usp_email_display();
-	$usp_url_display    = usp_url_display();
-	$usp_custom_display = usp_custom_display();
+	$usp_image_display     = usp_image_display();
+	$usp_email_display     = usp_email_display();
+	$usp_url_display       = usp_url_display();
+	$usp_custom_display    = usp_custom_display();
 	
 	if ($item === 'images') {
 		
@@ -691,6 +711,7 @@ function usp_auto_display_options($item) {
 		
 		$array = $usp_custom_display;
 		$key = 'auto_display_custom';
+		
 	}
 	
 	$radio_setting = isset($usp_options[$key]) ? $usp_options[$key] : '';
@@ -709,6 +730,31 @@ function usp_auto_display_options($item) {
 		$output .= '</div>';
 		
 	}
+	
+	return $output;
+	
+}
+
+
+
+function usp_form_field_recaptcha() {
+	
+	global $usp_options;
+	
+	$version = isset($usp_options['recaptcha_version']) ? $usp_options['recaptcha_version'] : 2;
+	
+	$output = '<select id="usp_options[recaptcha_version]" name="usp_options[recaptcha_version]">';
+	
+	foreach(usp_recaptcha_version() as $option) {
+		
+		$option_value = isset($option['value']) ? $option['value'] : '';
+		$option_label = isset($option['label']) ? $option['label'] : '';
+		
+		$output .= '<option '. selected($option_value, $version, false) .' value="'. esc_attr($option_value) .'">'. esc_attr($option_label) .'</option>';
+		
+	}
+	
+	$output .= '</select>';
 	
 	return $output;
 	
@@ -763,11 +809,13 @@ function usp_add_defaults() {
 			'usp_email_from'       => $admin_mail,
 			'usp_use_author'       => 0,
 			'usp_use_url'          => 0,
+			'usp_use_email'        => 0,
 			'usp_use_cat'          => 0,
 			'usp_use_cat_id'       => '',
 			'usp_include_js'       => 1,
 			'usp_display_url'      => '',
 			'usp_form_content'     => '',
+			'usp_existing_tags'    => 0,
 			'usp_richtext_editor'  => 0,
 			'usp_featured_images'  => 0,
 			'usp_add_another'      => '',
@@ -787,6 +835,7 @@ function usp_add_defaults() {
 			'disable_author'       => 0,
 			'recaptcha_public'     => '',
 			'recaptcha_private'    => '',
+			'recaptcha_version'    => 2,
 			'usp_recaptcha'        => 'hide',
 			'usp_post_type'        => 'post',
 			'custom_field'         => 'hide',
@@ -877,6 +926,10 @@ function usp_validate_options($input) {
 	$usp_post_type = usp_post_type();
 	if (!isset($input['usp_post_type'])) $input['usp_post_type'] = null;
 	if (!array_key_exists($input['usp_post_type'], $usp_post_type)) $input['usp_post_type'] = null;
+	
+	$usp_recaptcha_version = usp_recaptcha_version();
+	if (!isset($input['recaptcha_version'])) $input['recaptcha_version'] = null;
+	if (!array_key_exists($input['recaptcha_version'], $usp_recaptcha_version)) $input['recaptcha_version'] = null;
 	
 	if (isset($input['author']))               $input['author']               = wp_filter_nohtml_kses($input['author']);               else $input['author']               = null;
 	if (isset($input['usp_name']))             $input['usp_name']             = wp_filter_nohtml_kses($input['usp_name']);             else $input['usp_name']             = null;
@@ -997,11 +1050,17 @@ function usp_validate_options($input) {
 	if (!isset($input['usp_use_url'])) $input['usp_use_url'] = null;
 	$input['usp_use_url'] = ($input['usp_use_url'] == 1 ? 1 : 0);
 	
+	if (!isset($input['usp_use_email'])) $input['usp_use_email'] = null;
+	$input['usp_use_email'] = ($input['usp_use_email'] == 1 ? 1 : 0);
+	
 	if (!isset($input['usp_use_cat'])) $input['usp_use_cat'] = null;
 	$input['usp_use_cat'] = ($input['usp_use_cat'] == 1 ? 1 : 0);
 	
 	if (!isset($input['usp_include_js'])) $input['usp_include_js'] = null;
 	$input['usp_include_js'] = ($input['usp_include_js'] == 1 ? 1 : 0);
+	
+	if (!isset($input['usp_existing_tags'])) $input['usp_existing_tags'] = null;
+	$input['usp_existing_tags'] = ($input['usp_existing_tags'] == 1 ? 1 : 0);
 	
 	if (!isset($input['usp_richtext_editor'])) $input['usp_richtext_editor'] = null;
 	$input['usp_richtext_editor'] = ($input['usp_richtext_editor'] == 1 ? 1 : 0);
@@ -1275,7 +1334,7 @@ function usp_render_form() {
 								</table>
 							</div>
 							
-							<h3><?php esc_html_e('Categories', 'usp'); ?></h3>
+							<h3><?php esc_html_e('Categories &amp; Tags', 'usp'); ?></h3>
 							
 							<div class="mm-table-wrap">
 								<table class="widefat mm-table">
@@ -1305,6 +1364,11 @@ function usp_render_form() {
 										<td><input class="input-short" type="text" size="45" maxlength="100" name="usp_options[usp_use_cat_id]" value="<?php if (isset($usp_options['usp_use_cat_id'])) echo esc_attr($usp_options['usp_use_cat_id']); ?>" /> 
 										<span class="mm-item-caption"><?php esc_html_e('Specify category ID(s) to use for &ldquo;Hidden/Default Category&rdquo; (separate multiple IDs with commas)', 'usp'); ?></span></td>
 									</tr>
+									<tr>
+										<th scope="row"><label class="description" for="usp_options[usp_existing_tags]"><?php esc_html_e('Use Existing Tags', 'usp'); ?></label></th>
+										<td><input type="checkbox" value="1" name="usp_options[usp_existing_tags]" <?php if (isset($usp_options['usp_existing_tags'])) checked('1', $usp_options['usp_existing_tags']); ?> />
+										<span class="mm-item-caption"><?php esc_html_e('Check this box to display a select/dropdown menu of existing tags (valid when Tag field is displayed)', 'usp'); ?></span></td>
+									</tr>
 								</table>
 							</div>
 							
@@ -1322,12 +1386,17 @@ function usp_render_form() {
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[usp_use_author]"><?php esc_html_e('Registered Username', 'usp'); ?></label></th>
 										<td><input type="checkbox" value="1" name="usp_options[usp_use_author]" <?php if (isset($usp_options['usp_use_author'])) checked('1', $usp_options['usp_use_author']); ?> /> 
-										<span class="mm-item-caption"><?php esc_html_e('Use registered username as post author (valid when the user submitting the form is logged in to WordPress)', 'usp'); ?></span></td>
+										<span class="mm-item-caption"><?php esc_html_e('Use the user&rsquo;s registered username for the Name field (valid when the user submitting the form is logged in to WordPress)', 'usp'); ?></span></td>
+									</tr>
+									<tr>
+										<th scope="row"><label class="description" for="usp_options[usp_use_email]"><?php esc_html_e('Registered Email', 'usp'); ?></label></th>
+										<td><input type="checkbox" value="1" name="usp_options[usp_use_email]" <?php if (isset($usp_options['usp_use_email'])) checked('1', $usp_options['usp_use_email']); ?> /> 
+										<span class="mm-item-caption"><?php esc_html_e('Use the user&rsquo;s registered email as the value of the Email field (valid when the user submitting the form is logged in to WordPress)', 'usp'); ?></span></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[usp_use_url]"><?php esc_html_e('User Profile URL', 'usp'); ?></label></th>
 										<td><input type="checkbox" value="1" name="usp_options[usp_use_url]" <?php if (isset($usp_options['usp_use_url'])) checked('1', $usp_options['usp_use_url']); ?> /> 
-										<span class="mm-item-caption"><?php esc_html_e('Use registered user&rsquo;s Profile URL as the value of the URL field (valid when the user submitting the form is logged in to WordPress)', 'usp'); ?></span></td>
+										<span class="mm-item-caption"><?php esc_html_e('Use the user&rsquo;s Profile URL as the value of the URL field (valid when the user submitting the form is logged in to WordPress)', 'usp'); ?></span></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[logged_in_users]"><?php esc_html_e('Require User Login', 'usp'); ?></label></th>
@@ -1396,6 +1465,13 @@ function usp_render_form() {
 										<th scope="row"><label class="description" for="usp_options[recaptcha_private]"><?php esc_html_e('Private Key', 'usp'); ?></label></th>
 										<td><input type="text" size="45" name="usp_options[recaptcha_private]" value="<?php if (isset($usp_options['recaptcha_private'])) echo esc_attr($usp_options['recaptcha_private']); ?>" />
 										<div class="mm-item-caption"><?php esc_html_e('Enter your Private Key', 'usp'); ?></div></td>
+									</tr>
+									<tr>
+										<th scope="row"><label class="description" for="usp_options[recaptcha_version]"><?php esc_html_e('reCaptcha Version', 'usp'); ?></label></th>
+										<td>
+											<?php echo usp_form_field_recaptcha(); ?>
+											<span class="mm-item-caption"><?php esc_html_e('Choose reCaptcha version', 'usp'); ?></span>
+										</td>
 									</tr>
 								</table>
 							</div>

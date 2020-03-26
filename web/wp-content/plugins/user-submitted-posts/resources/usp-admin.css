@@ -56,7 +56,7 @@
 
 /* Form Controls */
 .mm-table-wrap input[type=text] { width: 80%; font-size: 13px; }
-.mm-table-wrap input[type=checkbox], .wp-admin p input[type=checkbox] { margin-top: -2px; }
+.mm-table-wrap input[type=checkbox], .wp-admin p input[type=checkbox] { margin-top: -3px; }
 .mm-table-wrap textarea { width: 90%; font-size: 13px; }
 .mm-table-wrap .input-short[type=text] { width: 77px; }
 .mm-radio-inputs, .mm-checkbox-inputs { margin: 7px 0; }
@@ -67,6 +67,7 @@ span.mm-item-desc { display: block; margin: 0 0 15px 0; }
 .mm-item-caption { margin: 3px 0 0 3px; font-size: 12px; color: #777; }
 .mm-table-wrap textarea + .mm-item-caption { margin: 0 0 0 3px; }
 .mm-table-wrap input[type=checkbox] + .mm-item-caption { margin: 0; }
+.mm-inline-block { display: inline-block; vertical-align: middle; }
 .mm-item-caption code { font-size: 11px; }
 .mm-code { padding: 5px; background-color: #fafae0; color: #333; font-size: 14px; }
 

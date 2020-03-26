@@ -4,12 +4,22 @@
 */
 jQuery(document).ready(function($) {
 	
-	// parsley
 	$('.usp-callout-failure').addClass('usp-hidden').hide();
-	$('#user-submitted-post').on('click', function() {
-		usp_validate();
+	$('#user-submitted-post').on('click', function(e) {
+		if (usp_recaptcha_disp == 'show' && usp_recaptcha_vers == 3) {
+			var validate = usp_validate();
+			e.preventDefault();
+			grecaptcha.ready(function() {
+				grecaptcha.execute(usp_recaptcha_key, { action: 'submit' }).then(function(token) {
+					$('#recaptcha_response').remove();
+					$('#usp-submit').prepend('<input type="hidden" name="recaptcha_response" id="recaptcha_response" value="'+ token +'">');
+					if (validate) $('#usp_form').unbind('submit').submit();
+				});;
+			});
+		} else {
+			usp_validate();
+		}
 	});
-	
 	function usp_validate() {
 		// $('#usp_form').parsley().validate();
 		if (true === $('#usp_form').parsley().isValid()) {
@@ -23,12 +33,12 @@ jQuery(document).ready(function($) {
 					if (!val.trim()) $(this).remove();
 				}
 			});
+			return true;
 		} else {
 			$('.usp-callout-failure').removeClass('usp-hidden').show();
+			return false;
 		}
 	};
-	
-	// captcha
 	$('#usp_form').submit(function(e) {
 		usp_captcha_check(e);
 		if ($(this).parsley().isValid()) {
@@ -98,7 +108,7 @@ jQuery(document).ready(function($) {
 				} else {
 					var value = $(this).val();
 				}
-				Cookies.set(name, value, { path: '/', expires: 365 });
+				Cookies.set(name, value, { path: '/', expires: 365, sameSite: 'strict' });
 			});
 		});
 	}
@@ -183,5 +193,6 @@ jQuery(document).ready(function($) {
 	// chosen
 	var disable_chosen = (typeof window.usp_disable_chosen !== 'undefined') ? window.usp_disable_chosen : false;
 	if (window.usp_multiple_cats == 1 && !disable_chosen) $('#user-submitted-category').chosen();
-
+	if (window.usp_existing_tags == 1 && !disable_chosen) $('#user-submitted-tags').chosen();
+	
 });

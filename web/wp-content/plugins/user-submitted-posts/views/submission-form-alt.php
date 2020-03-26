@@ -46,17 +46,17 @@ else :
 			<label for="user-submitted-name"><?php esc_html_e('Your Name', 'usp'); ?></label>
 			<input id="user-submitted-name" name="user-submitted-name" type="text" value="" placeholder="<?php esc_attr_e('Your Name', 'usp'); ?>"<?php if (usp_check_required('usp_name')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
+		<?php } if (($usp_options['usp_email'] == 'show' || $usp_options['usp_email'] == 'optn') && ($usp_display_email)) { ?>
+		
+		<fieldset class="usp-email">
+			<label for="user-submitted-email"><?php esc_html_e('Your Email', 'usp'); ?></label>
+			<input id="user-submitted-email" name="user-submitted-email" type="email" data-parsley-type="email" value="" placeholder="<?php esc_attr_e('Your Email', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $usp_required; ?> class="usp-input">
+		</fieldset>
 		<?php } if (($usp_options['usp_url'] == 'show' || $usp_options['usp_url'] == 'optn') && ($usp_display_url)) { ?>
 		
 		<fieldset class="usp-url">
 			<label for="user-submitted-url"><?php esc_html_e('Your URL', 'usp'); ?></label>
 			<input id="user-submitted-url" name="user-submitted-url" type="url" data-parsley-type="url" value="" placeholder="<?php esc_attr_e('Your URL', 'usp'); ?>"<?php if (usp_check_required('usp_url')) echo $usp_required; ?> class="usp-input">
-		</fieldset>
-		<?php } if ($usp_options['usp_email'] == 'show' || $usp_options['usp_email'] == 'optn') { ?>
-		
-		<fieldset class="usp-email">
-			<label for="user-submitted-email"><?php esc_html_e('Your Email', 'usp'); ?></label>
-			<input id="user-submitted-email" name="user-submitted-email" type="email" data-parsley-type="email" value="" placeholder="<?php esc_attr_e('Your Email', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_title'] == 'show' || $usp_options['usp_title'] == 'optn') { ?>
 		
@@ -65,11 +65,22 @@ else :
 			<input id="user-submitted-title" name="user-submitted-title" type="text" value="" placeholder="<?php esc_attr_e('Post Title', 'usp'); ?>"<?php if (usp_check_required('usp_title')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_tags'] == 'show' || $usp_options['usp_tags'] == 'optn') { ?>
+		<?php if ($usp_existing_tags) { ?>
+		
+		<fieldset class="usp-tags">
+			<label for="user-submitted-tags"><?php esc_html_e('Post Tags', 'usp'); ?></label>
+			<select id="user-submitted-tags" name="user-submitted-tags[]"<?php if (usp_check_required('usp_tags')) echo $usp_required; ?> class="usp-select usp-multiple" multiple="multiple" data-placeholder="<?php esc_attr_e('Please select some tags..', 'usp'); ?>">
+				<option value=""><?php esc_attr_e('Please select some tags..', 'usp'); ?></option>
+				<?php echo usp_get_tag_options(); ?>
+			</select>
+		</fieldset>
+		<?php } else { ?>
 		
 		<fieldset class="usp-tags">
 			<label for="user-submitted-tags"><?php esc_html_e('Post Tags', 'usp'); ?></label>
 			<input id="user-submitted-tags" name="user-submitted-tags" type="text" value="" placeholder="<?php esc_attr_e('Post Tags', 'usp'); ?>"<?php if (usp_check_required('usp_tags')) echo $usp_required; ?> class="usp-input">
 		</fieldset>
+		<?php } ?>
 		<?php } if ($usp_options['custom_field'] == 'show' || $usp_options['custom_field'] == 'optn') { ?>
 		
 		<fieldset class="usp-custom">
@@ -123,11 +134,12 @@ else :
 			<?php } ?>
 			
 		</fieldset>
-		<?php } if ($usp_recaptcha_public && $usp_recaptcha_private && $usp_options['usp_recaptcha'] == 'show') { ?>
+		<?php } if ($usp_recaptcha_public && $usp_recaptcha_private && $usp_recaptcha_display == 'show' && $usp_recaptcha_version == 2) { ?>
 		
-		<label for="g-recaptcha"><?php esc_html_e('Verification', 'usp'); ?></label>
-		<div id="g-recaptcha" class="g-recaptcha" data-sitekey="<?php echo esc_attr($usp_data_sitekey); ?>"></div>
-		
+		<fieldset class="usp-recaptcha">
+			<label for="g-recaptcha"><?php esc_html_e('Verification', 'usp'); ?></label>
+			<div id="g-recaptcha" class="g-recaptcha" data-sitekey="<?php echo esc_attr($usp_data_sitekey); ?>"></div>
+		</fieldset>	
 		<?php } if ($usp_options['usp_images'] == 'show') { ?>
 		<?php if ($usp_options['max-images'] !== 0) { ?>
 		
@@ -170,21 +182,25 @@ else :
 		<?php echo usp_display_custom_checkbox(); ?>
 		
 		<div id="usp-submit">
-			<?php if (!empty($usp_options['redirect-url'])) { ?>
+			<?php if (isset($usp_options['redirect-url']) && !empty($usp_options['redirect-url'])) { ?>
 			
-			<input type="hidden" class="usp-hidden" name="redirect-override" value="<?php echo $usp_options['redirect-url']; ?>">
+			<input type="hidden" class="usp-hidden" name="redirect-override" value="<?php echo esc_url($usp_options['redirect-url']); ?>">
 			<?php } ?>
 			<?php if (!$usp_display_name) { ?>
 			
-			<input type="hidden" class="usp-hidden" name="user-submitted-name" value="<?php echo $usp_user_name; ?>">
+			<input type="hidden" class="usp-hidden" name="user-submitted-name" value="<?php echo esc_attr($usp_user_name); ?>">
+			<?php } ?>
+			<?php if (!$usp_display_email) { ?>
+			
+			<input type="hidden" class="usp-hidden" name="user-submitted-email" value="<?php echo sanitize_email($usp_user_email); ?>">
 			<?php } ?>
 			<?php if (!$usp_display_url) { ?>
 			
-			<input type="hidden" class="usp-hidden" name="user-submitted-url" value="<?php echo $usp_user_url; ?>">
+			<input type="hidden" class="usp-hidden" name="user-submitted-url" value="<?php echo esc_url($usp_user_url); ?>">
 			<?php } ?>
-			<?php if ($usp_options['usp_use_cat'] == true) { ?>
+			<?php if (isset($usp_options['usp_use_cat']) && $usp_options['usp_use_cat'] == true) { ?>
 			
-			<input type="hidden" class="usp-hidden" name="user-submitted-category" value="<?php echo $usp_options['usp_use_cat_id']; ?>">
+			<input type="hidden" class="usp-hidden" name="user-submitted-category" value="<?php echo esc_attr($usp_options['usp_use_cat_id']); ?>">
 			<?php } ?>
 			
 			<input type="submit" class="usp-submit" id="user-submitted-post" name="user-submitted-post" value="<?php esc_attr_e('Submit Post', 'usp'); ?>">

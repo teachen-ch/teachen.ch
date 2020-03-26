@@ -9,9 +9,9 @@
 	Donate link: https://monzillamedia.com/donate.html
 	Contributors: specialk
 	Requires at least: 4.1
-	Tested up to: 5.3
-	Stable tag: 20191110
-	Version: 20191110
+	Tested up to: 5.4
+	Stable tag: 20200320
+	Version: 20200320
 	Requires PHP: 5.6.20
 	Text Domain: usp
 	Domain Path: /languages
@@ -32,7 +32,7 @@
 	You should have received a copy of the GNU General Public License
 	with this program. If not, visit: https://www.gnu.org/licenses/
 	
-	Copyright 2019 Monzilla Media. All rights reserved.
+	Copyright 2020 Monzilla Media. All rights reserved.
 */
 
 if (!defined('ABSPATH')) die();
@@ -40,7 +40,7 @@ if (!defined('ABSPATH')) die();
 
 
 define('USP_WP_VERSION', '4.1');
-define('USP_VERSION', '20191110');
+define('USP_VERSION', '20200320');
 define('USP_PLUGIN', esc_html__('User Submitted Posts', 'usp'));
 define('USP_PATH', plugin_basename(__FILE__));
 
@@ -209,6 +209,38 @@ function usp_get_submitted_category() {
 
 
 
+function usp_get_submitted_tags() {
+	
+	$submitted_tags = isset($_POST['user-submitted-tags']) ? $_POST['user-submitted-tags'] : '';
+	
+	$tags = array();
+	
+	if (is_array($submitted_tags)) {
+		
+		foreach ($submitted_tags as $tag) $tags[] = sanitize_text_field($tag);
+		
+	} else {
+		
+		if (strpos($submitted_tags, ',') !== false) {
+			
+			$tag_array = array_map('trim', explode(',', $submitted_tags));
+			
+			foreach ($tag_array as $tag) $tags[] = sanitize_text_field($tag);
+			
+		} else {
+			
+			$tags[] = sanitize_text_field($submitted_tags);
+			
+		}
+		
+	}
+	
+	return $tags;
+	
+}
+
+
+
 function usp_get_ip_address() {
 	
 	if (isset($_SERVER)) {
@@ -263,12 +295,13 @@ function usp_checkForPublicSubmission() {
 		
 		$category = usp_get_submitted_category();
 		
+		$tags = usp_get_submitted_tags();
+		
 		$files = isset($_FILES['user-submitted-image']) ? $_FILES['user-submitted-image'] : array();
 		
 		$author   = isset($_POST['user-submitted-name'])     ? sanitize_text_field($_POST['user-submitted-name'])     : '';
 		$url      = isset($_POST['user-submitted-url'])      ? esc_url($_POST['user-submitted-url'])                  : '';
 		$email    = isset($_POST['user-submitted-email'])    ? sanitize_text_field($_POST['user-submitted-email'])    : '';
-		$tags     = isset($_POST['user-submitted-tags'])     ? sanitize_text_field($_POST['user-submitted-tags'])     : '';
 		$captcha  = isset($_POST['user-submitted-captcha'])  ? sanitize_text_field($_POST['user-submitted-captcha'])  : '';
 		$verify   = isset($_POST['user-submitted-verify'])   ? sanitize_text_field($_POST['user-submitted-verify'])   : '';
 		$content  = isset($_POST['user-submitted-content'])  ? usp_sanitize_content($_POST['user-submitted-content']) : '';
@@ -365,12 +398,28 @@ function usp_verify_recaptcha() {
 	
 	$public  = isset($usp_options['recaptcha_public'])  ? $usp_options['recaptcha_public']  : false;
 	$private = isset($usp_options['recaptcha_private']) ? $usp_options['recaptcha_private'] : false;
+	$version = isset($usp_options['recaptcha_version']) ? $usp_options['recaptcha_version'] : 2;
 	
-	if (empty($public) || empty($private)) return false;
-	
-	if (isset($_POST['g-recaptcha-response'])) return require_once(plugin_dir_path(__FILE__) .'recaptcha/connect.php');
-	
-	return false;
+	if ($version == 3) {
+		
+		$response = isset($_POST['recaptcha_response']) ? $_POST['recaptcha_response'] : null;
+		
+		$recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='. $private .'&response='. $response);
+		$recaptcha = json_decode($recaptcha);
+		
+		$score = apply_filters('usp_recaptcha_score', 0.5);
+		
+		return (($recaptcha->success == true) && ($recaptcha->score >= $score)) ? true : false;
+		
+	} else {
+		
+		if (empty($public) || empty($private)) return false;
+		
+		if (isset($_POST['g-recaptcha-response'])) return require_once(plugin_dir_path(__FILE__) .'recaptcha/connect.php');
+		
+		return false;
+		
+	}
 	
 }
 

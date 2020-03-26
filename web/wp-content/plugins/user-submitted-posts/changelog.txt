@@ -42,7 +42,7 @@ More recent changelog info is available in the `readme.txt` file, located in the
 * Removes deprecated `/custom/` directory
 * Removes deprecated `jquery.usp.files.js`
 * Fixes bug when displaying/requiring the Title field
-* Fixes some PHP Notices for "Undefined Index", et al
+* Fixes some PHP Notices for "Undefined Index", etc.
 * Regenerates default translation template
 * Tests on WordPress 4.9
 

@@ -9,9 +9,9 @@ Author URI: https://plugin-planet.com/
 Donate link: https://monzillamedia.com/donate.html
 Contributors: specialk
 Requires at least: 4.1
-Tested up to: 5.3
-Stable tag: 20191110
-Version: 20191110
+Tested up to: 5.4
+Stable tag: 20200320
+Version: 20200320
 Requires PHP: 5.6.20
 Text Domain: usp
 Domain Path: /languages
@@ -44,7 +44,7 @@ The post-submission form includes the following fields:
 * Post Content
 * Custom Field
 * Challenge Question
-* Google reCAPTCHA
+* Google reCAPTCHA (v2 or v3)
 * Post Images
 * Agree to Terms
 
@@ -77,7 +77,7 @@ USP also includes a Login/Register Form, and three shortcodes to control access 
 
 **Form Features**
 
-* Built-in Google reCAPTCHA :)
+* Google reCAPTCHA: v2 ("I am not a bot") or v3 (hidden recaptcha)
 * Built-in client-side form validation with [Parsley](https://parsleyjs.org/)
 * Stops spam via input validation, captcha, and hidden field
 * Use either Challenge Question, Google reCAPTCHA, or both!
@@ -137,34 +137,34 @@ USP also includes a Login/Register Form, and three shortcodes to control access 
 
 User Submitted Posts supports translation into any language. Current translations include (no particular order):
 
-	Russian             - usp-ru_RU
-	Irish               - usp-ga
-	Turkish             - usp-tr_TR
-	Swedish             - usp-sv_SE
-	Persian             - usp-fa_IR
-	French (France)     - usp-fr_FR
-	Taiwanese           - usp-zh_TW
-	Bengali             - usp-bn_BD
-	German              - usp-de_DE
-	Portuguese (Brazil) - usp-pt_BR
-	Spanish (Spain)     - usp-es_ES
-	Norwegian           - usp-no
-	Greek               - usp-el
-	Chinese (China)     - usp-zh_CN
-	Slovenian           - usp-sl_SI
-	Arabic              - usp-ar
-	Czech               - usp-cs_CZ
-	Serbian             - usp-sr_RS
-	Hindi               - usp-hi_IN
-	Punjabi             - usp-pa_IN
-	Dutch               - usp-nl_NL
-	Romanian            - usp-ro_RO
-	Japanese            - usp-ja
-	Polish              - usp-pl_PL
-	Korean              - usp-ko_KR
-	Italian             - usp-it_IT
-	Hebrew              - usp-he_IL
-	Urdu                - usp-ur
+	Arabic                - usp-ar
+	Bengali               - usp-bn_BD
+	Czech                 - usp-cs_CZ
+	German                - usp-de_DE
+	Greek                 - usp-el
+	Spanish (Spain)       - usp-es_ES
+	Persian               - usp-fa_IR
+	French (France)       - usp-fr_FR
+	Irish                 - usp-ga
+	Hebrew                - usp-he_IL
+	Hindi                 - usp-hi_IN
+	Italian               - usp-it_IT
+	Japanese              - usp-ja
+	Korean                - usp-ko_KR
+	Dutch                 - usp-nl_NL
+	Norwegian             - usp-no
+	Punjabi               - usp-pa_IN
+	Polish                - usp-pl_PL
+	Portuguese (Brazil)   - usp-pt_BR
+	Romanian              - usp-ro_RO
+	Russian               - usp-ru_RU
+	Slovenian             - usp-sl_SI
+	Serbian               - usp-sr_RS
+	Swedish               - usp-sv_SE
+	Turkish               - usp-tr_TR
+	Urdu                  - usp-ur
+	Chinese (Simplified)  - usp-zh_CN
+	Chinese (Traditional) - usp-zh_TW
 
 Need a translation into your language? [Let me know!](https://perishablepress.com/contact/)
 
@@ -682,9 +682,14 @@ To disable the image-preview thumbnail feature, add the following line to the pl
 Save changes and done.
 
 
-**How to disable fancy category select script?**
+**How to disable fancy category/tag select script?**
 
-USP uses the Chosen jQuery to enhance the behavior and appearance of the Category field. It only is added when the setting "Multiple Categories" is enabled. So if you are using the single-category select field, the field will appear normally (i.e., without the Chosen script). If you are using the multiple-category select field, and want to disable the fancy Chosen script, you can do so by adding the following code snippet to the plugin setting, "Custom Content":
+USP uses the Chosen.js library to enhance the behavior and appearance of the Category and Tag fields. The enhanced fields will be displayed only when:
+
+* The option "Multiple Categories" is enabled (for Category field)
+* The option "Use Existing Tags" is enabled (for Tag field)
+
+If you want to disable the fancy Chosen script for these fields, you can do so by adding the following code snippet to the plugin setting, "Custom Content":
 
 `<script>var usp_disable_chosen = true;</script>`
 
@@ -729,6 +734,22 @@ Links, tweets and likes also appreciated. Thanks! :)
 
 If you like USP, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/user-submitted-posts/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
+
+**20200320**
+
+* Adds option to display select menu for Tags field
+* Adds filter hook `usp_get_tag_options_args`
+* Adds new option to use "Registered Email"
+* Adds Google reCaptcha v3 (hidden reCaptcha)
+* Updates reCaptcha library to version 1.2.3
+* Adds filter hook `hook usp_recaptcha_score`
+* Adds new German translation (Thanks to Max)
+* Improves some styles on settings page
+* Improves markup of submission form
+* Improves security of form cookies
+* Generates new default translation template
+* Updates all language translation files
+* Tests on WordPress 5.4
 
 **20191110**
 

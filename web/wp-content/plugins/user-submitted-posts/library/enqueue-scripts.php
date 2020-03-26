@@ -72,7 +72,7 @@ function usp_enqueueResources() {
 		
 		if ($recaptcha === 'show') {
 			
-			wp_enqueue_script('usp_recaptcha', 'https://www.google.com/recaptcha/api.js', array(), USP_VERSION);
+			usp_enqueue_recaptcha();
 			
 			array_push($deps, 'usp_recaptcha');
 			
@@ -101,6 +101,29 @@ function usp_enqueueResources() {
 }
 add_action('wp_enqueue_scripts', 'usp_enqueueResources');
 
+function usp_enqueue_recaptcha() {
+	
+	global $usp_options;
+	
+	if (isset($usp_options['usp_recaptcha']) && ($usp_options['usp_recaptcha'] == 'show')) {
+		
+		$recaptcha = isset($usp_options['recaptcha_public'])  ? $usp_options['recaptcha_public']  : '';
+		$version   = isset($usp_options['recaptcha_version']) ? $usp_options['recaptcha_version'] : 2;
+		
+		if ($version == 3) {
+			
+			wp_enqueue_script('usp_recaptcha', 'https://www.google.com/recaptcha/api.js?render='. $recaptcha, array(), null);
+			
+		} else {
+			
+			wp_enqueue_script('usp_recaptcha', 'https://www.google.com/recaptcha/api.js', array(), USP_VERSION);
+			
+		}
+		
+	}
+	
+}
+
 // WP >= 4.5
 function usp_inline_script() {
 	
@@ -117,6 +140,10 @@ function usp_inline_script() {
 		$usp_casing      = isset($usp_options['usp_casing'])           ? $usp_options['usp_casing']           : '';
 		$usp_response    = isset($usp_options['usp_response'])         ? $usp_options['usp_response']         : '';
 		$multiple_cats   = isset($usp_options['multiple-cats'])        ? $usp_options['multiple-cats']        : '';
+		$existing_tags   = isset($usp_options['usp_existing_tags'])    ? $usp_options['usp_existing_tags']    : '';
+		$recaptcha_disp  = isset($usp_options['usp_recaptcha'])        ? $usp_options['usp_recaptcha']        : '';
+		$recaptcha_vers  = isset($usp_options['recaptcha_version'])    ? $usp_options['recaptcha_version']    : 2;
+		$recaptcha_key   = isset($usp_options['recaptcha_public'])     ? $usp_options['recaptcha_public']     : '';
 		
 		$print_casing    = $usp_casing ? 'true' : 'false';
 		$parsley_error   = apply_filters('usp_parsley_error', esc_html__('Incorrect response.', 'usp'));
@@ -129,6 +156,10 @@ function usp_inline_script() {
 		$script .= 'var usp_max_images = '.         json_encode($max_images)      .'; ';
 		$script .= 'var usp_parsley_error = '.      json_encode($parsley_error)   .'; ';
 		$script .= 'var usp_multiple_cats = '.      json_encode($multiple_cats)   .'; ';
+		$script .= 'var usp_existing_tags = '.      json_encode($existing_tags)   .'; ';
+		$script .= 'var usp_recaptcha_disp = '.     json_encode($recaptcha_disp)  .'; ';
+		$script .= 'var usp_recaptcha_vers = '.     json_encode($recaptcha_vers)  .'; ';
+		$script .= 'var usp_recaptcha_key = '.      json_encode($recaptcha_key)   .'; ';
 		
 		wp_add_inline_script('usp_core', $script, 'before');
 		
@@ -152,7 +183,11 @@ function usp_print_scripts() {
 		$usp_casing      = isset($usp_options['usp_casing'])           ? $usp_options['usp_casing']           : '';
 		$usp_response    = isset($usp_options['usp_response'])         ? $usp_options['usp_response']         : '';
 		$multiple_cats   = isset($usp_options['multiple-cats'])        ? $usp_options['multiple-cats']        : '';
-		 
+		$existing_tags   = isset($usp_options['usp_existing_tags'])    ? $usp_options['usp_existing_tags']    : '';
+		$recaptcha_disp  = isset($usp_options['usp_recaptcha'])        ? $usp_options['usp_recaptcha']        : '';
+		$recaptcha_vers  = isset($usp_options['recaptcha_version'])    ? $usp_options['recaptcha_version']    : 2;
+		$recaptcha_key   = isset($usp_options['recaptcha_public'])     ? $usp_options['recaptcha_public']     : '';
+		
 		$print_casing    = $usp_casing ? 'true' : 'false';
 		$parsley_error   = apply_filters('usp_parsley_error', esc_html__('Incorrect response.', 'usp'));
 		
@@ -167,6 +202,10 @@ function usp_print_scripts() {
 				var usp_max_images = <?php         echo json_encode($max_images);      ?>; 
 				var usp_parsley_error = <?php      echo json_encode($parsley_error);   ?>; 
 				var usp_multiple_cats = <?php      echo json_encode($multiple_cats);   ?>; 
+				var usp_existing_tags = <?php      echo json_encode($existing_tags);   ?>; 
+				var usp_recaptcha_disp = <?php     echo json_encode($recaptcha_disp);  ?>; 
+				var usp_recaptcha_vers = <?php     echo json_encode($recaptcha_vers);  ?>; 
+				var usp_recaptcha_key = <?php      echo json_encode($recaptcha_key);   ?>; 
 			</script>
 			
 		<?php endif;

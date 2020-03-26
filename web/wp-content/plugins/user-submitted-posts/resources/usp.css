@@ -49,6 +49,7 @@ div#user-submitted-posts ul.parsley-errors-list.filled li.parsley-required,
 div#user-submitted-posts ul.parsley-errors-list.filled li.parsley-type { display: inline-block; margin: 0; padding: 5px 10px; color: #fff; background-color: #cc3333; }
 
 /* Chosen Custom */
+div#user-submitted-posts .chosen-container[style] { box-sizing: border-box; display: block; float: none; clear: both; width: 80% !important; margin: 0; }
 div#user-submitted-posts .chosen-container-multi .chosen-choices li.search-choice .search-choice-close { text-decoration: none; border: none; padding: 0; box-shadow: none; }
 
 /* Chosen v1.8.7 https://github.com/harvesthq/chosen by Patrick Filler - MIT License */
