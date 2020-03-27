@@ -62,20 +62,21 @@
 			get_template_part( 'template-parts/entry-author-bio' );
 
 		}
-
-		if (is_single() || is_page()) {
-			teachen_social_meta_icons();
-			teachen_tipps();
-		} 
 		?>
 
 	</div><!-- .section-inner -->
 
-	<?php
+<?php
+	if (is_single() ) {
+			teachen_social_meta_icons();
+			// teachen_tipps();
+			?><hr style="max-width: 58rem" class="post-separator styled-separator section-inner" aria-hidden="true"><?php
+
+		}
 
 	if ( is_single() ) {
 
-		get_template_part( 'template-parts/navigation' );
+		// get_template_part( 'template-parts/navigation' );
 
 	}
 

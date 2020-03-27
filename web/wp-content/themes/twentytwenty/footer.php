@@ -13,13 +13,33 @@
 
 ?>
 
-			<footer id="site-footer" role="contentinfo" class="header-footer-group">
+		<footer id="site-footer" role="contentinfo" class="header-footer-group">
 
-			<p class="powered-by-swisscom" style="text-align:center">supported with ❤️ by swisscom</p>
+			<h3>Einige Ideen</h3>
+			<div class="footer-random">
+				<?php echo wpb_rand_posts() ?>
+			</div>
+			<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true">
 
+			<h3>Kategorien</h3>
+			<ul class="footer-cats">
+				<?php wp_list_categories(["feed" => "", 'style' => 'list', 'title_li' => '', 'use_desc_for_title' => false]) ?>
+			</ul>
+			<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true">
+
+			<h3>Stichwörter</h3>
+			<div class="tagcloud">
+				<?php wp_tag_cloud() ?>
+			</div>
+			<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true">
+
+			
+			<?php get_search_form() ?> 
 			<?php teachen_social_meta_icons();?>
-				
-			</footer><!-- #site-footer -->
+			<?php wp_nav_menu(["menu" => 'TopNav', 'after' => '', 'container' => false]) ?>			
+			<p class="powered-by-swisscom" style="text-align:center">supported with ❤️ by swisscom</p>
+	
+		</footer><!-- #site-footer -->
 
 		<?php wp_footer(); ?>
 
