@@ -29,7 +29,7 @@ if ( is_singular() ) {
 			 */
 		$show_categories = apply_filters( 'twentytwenty_show_categories_in_entry_header', true );
 
-		if ( true === $show_categories && has_category() ) {
+		if ( is_singular() && true === $show_categories && has_category() ) {
 			?>
 
 			<div class="entry-categories">
@@ -50,7 +50,7 @@ if ( is_singular() ) {
 		if ( is_singular() ) {
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		} else {
-			the_title( '<h2 class="entry-title heading-size-1"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
+			the_title( '<h2 class="entry-title heading-list"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
 		}
 
 		$intro_text_width = '';

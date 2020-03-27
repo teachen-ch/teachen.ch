@@ -314,6 +314,10 @@ h2,
   font-size: 3.2rem;
 }
 
+.heading-list {
+  font-size: 2.4rem !important;
+}
+
 h3,
 .heading-size-3 {
   font-size: 2.8rem;
@@ -4635,7 +4639,7 @@ a.to-the-top > * {
   }
 
   hr {
-    margin: 8rem auto;
+    margin: 4rem auto;
   }
 
   table {
@@ -4685,6 +4689,9 @@ a.to-the-top > * {
   h3,
   .heading-size-3 {
     margin: 6rem auto 3rem;
+  }
+  .heading-list {
+    font-size: 3.3rem !important;
   }
 
   h4,
