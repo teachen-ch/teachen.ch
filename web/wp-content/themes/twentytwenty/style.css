@@ -6925,9 +6925,57 @@ li a:hover {
 
 .home .entry-header {
   padding-bottom: 0rem;
-  margin-bottom: -3rem;
+  margin-bottom: -2rem;
+}
+.home .entry-content p {
+  text-align: center;
 }
 
 .search-submit {
   background-color: #e20842 !important;
+}
+
+.cf {
+  position:relative;
+  margin:0 auto;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+.cf img {
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  background-color: white;
+}
+
+.cf img:first-child {
+  opacity:0;
+  z-index:1;
+  position:absolute;
+}
+
+@keyframes cf_FadeInOut {
+  0% {
+  opacity:1;
+  }
+  40% {
+  opacity:1;
+  }
+  60% {
+  opacity:0;
+  }
+  100% {
+  opacity:0;
+  }
+}
+
+.cf img:first-child {
+animation-name: cf_FadeInOut;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+animation-duration: 5s;
+animation-direction: alternate;
 }
