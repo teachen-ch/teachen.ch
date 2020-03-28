@@ -119,7 +119,9 @@ function teachen_social_meta_icons() {
 	<?php 
 }
 
-function teachen_tipps() {?>
+function teachen_tipps() {
+	ob_start();
+	?>
   <div class="entry-content" style="text-align: center;">
   <p>Möchtest Du <a href="/teachen-tipps">tägliche Tipps</a> zum Unterricht zu Hause erhalten?</p>
 	<form action="https://newsletter.teachen.ch/subscribe" method="POST" accept-charset="utf-8">
@@ -131,7 +133,10 @@ function teachen_tipps() {?>
 	</form>
 	</div>
 	<?php
+	return ob_get_clean();
 }
+add_shortcode('teachen-tipps','teachen_tipps');; 
+
 
 function wpb_rand_posts() { 
 	$string = "";
