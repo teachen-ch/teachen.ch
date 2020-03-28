@@ -64,23 +64,23 @@ add_action( 'init', 'disable_oembed_head', 9999 );
 
 function teachen_social_meta_data() {
 	$social = [];
-	$social['title'] = get_the_title()."!";
+	$social['title'] = get_the_title()."! ";
 	$social['desc'] = 'Hast Du auch kreative Ideen, was Kinder jetzt zu Hause erleben und erfahren können?';
 	$social['url'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 	$social['img'] = teachen_current_img_url();
 	
 	if (is_category()) {
-		$social['title'] = "Unterricht zu Hause in «".single_cat_title('', false)."»!";
+		$social['title'] = "Unterricht zu Hause in «".single_cat_title('', false)."»! ";
 		$social['desc'] = "Hast Du auch kreative Ideen zum Teilen?";
 	}
 	if (is_tag()) {
-		$social['title'] = "Unterricht zu Hause «".single_tag_title('', false)."»!";
+		$social['title'] = "Unterricht zu Hause «".single_tag_title('', false)."»! ";
 		$social['desc'] = "Hast Du auch kreative Ideen zum Teilen?";
 	}
 	// Homepage
 	if ($_SERVER['REQUEST_URI'] == "/") {
-		$social['title'] = '😀Online-Lernen und Offline-Erleben im Unterricht zu Hause.';
-		$social['desc'] = 'Hast Du auch kreative Ideen zum Teilen?';
+		$social['title'] = '😀Teachen – Ideen für den kreativen Unterricht zu Hause! ';
+		$social['desc'] = 'Wir sammeln tolle Ideen für Online-Lernen und Offline-Erleben! Hast Du auch kreative Ideen zum Teilen?';
 		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_smile-1.png';
 	}
 	return $social;
