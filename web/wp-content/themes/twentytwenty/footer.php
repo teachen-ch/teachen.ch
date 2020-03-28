@@ -29,17 +29,16 @@
 
 			<h3>Stichwörter</h3>
 			<div class="tagcloud">
-				<!--?php wp_tag_cloud() ?-->
 				<div class="tagcloud">
-				<a href="https://teachen.ch/tag/kindergarten/" class="tag-cloud-link tag-link-9 tag-link-position-7" style="font-size: 12.468085106383pt;" aria-label="Kindergarten (7 Einträge)">Kindergarten</a>
-<a href="https://teachen.ch/tag/1-klasse-2-klasse/" class="tag-cloud-link tag-link-10 tag-link-position-1" style="font-size: 18.127659574468pt;" aria-label="1./2. Klasse (18 Einträge)">1./2. Klasse</a>
-<a href="https://teachen.ch/tag/3-klasse-4-klasse/" class="tag-cloud-link tag-link-11 tag-link-position-2" style="font-size: 21.553191489362pt;" aria-label="3./4. Klasse (31 Einträge)">3./4. Klasse</a>
-<a href="https://teachen.ch/tag/5-klasse-5-klasse/" class="tag-cloud-link tag-link-12 tag-link-position-3" style="font-size: 22pt;" aria-label="5./6. Klasse (34 Einträge)">5./6. Klasse</a>
-<a href="https://teachen.ch/tag/sekundarstufe-7-8-9-klasse/" class="tag-cloud-link tag-link-13 tag-link-position-4" style="font-size: 19.914893617021pt;" aria-label="7./8./9. Klasse (24 Einträge)">7./8./9. Klasse</a><br/>
-<a href="https://teachen.ch/tag/draussen/" class="tag-cloud-link tag-link-18 tag-link-position-5" style="font-size: 8pt;" aria-label="draussen (3 Einträge)">draussen</a>
-<a href="https://teachen.ch/tag/online-learning/" class="tag-cloud-link tag-link-16 tag-link-position-6" style="font-size: 11.723404255319pt;" aria-label="e-learning (6 Einträge)">e-learning</a>
-<a href="https://teachen.ch/tag/selbstaendig-lernen/" class="tag-cloud-link tag-link-15 tag-link-position-8" style="font-size: 20.659574468085pt;" aria-label="selbständig (27 Einträge)">selbständig</a>
-<a href="https://teachen.ch/tag/teamwork/" class="tag-cloud-link tag-link-22 tag-link-position-9" style="font-size: 15.148936170213pt;" aria-label="teamwork (11 Einträge)">teamwork</a>			</div>
+					<a href="/tag/kindergarten/" class="tag-cloud-link tag-link-9 tag-link-position-7" style="font-size: 12.468085106383pt;" aria-label="Kindergarten (7 Einträge)">Kindergarten</a>
+					<a href="/tag/1-klasse-2-klasse/" class="tag-cloud-link tag-link-10 tag-link-position-1" style="font-size: 18.127659574468pt;" aria-label="1./2. Klasse (18 Einträge)">1./2. Klasse</a>
+					<a href="/tag/3-klasse-4-klasse/" class="tag-cloud-link tag-link-11 tag-link-position-2" style="font-size: 21.553191489362pt;" aria-label="3./4. Klasse (31 Einträge)">3./4. Klasse</a>
+					<a href="/tag/5-klasse-5-klasse/" class="tag-cloud-link tag-link-12 tag-link-position-3" style="font-size: 22pt;" aria-label="5./6. Klasse (34 Einträge)">5./6. Klasse</a>
+					<a href="/tag/sekundarstufe-7-8-9-klasse/" class="tag-cloud-link tag-link-13 tag-link-position-4" style="font-size: 19.914893617021pt;" aria-label="7./8./9. Klasse (24 Einträge)">7./8./9. Klasse</a><br/>
+					<a href="/tag/draussen/" class="tag-cloud-link tag-link-18 tag-link-position-5" style="font-size: 8pt;" aria-label="draussen (3 Einträge)">draussen</a>
+					<a href="/tag/online-learning/" class="tag-cloud-link tag-link-16 tag-link-position-6" style="font-size: 11.723404255319pt;" aria-label="e-learning (6 Einträge)">e-learning</a>
+					<a href="/tag/selbstaendig-lernen/" class="tag-cloud-link tag-link-15 tag-link-position-8" style="font-size: 20.659574468085pt;" aria-label="selbständig (27 Einträge)">selbständig</a>
+					<a href="/tag/teamwork/" class="tag-cloud-link tag-link-22 tag-link-position-9" style="font-size: 15.148936170213pt;" aria-label="teamwork (11 Einträge)">teamwork</a>			</div>
 			</div>
 			<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true">
 
