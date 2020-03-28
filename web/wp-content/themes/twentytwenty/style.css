@@ -4867,11 +4867,11 @@ a.to-the-top > * {
   /* Post: Archive ------------------------- */
 
   .archive-header {
-    padding: 8rem 0;
+    padding: 0rem 0;
   }
 
   .reduced-spacing .archive-header {
-    padding-bottom: 3rem;
+    padding-bottom: 0rem;
   }
 
   .archive-title {
@@ -4879,11 +4879,12 @@ a.to-the-top > * {
   }
 
   body:not(.singular) main > article:first-of-type {
-    padding: 8rem 0 0;
+    padding: 0rem 0 0;
   }
 
   h2.entry-title {
     font-size: 6.4rem;
+    text-align: left;
   }
 
   /* SEARCH RESULTS */
@@ -5451,7 +5452,8 @@ a.to-the-top > * {
 
   #site-footer {
     font-size: 1.8rem;
-    padding-bottom: 4.3rem;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
   }
 
   .footer-credits {

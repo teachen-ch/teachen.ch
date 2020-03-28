@@ -15,6 +15,7 @@
 
 		<footer id="site-footer" role="contentinfo" class="header-footer-group">
 
+			<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true">
 			<h3>Einige Ideen</h3>
 			<div class="footer-random">
 				<?php echo wpb_rand_posts() ?>

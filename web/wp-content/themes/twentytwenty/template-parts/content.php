@@ -68,8 +68,6 @@
 	if (is_single() ) {
 			teachen_social_meta_icons();
 			// teachen_tipps();
-			?><hr style="max-width: 58rem" class="post-separator styled-separator section-inner" aria-hidden="true"><?php
-
 		}
 
 	if ( is_single() ) {

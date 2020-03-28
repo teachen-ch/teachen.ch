@@ -69,6 +69,8 @@ get_header();
 
 			</div><!-- .archive-header-inner -->
 
+			<hr style="max-width: 58rem" class="post-separator styled-separator section-inner" aria-hidden="true">
+
 		</header><!-- .archive-header -->
 
 		<?php
@@ -81,7 +83,7 @@ get_header();
 		while ( have_posts() ) {
 			$i++;
 			if ( $i > 1 ) {
-				echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" />';
+				echo '<hr style="max-width: 58rem" class="post-separator styled-separator section-inner" aria-hidden="true" />';
 			}
 			the_post();
 
@@ -110,8 +112,6 @@ get_header();
 	<?php get_template_part( 'template-parts/pagination' ); ?>
 
 </main><!-- #site-content -->
-
-<!--?php teachen_social_meta_icons(); ?-->
 
 <?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>
 
