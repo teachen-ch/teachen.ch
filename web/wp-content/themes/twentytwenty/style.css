@@ -6934,7 +6934,7 @@ li a:hover {
 
 .home .entry-header {
   padding-bottom: 0rem;
-  margin-bottom: -2rem;
+  margin-bottom: 0rem;
 }
 .home .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
   text-align: center;
