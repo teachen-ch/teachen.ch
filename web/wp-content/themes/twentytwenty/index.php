@@ -34,8 +34,7 @@ get_header();
 		);
 
 		if ( $wp_query->found_posts ) {
-			$archive_subtitle = sprintf(
-				/* translators: %s: Number of search results */
+			/*$archive_subtitle = sprintf(
 				_n(
 					'We found %s result for your search.',
 					'We found %s results for your search.',
@@ -43,7 +42,7 @@ get_header();
 					'twentytwenty'
 				),
 				number_format_i18n( $wp_query->found_posts )
-			);
+			);*/
 		} else {
 			$archive_subtitle = __( 'We could not find any results for your search. You can give it another try through the search form below.', 'twentytwenty' );
 		}
@@ -90,11 +89,10 @@ get_header();
 			get_template_part( 'template-parts/content', get_post_type() );
 
 		}
-	} elseif ( is_search() ) {
+	}
+	elseif ( is_search() ) {
 		?>
-
-		<div class="no-search-results-form section-inner thin">
-
+		<div class="entry-content" style="margin-top: 3rem; margin-left: -1.5rem !important">
 			<?php
 			get_search_form(
 				array(
@@ -102,9 +100,7 @@ get_header();
 				)
 			);
 			?>
-
-		</div><!-- .no-search-results -->
-
+		</div>
 		<?php
 	}
 	?>
