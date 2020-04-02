@@ -103,9 +103,9 @@ function teachen_social_meta_tags() {
 
 	echo '<meta name="twitter:card" content="summary_large_image"/>'."\n";
 	echo '<meta name="twitter:site" content="@teachen_ch"/>'."\n";
-	#echo '<meta name="twitter:title" content="'.$title.'"/>';
-	#echo '<meta name="twitter:description" content="'.$desc.'"/>';
-	#echo '<meta name="twitter:image" content="'.$img.'"/>';
+	echo '<meta name="twitter:title" content="'.$title.'"/>'."\n";
+	echo '<meta name="twitter:description" content="'.$desc.'"/>'."\n";
+	echo '<meta name="twitter:image" content="'.$img.'"/>'."\n";
 	
 }
 
