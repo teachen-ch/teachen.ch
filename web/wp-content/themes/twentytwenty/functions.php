@@ -96,8 +96,13 @@ function teachen_social_meta_tags() {
 	echo '<meta name="description" property="og:description" content="'.$desc.'"/>';
 	echo '<meta name="url" property="og:url" content="'.$url.'"/>';
 	echo '<meta name="image" property="og:image" content="'.$img.'"/>';
-	#echo '<link rel="alternate" type="application/json+oembed" href=""/>';
-	#echo '<link rel="alternate" type="text/xml+oembed" href=""/>';
+
+	echo '<meta name="twitter:card" content="summary_large_image"/>';
+	echo '<meta name="twitter:site" content="@teachen_ch"/>';
+	echo '<meta name="twitter:title" content="'.$title.'"/>';
+	echo '<meta name="twitter:description" content="'.$desc.'"/>';
+	echo '<meta name="twitter:image" content="'.$img.'"/>';
+	
 }
 
 function teachen_social_meta_icons() {
