@@ -26,16 +26,16 @@ RewriteRule . /index.php [L]
 <IfModule mod_expires.c>
   <IfModule mod_headers.c>
     <filesMatch "\.(ico|jpe?g|png|gif|swf)$">
-      Header append Cache-Control "public"  
+      Header append Cache-Control "public" max-age=3600  
     </filesMatch>
     <filesMatch "\.(css)$">
-      Header append Cache-Control "public"
+      Header append Cache-Control "public" max-age=3600
     </filesMatch>
     <filesMatch "\.(js)$">
-      Header append Cache-Control "public"
+      Header append Cache-Control "public" max-age=3600
   </filesMatch>
     <filesMatch "\.(html|php)$">
-      Header append Cache-Control "public"
+      Header append Cache-Control "public" max-age=3600
     </filesMatch>
   </IfModule>
 </IfModule>
