@@ -96,16 +96,16 @@ function teachen_social_meta_tags() {
 	$desc = $social['desc'];
 	$url = $social['url'];
 	$img = $social['img'];
-	echo '<meta name="title" property="og:title" content="'.$title.$desc.'"/>';
-	echo '<meta name="description" property="og:description" content="'.$desc.'"/>';
-	echo '<meta name="url" property="og:url" content="'.$url.'"/>';
-	echo '<meta name="image" property="og:image" content="'.$img.'"/>';
+	echo '<meta name="title" property="og:title" content="'.$title.$desc.'"/>'."\n";
+	echo '<meta name="description" property="og:description" content="'.$desc.'"/>'."\n";
+	echo '<meta name="url" property="og:url" content="'.$url.'"/>'."\n";
+	echo '<meta name="image" property="og:image" content="'.$img.'"/>'."\n";
 
-	echo '<meta name="twitter:card" content="summary_large_image"/>';
-	echo '<meta name="twitter:site" content="@teachen_ch"/>';
-	echo '<meta name="twitter:title" content="'.$title.'"/>';
-	echo '<meta name="twitter:description" content="'.$desc.'"/>';
-	echo '<meta name="twitter:image" content="'.$img.'"/>';
+	echo '<meta name="twitter:card" content="summary_large_image"/>'."\n";
+	echo '<meta name="twitter:site" content="@teachen_ch"/>'."\n";
+	#echo '<meta name="twitter:title" content="'.$title.'"/>';
+	#echo '<meta name="twitter:description" content="'.$desc.'"/>';
+	#echo '<meta name="twitter:image" content="'.$img.'"/>';
 	
 }
 
