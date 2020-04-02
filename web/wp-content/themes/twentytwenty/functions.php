@@ -106,6 +106,7 @@ function teachen_social_meta_tags() {
 	echo '<meta name="twitter:title" content="'.$title.'"/>'."\n";
 	echo '<meta name="twitter:description" content="'.$desc.'"/>'."\n";
 	echo '<meta name="twitter:image" content="'.$img.'"/>'."\n";
+	echo '<meta name="my:url" content="'.$_SERVER['REQUEST_URI'].'"/>'."\n";
 	
 }
 
