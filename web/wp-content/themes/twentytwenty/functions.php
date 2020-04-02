@@ -84,7 +84,7 @@ function teachen_social_meta_data() {
 	}
 
 	if (!$social['img']) {
-		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_startbild.png';
+		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_startbild.png?no_scale';
 	}
 	return $social;
 }
