@@ -81,6 +81,9 @@ function teachen_social_meta_data() {
 	if ($_SERVER['REQUEST_URI'] == "/") {
 		$social['title'] = '😀Teachen – Ideen für den kreativen Unterricht zu Hause! ';
 		$social['desc'] = 'Wir sammeln tolle Ideen für Online-Lernen und Offline-Erleben! Hast Du auch kreative Ideen zum Teilen?';
+	}
+
+	if (!$social['img']) {
 		$social['img'] = 'https://teachen-uploads.s3.amazonaws.com/uploads/2020/03/teachen_startbild.png';
 	}
 	return $social;
