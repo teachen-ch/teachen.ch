@@ -1,0 +1,3 @@
+[submodule "web/wp-content/plugins/cachify"]
+	path = web/wp-content/plugins/cachify
+	url = https://github.com/pluginkollektiv/cachify.git
