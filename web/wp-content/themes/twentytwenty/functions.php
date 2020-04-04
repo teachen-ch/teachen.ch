@@ -51,7 +51,7 @@ function teachen_current_img_url() {
 	$attachments = get_children($args);
 		if ($attachments) {
 			foreach ($attachments as $a) {
-				$img = wp_get_attachment_image_src($a->ID, 'thumbnail');
+				$img = wp_get_attachment_image_src($a->ID, 'full');
 				return $img[0];
 			}
 		}
