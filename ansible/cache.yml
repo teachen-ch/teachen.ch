@@ -1,0 +1,7 @@
+- hosts: cache
+  gather_facts: False
+
+  tasks:
+    - apt: { name: [nginx], state: present }
+  become: yes
+

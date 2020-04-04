@@ -1,0 +1,44 @@
+- hosts: wordpress
+  gather_facts: False
+
+  tasks:
+    - apt: { name: [nginx], state: present }
+
+  become: yes
+
+
+sudo apt-get update
+sudo apt-get -y install nginx php php-fpm php-gd php-xml mysql-server php-mysql git make
+
+sudo useradd -m -s /bin/bash teachen
+sudo -H -u teachen git config --global credential.helper store
+sudo -H -u git config --global user.email "stefan@teachen.ch"
+sudo -H -u git config --global user.name "Stefan N."
+sudo -H -u teachen git clone --recurse-submodules https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/Teachen /home/teachen/teachen/
+sudo ln -s /home/teachen/teachen /teachen
+
+sudo mysql -u root -p
+  CREATE DATABASE teachen;
+  CREATE USER 'teachen'@'127.0.0.1' IDENTIFIED BY 'lkjasdf09asdfasdf8234lkjs';
+  GRANT ALL PRIVILEGES ON teachen . * TO 'teachen'@'127.0.0.1';
+  FLUSH PRIVILEGES;
+
+install SSL certificates to /etc/ssl/private
+#install .env file to 
+sudo -u teachen cp /teachen/dotenv-template /teachen/.env
+sudo vi /teachen/.env
+#install latest teachen-db.sql
+sudo mysql -u root teachen
+  set names utf8mb4;
+  source /teachen/backup/teachen-db.sql
+
+vi /etc/php/7.2/fpm/pool.d/www.conf
+  # replace this line
+  listen = /var/run/php5-fpm.sock 
+  # with this line
+  listen = 127.0.0.1:9000
+
+sudo cp /teachen/ansible/nginx-cachify.conf /etc/nginx/conf.d/teachen.conf
+
+sudo service php7.2-fpm restart
+sudo service nginx restart
