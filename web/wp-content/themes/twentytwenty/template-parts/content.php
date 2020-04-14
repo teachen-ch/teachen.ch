@@ -66,7 +66,7 @@
 
 <?php
 	if (is_single() ) {
-			teachen_social_meta_icons();
+			teachen_random_teaser();
 			// teachen_tipps();
 		}
 

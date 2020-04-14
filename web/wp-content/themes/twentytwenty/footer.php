@@ -57,11 +57,13 @@
 	<script>
 		if (document.location.hostname === 'teachen.ch') {
 			var _paq = window._paq || [];
-			/* local analytics only. F$ck Google! */
+			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+			_paq.push(["setCookieDomain", "*.teachen.ch"]);
+			_paq.push(["setDomains", ["*.teachen.ch"]]);
 			_paq.push(['trackPageView']);
 			_paq.push(['enableLinkTracking']);
 			(function() {
-				var u="//stats.teachen.ch/";
+				var u="https://stats.teachen.ch/";
 				_paq.push(['setTrackerUrl', u+'matomo.php']);
 				_paq.push(['setSiteId', '1']);
 				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];

@@ -134,8 +134,8 @@ function teachen_social_meta_icons() {
 function teachen_tipps() {
 	ob_start();
 	?>
-  <div class="entry-content" style="text-align: center;">
-  <p>Möchtest Du <a href="/teachen-tipps">tägliche Tipps</a> zum Unterricht zu Hause erhalten?</p>
+  <div class="entry-content has-text-align-center">
+	<p>Täglich frische Ideen in Deiner Email-Box? Melde Dich für <a href="/teachen-tipps">Teachen-Tipps</a> an:</p> 
 	<form action="https://newsletter.teachen.ch/subscribe" method="POST" accept-charset="utf-8">
 		<input type="email" name="email" placeholder="name@email.ch" id="email" style="display: inline; width: auto;margin-bottom:1rem;"> &nbsp;
 		<input type="hidden" name="list" value="Is14hZa0SseIVDNFNGP1oQ">
@@ -149,6 +149,37 @@ function teachen_tipps() {
 }
 add_shortcode('teachen-tipps','teachen_tipps');; 
 
+function teachen_random_teaser() {
+	$random = random_int(1, 5);
+	if ($random <= 3) {
+		// print('<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true">');
+		print('<div class="entry-content " style="margin-top: 4rem;">');
+		
+		if ($random === 1) {
+			$social = teachen_social_meta_data();
+			$url = htmlentities(urlencode($social['url'])); 
+			$desc = htmlentities(urlencode($social['desc'])); 
+			$title = htmlentities(urlencode($social['title']));	
+			?>
+			<p>Teile teachen.ch mit Freunden! Mehr kreative Leute = mehr kreative Ideen 😀</p>
+			<div class="has-text-align-center wp-block-button">
+				<a href="#" class="wp-block-button__link" onClick="socialPop(&quot;https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>&quot;)">Teilen auf Facebook</a> &nbsp; 
+				<a href="#" class="wp-block-button__link" onClick="socialPop(&quot;http://twitter.com/intent/tweet?via=teachen_ch&amp;text=<?php echo $title."+".$desc ?>&amp;url=<?php echo $url; ?>&quot;)"">auf Twitter</a> &nbsp; 
+				<a href="#" class="wp-block-button__link" onClick="socialPop(&quot;https://www.linkedin.com/sharing/share-offsite/?mini=true&amp;url=<?php echo $url; ?>&amp;title=<?php echo $title; ?>&amp;summary=<?php echo $desc?>&quot;)"">auf LinkedIn</a> teilen
+			</div>
+			<?php
+		}
+		if ($random === 2) {
+			print(teachen_tipps());
+		}
+		if ($random === 3 ) {
+			print("<p>Hast Du auch Ideen, was Kinder und Jugendliche zu Hause lernen und erleben können?</p>");
+			print('<div class="has-text-align-center" style="margin-top: 0rem"><a class="wp-block-button__link" href="/ideen-beitragen/">🚀 Eine Idee beitragen</a></div>');
+		}
+
+		print('</div>');
+	}
+}
 
 function wpb_rand_posts() { 
 	$string = "";
