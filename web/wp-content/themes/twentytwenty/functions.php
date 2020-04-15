@@ -174,7 +174,7 @@ function teachen_random_teaser() {
 		}
 		if ($random === 3 ) {
 			print("<p>Hast Du auch Ideen, was Kinder und Jugendliche zu Hause lernen und erleben können?</p>");
-			print('<div class="has-text-align-center" style="margin-top: 0rem"><a class="wp-block-button__link" href="/ideen-beitragen/">🚀 Eine Idee beitragen</a></div>');
+			print('<div class="has-text-align-center wp-block-button" style="margin-top: 0rem"><a class="wp-block-button__link" href="/ideen-beitragen/">🚀 Eine Idee beitragen</a></div>');
 		}
 
 		print('</div>');
