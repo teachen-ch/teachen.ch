@@ -151,21 +151,21 @@ add_shortcode('teachen-tipps','teachen_tipps');;
 
 function teachen_random_teaser() {
 	$random = random_int(1, 5);
-	if ($random <= 3) {
+	if ($random <= 5) {
 		// print('<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true">');
 		print('<div class="entry-content " style="margin-top: 4rem;">');
 		
-		if ($random === 1) {
+		if ($random < 3) {
 			$social = teachen_social_meta_data();
 			$url = htmlentities(urlencode($social['url'])); 
 			$desc = htmlentities(urlencode($social['desc'])); 
 			$title = htmlentities(urlencode($social['title']));	
 			?>
-			<p>Teile teachen.ch mit Freunden! Mehr kreative Leute = mehr kreative Ideen 😀</p>
+			<!--p>Teile diese Idee mit Freunden! Mehr kreative Leute = mehr kreative Ideen 😀</p-->
 			<div class="has-text-align-center wp-block-button">
-				<a href="#" class="wp-block-button__link" onClick="socialPop(&quot;https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>&quot;)">Teilen auf Facebook</a> &nbsp; 
-				<a href="#" class="wp-block-button__link" onClick="socialPop(&quot;http://twitter.com/intent/tweet?via=teachen_ch&amp;text=<?php echo $title."+".$desc ?>&amp;url=<?php echo $url; ?>&quot;)"">auf Twitter</a> &nbsp; 
-				<a href="#" class="wp-block-button__link" onClick="socialPop(&quot;https://www.linkedin.com/sharing/share-offsite/?mini=true&amp;url=<?php echo $url; ?>&amp;title=<?php echo $title; ?>&amp;summary=<?php echo $desc?>&quot;)"">auf LinkedIn</a> teilen
+				<a href="#" class="wp-block-button__link" onClick="socialPop(&quot;https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>&quot;)">🙌 Diese kreative Idee auf Facebook teilen</a> &nbsp; 
+				<a href="#" onClick="socialPop(&quot;http://twitter.com/intent/tweet?via=teachen_ch&amp;text=<?php echo $title."+".$desc ?>&amp;url=<?php echo $url; ?>&quot;)"">auf Twitter</a> &nbsp; 
+				<a href="#" onClick="socialPop(&quot;https://www.linkedin.com/sharing/share-offsite/?mini=true&amp;url=<?php echo $url; ?>&amp;title=<?php echo $title; ?>&amp;summary=<?php echo $desc?>&quot;)"">auf LinkedIn</a> teilen
 			</div>
 			<?php
 		}
