@@ -169,10 +169,10 @@ function teachen_random_teaser() {
 			</div>
 			<?php
 		}
-		if ($random === 2) {
+		if ($random === 4) {
 			print(teachen_tipps());
 		}
-		if ($random === 3 ) {
+		if ($random === 5 ) {
 			print("<p>Hast Du auch Ideen, was Kinder und Jugendliche zu Hause lernen und erleben können?</p>");
 			print('<div class="has-text-align-center wp-block-button" style="margin-top: 0rem"><a class="wp-block-button__link" href="/ideen-beitragen/">🚀 Eine Idee beitragen</a></div>');
 		}
