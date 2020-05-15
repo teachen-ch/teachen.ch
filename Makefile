@@ -5,4 +5,4 @@ localdump:
 pull:
 	git pull
 dump:
-	mysqldump -u $$DB_USER $$DB_NAME -p$$DB_PASSWORD -h $$DB_HOST --set-gtid-purged=OFF --column-statistics=0 --default-character-set=utf8mb4 -r backup/teachen-db.sql
+	mysqldump -u $$DB_USER $$DB_NAME -p$$DB_PASSWORD -h $$DB_HOST --set-gtid-purged=OFF --default-character-set=utf8mb4 -r backup/teachen-db.sql
