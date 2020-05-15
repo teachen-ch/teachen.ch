@@ -135,7 +135,7 @@ function teachen_tipps() {
 	ob_start();
 	?>
   <div class="entry-content has-text-align-center">
-	<p>Täglich frische Ideen in Deiner Email-Box? Melde Dich für <a href="/teachen-tipps">Teachen-Tipps</a> an:</p> 
+	<p>Regelmässig frische Ideen in Deiner Email-Box? Melde Dich für <a href="/teachen-tipps">Teachen-Tipps</a> an:</p> 
 	<form action="https://newsletter.teachen.ch/subscribe" method="POST" accept-charset="utf-8">
 		<input type="email" name="email" placeholder="name@email.ch" id="email" style="display: inline; width: auto;margin-bottom:1rem;"> &nbsp;
 		<input type="hidden" name="list" value="Is14hZa0SseIVDNFNGP1oQ">
