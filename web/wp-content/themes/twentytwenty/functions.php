@@ -181,6 +181,17 @@ function teachen_random_teaser() {
 	}
 }
 
+if ( ! wp_next_scheduled( 'my_cachify_flush_cache' ) ) {
+	wp_schedule_event( time(), 'daily', 'my_cachify_flush_cache' );
+}
+function my_cachify_flush_cache() {
+	if ( class_exists( 'Cachify' ) ) {
+		Cachify::flush_total_cache( true );
+	}
+}
+add_action( 'my_cachify_flush_cache', 'my_cachify_flush_cache' );
+
+
 function wpb_rand_posts() { 
 	$string = "";
 	$args = array(
