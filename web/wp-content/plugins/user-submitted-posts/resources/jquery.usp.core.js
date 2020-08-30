@@ -117,7 +117,12 @@ jQuery(document).ready(function($) {
 		usp_cookie('#user-submitted-email',    'text');
 		usp_cookie('#user-submitted-url',      'text');
 		usp_cookie('#user-submitted-title',    'text');
-		usp_cookie('#user-submitted-tags',     'text');
+		
+		if (window.usp_existing_tags == 1) {
+			usp_cookie('#user-submitted-tags', 'select');
+		} else {
+			usp_cookie('#user-submitted-tags', 'text');
+		}
 		usp_cookie('#user-submitted-custom',   'text');
 		usp_cookie('#user-submitted-captcha',  'text');
 		usp_cookie('#user-submitted-category', 'select');
@@ -125,8 +130,9 @@ jQuery(document).ready(function($) {
 		usp_cookie('#user-submitted-checkbox', 'checkbox');
 	}
 	function usp_forget() {
-		var re = /[?&]success=/;
-		if (re.test(location.href)) {
+		
+		if (window.location.href.indexOf('success=') > -1) {
+			
 			Cookies.remove('user-submitted-name');
 			Cookies.remove('user-submitted-email');
 			Cookies.remove('user-submitted-url');
@@ -192,6 +198,7 @@ jQuery(document).ready(function($) {
 	
 	// chosen
 	var disable_chosen = (typeof window.usp_disable_chosen !== 'undefined') ? window.usp_disable_chosen : false;
+	
 	if (window.usp_multiple_cats == 1 && !disable_chosen) $('#user-submitted-category').chosen();
 	if (window.usp_existing_tags == 1 && !disable_chosen) $('#user-submitted-tags').chosen();
 	

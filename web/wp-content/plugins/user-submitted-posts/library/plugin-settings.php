@@ -209,6 +209,31 @@ function usp_email_display() {
 }
 
 
+
+function usp_name_display() {
+	
+	$name_display = array(
+		
+		'before' => array(
+			'value' => 'before',
+			'label' => esc_html__('Auto-display before post content', 'usp')
+		),
+		'after' => array(
+			'value' => 'after',
+			'label' => esc_html__('Auto-display after post content', 'usp')
+		),
+		'disable' => array(
+			'value' => 'disable',
+			'label' => esc_html__('Do not auto-display submitted name', 'usp')
+		),
+	);
+	
+	return $name_display;
+	
+}
+
+
+
 function usp_url_display() {
 	
 	$url_display = array(
@@ -687,10 +712,11 @@ function usp_auto_display_options($item) {
 	
 	global $usp_options;
 	
-	$usp_image_display     = usp_image_display();
-	$usp_email_display     = usp_email_display();
-	$usp_url_display       = usp_url_display();
-	$usp_custom_display    = usp_custom_display();
+	$usp_image_display  = usp_image_display();
+	$usp_email_display  = usp_email_display();
+	$usp_name_display   = usp_name_display();
+	$usp_url_display    = usp_url_display();
+	$usp_custom_display = usp_custom_display();
 	
 	if ($item === 'images') {
 		
@@ -701,6 +727,11 @@ function usp_auto_display_options($item) {
 		
 		$array = $usp_email_display;
 		$key = 'auto_display_email';
+		
+	} elseif ($item === 'name') {
+		
+		$array = $usp_name_display;
+		$key = 'auto_display_name';
 		
 	} elseif ($item === 'url') {
 		
@@ -827,9 +858,11 @@ function usp_add_defaults() {
 			'email_alert_message'  => '',
 			'auto_display_images'  => 'disable',
 			'auto_display_email'   => 'disable', 
+			'auto_display_name'    => 'disable', 
 			'auto_display_url'     => 'disable', 
 			'auto_image_markup'    => '<a href="%%full%%"><img src="%%thumb%%" width="%%width%%" height="%%height%%" alt="%%title%%" style="display:inline-block;" /></a> ',
 			'auto_email_markup'    => '<p><a href="mailto:%%email%%">'. esc_html__('Email', 'usp') .'</a></p>',
+			'auto_name_markup'     => '<p>%%author%%</p>',
 			'auto_url_markup'      => '<p><a href="%%url%%">'. esc_html__('URL', 'usp') .'</a></p>',
 			'logged_in_users'      => 0,
 			'disable_author'       => 0,
@@ -1507,14 +1540,14 @@ function usp_render_form() {
 										<td><input type="text" size="45" name="usp_options[email_alert_subject]" value="<?php if (isset($usp_options['email_alert_subject'])) echo esc_attr($usp_options['email_alert_subject']); ?>" />
 										<div class="mm-item-caption"><?php esc_html_e('Subject line for email alerts. Leave blank to use the default subject line. Note: you can use the following variables: ', 'usp'); ?>
 										<code>%%post_title%%</code>, <code>%%post_content%%</code>, <code>%%post_author%%</code>, <code>%%blog_name%%</code>, <code>%%blog_url%%</code>, <code>%%post_url%%</code>, <code>%%admin_url%%</code>, 
-										<code>%%edit_link%%</code>, <code>%%user_email%%</code>, <code>%%custom_field%%</code></div></td>
+										<code>%%edit_link%%</code>, <code>%%user_email%%</code>, <code>%%user_url%%</code>, <code>%%custom_field%%</code></div></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[email_alert_message]"><?php esc_html_e('Email Alert Message', 'usp'); ?></label></th>
 										<td><textarea class="textarea" rows="3" cols="50" name="usp_options[email_alert_message]"><?php if (isset($usp_options['email_alert_message'])) echo esc_textarea($usp_options['email_alert_message']); ?></textarea> 
 										<div class="mm-item-caption"><?php esc_html_e('Message for email alerts. Leave blank to use the default message. Note: you can use the following variables: ', 'usp'); ?>
 										<code>%%post_title%%</code>, <code>%%post_content%%</code>, <code>%%post_author%%</code>, <code>%%blog_name%%</code>, <code>%%blog_url%%</code>, <code>%%post_url%%</code>, <code>%%admin_url%%</code>, 
-										<code>%%edit_link%%</code>, <code>%%user_email%%</code>, <code>%%custom_field%%</code></div></td>
+										<code>%%edit_link%%</code>, <code>%%user_email%%</code>, <code>%%user_url%%</code>, <code>%%custom_field%%</code></div></td>
 									</tr>
 								</table>
 							</div>
@@ -1614,6 +1647,19 @@ function usp_render_form() {
 										<td><textarea class="textarea" rows="3" cols="50" name="usp_options[auto_email_markup]"><?php if (isset($usp_options['auto_email_markup'])) echo esc_textarea($usp_options['auto_email_markup']); ?></textarea> 
 										<div class="mm-item-caption"><?php esc_html_e('Markup to use for the submitted email address (when auto-display is enabled). Can use', 'usp'); ?> 
 										<code>%%email%%</code>, <code>%%author%%</code>, <?php esc_html_e('and', 'usp'); ?> <code>%%title%%</code>.</div></td>
+									</tr>
+									<tr>
+										<th scope="row"><label class="description" for="usp_options[auto_display_name]"><?php esc_html_e('Auto-Display Name', 'usp'); ?></label></th>
+										<td>
+											<span class="mm-item-desc"><?php esc_html_e('Automatically display user-submitted author/name:', 'usp'); ?></span>
+											<?php echo usp_auto_display_options('name'); ?>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label class="description" for="usp_options[auto_name_markup]"><?php esc_html_e('Name Markup', 'usp'); ?></label></th>
+										<td><textarea class="textarea" rows="3" cols="50" name="usp_options[auto_name_markup]"><?php if (isset($usp_options['auto_name_markup'])) echo esc_textarea($usp_options['auto_name_markup']); ?></textarea> 
+										<div class="mm-item-caption"><?php esc_html_e('Markup to use for the submitted author/name (when auto-display is enabled). Can use', 'usp'); ?> 
+										<code>%%author%%</code> to display the name.</div></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[auto_display_url]"><?php esc_html_e('Auto-Display URL', 'usp'); ?></label></th>

@@ -1,4 +1,5 @@
 <?php
+define('FS_METHOD','direct');
 
 function getDotEnv() {
   # .env file needs to reside along wp-config.php

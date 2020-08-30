@@ -14,7 +14,7 @@ function usp_login_form() {
 	
 	if (isset($current_user)) {
 		$user = $current_user->user_login;
-		$id =  $current_user->ID;
+		$id   = $current_user->ID;
 	}
 	
 	$reset = false;
@@ -30,6 +30,8 @@ function usp_login_form() {
 	?>
 	
 	<style>
+		<?php if (!get_option('users_can_register')) : ?>#usp-login li:nth-child(2) { display: none; }<?php endif; ?>
+		
 		.usp-login #tab2_login, .usp-login #tab3_login { display: none; }
 		
 		.usp-login { width: 370px; overflow: hidden; margin: 50px auto; padding: 10px; color: #333; font-size: 12px; line-height: 16px; text-shadow: 0 0 1px #fff; }
@@ -83,46 +85,46 @@ function usp_login_form() {
 	</script>
 	<div id="usp-login" class="usp-login">
 		<ul class="tabs_login">
-			<li class="active_tab"><a href="#tab1_login"><?php esc_html_e('Login', 'usp-pro'); ?></a></li>
-			<li><a href="#tab2_login"><?php esc_html_e('Register', 'usp-pro'); ?></a></li>
-			<li><a href="#tab3_login"><?php esc_html_e('Forgot?', 'usp-pro'); ?></a></li>
+			<li class="active_tab"><a href="#tab1_login"><?php esc_html_e('Login', 'usp'); ?></a></li>
+			<li><a href="#tab2_login"><?php esc_html_e('Register', 'usp'); ?></a></li>
+			<li><a href="#tab3_login"><?php esc_html_e('Forgot?', 'usp'); ?></a></li>
 		</ul>
 		<div class="tab_container">
 			<div id="tab1_login" class="tab_content">
 				
 				<?php if ($register) : ?>
 				
-				<h3><?php esc_html_e('Success!', 'usp-pro'); ?></h3>
-				<p><?php esc_html_e('Check your email for the password.', 'usp-pro'); ?></p>
+				<h3><?php esc_html_e('Success!', 'usp'); ?></h3>
+				<p><?php esc_html_e('Check your email for the password.', 'usp'); ?></p>
 				
 				<?php elseif ($reset) : ?>
 				
-				<h3><?php esc_html_e('Success!', 'usp-pro'); ?></h3>
-				<p><?php esc_html_e('Check your email to reset your password.', 'usp-pro'); ?></p>
+				<h3><?php esc_html_e('Success!', 'usp'); ?></h3>
+				<p><?php esc_html_e('Check your email to reset your password.', 'usp'); ?></p>
 				
 				<?php else : ?>
 				
-				<h3><?php esc_html_e('Have an account?', 'usp-pro'); ?></h3>
-				<p><?php esc_html_e('Log in or sign up! It&rsquo;s fast &amp; free!', 'usp-pro'); ?></p>
+				<h3><?php esc_html_e('Have an account?', 'usp'); ?></h3>
+				<p><?php esc_html_e('Log in or sign up! It&rsquo;s fast &amp; free!', 'usp'); ?></p>
 				
 				<?php endif; ?>
 				
 				<form method="post" action="<?php echo wp_login_url(); ?>">
 					<div class="username">
-						<label for="log"><?php esc_html_e('Username', 'usp-pro'); ?>: </label>
+						<label for="log"><?php esc_html_e('Username', 'usp'); ?>: </label>
 						<input name="log" id="log" type="text" value="">
 					</div>
 					<div class="password">
-						<label for="pwd"><?php esc_html_e('Password', 'usp-pro'); ?>: </label>
+						<label for="pwd"><?php esc_html_e('Password', 'usp'); ?>: </label>
 						<input name="pwd" id="pwd" type="password" value="" autocomplete="off">
 					</div>
 					<div class="login_fields">
 						<div class="rememberme">
 							<label for="rememberme">
-								<input name="rememberme" id="rememberme" type="checkbox" value="forever" checked="checked"> <?php esc_html_e('Remember me', 'usp-pro'); ?>
+								<input name="rememberme" id="rememberme" type="checkbox" value="forever" checked="checked"> <?php esc_html_e('Remember me', 'usp'); ?>
 							</label>
 						</div>
-						<input type="submit" name="user-submit" value="<?php esc_attr_e('Login', 'usp-pro'); ?>" class="user-submit">
+						<input type="submit" name="user-submit" value="<?php esc_attr_e('Login', 'usp'); ?>" class="user-submit">
 						<input type="hidden" name="redirect_to" value="<?php echo $redirect_login; ?>">
 						<input type="hidden" name="user-cookie" value="1">
 						<?php do_action('login_form'); ?>
@@ -130,19 +132,19 @@ function usp_login_form() {
 				</form>
 			</div>
 			<div id="tab2_login" class="tab_content">
-				<h3><?php esc_html_e('Register for this site!', 'usp-pro'); ?></h3>
-				<p><?php esc_html_e('Sign up now for the good stuff.', 'usp-pro'); ?></p>
+				<h3><?php esc_html_e('Register for this site!', 'usp'); ?></h3>
+				<p><?php esc_html_e('Sign up now for the good stuff.', 'usp'); ?></p>
 				<form method="post" action="<?php echo wp_registration_url(); ?>">
 					<div class="username">
-						<label for="user_login_register"><?php esc_html_e('Username', 'usp-pro'); ?>: </label>
+						<label for="user_login_register"><?php esc_html_e('Username', 'usp'); ?>: </label>
 						<input name="user_login" id="user_login_register" type="text" value="">
 					</div>
 					<div class="password">
-						<label for="user_email"><?php esc_html_e('Your Email', 'usp-pro'); ?>: </label>
+						<label for="user_email"><?php esc_html_e('Your Email', 'usp'); ?>: </label>
 						<input name="user_email" id="user_email" type="text" value="">
 					</div>
 					<div class="login_fields">
-						<input type="submit" name="user-submit" value="<?php esc_attr_e('Sign up!', 'usp-pro'); ?>" class="user-submit">
+						<input type="submit" name="user-submit" value="<?php esc_attr_e('Sign up!', 'usp'); ?>" class="user-submit">
 						<input type="hidden" name="redirect_to" value="<?php echo $redirect_register; ?>">
 						<input type="hidden" name="user-cookie" value="1">
 						<?php do_action('register_form'); ?>
@@ -150,15 +152,15 @@ function usp_login_form() {
 				</form>
 			</div>
 			<div id="tab3_login" class="tab_content">
-				<h3><?php esc_html_e('Lose something?', 'usp-pro'); ?></h3>
-				<p><?php esc_html_e('Enter your username or email to reset your password.', 'usp-pro'); ?></p>
+				<h3><?php esc_html_e('Lose something?', 'usp'); ?></h3>
+				<p><?php esc_html_e('Enter your username or email to reset your password.', 'usp'); ?></p>
 				<form method="post" action="<?php echo wp_lostpassword_url(); ?>">
 					<div class="username">
-						<label for="user_login_password"><?php esc_html_e('Username or Email', 'usp-pro'); ?>: </label>
+						<label for="user_login_password"><?php esc_html_e('Username or Email', 'usp'); ?>: </label>
 						<input name="user_login" id="user_login_password" type="text" value="">
 					</div>
 					<div class="login_fields">
-						<input type="submit" name="user-submit" value="<?php esc_attr_e('Reset my password', 'usp-pro'); ?>" class="user-submit">
+						<input type="submit" name="user-submit" value="<?php esc_attr_e('Reset my password', 'usp'); ?>" class="user-submit">
 						<input type="hidden" name="redirect_to" value="<?php echo $redirect_reset; ?>">
 						<input type="hidden" name="user-cookie" value="1">
 						<?php do_action('login_form', 'resetpass'); ?>
@@ -172,14 +174,14 @@ function usp_login_form() {
 	
 	<div id="usp-login" class="usp-login">
 		<div class="user-logged-in">
-			<h3><?php esc_html_e('Welcome, ', 'usp-pro'); echo $user; ?></h3>
+			<h3><?php esc_html_e('Welcome, ', 'usp'); echo $user; ?></h3>
 			<div class="user-icon"><?php echo get_avatar($id, 60); ?></div>
 			<div class="user-info">
-				<p><?php esc_html_e('Congratulations, you&rsquo;re logged in.', 'usp-pro'); ?></p>
+				<p><?php esc_html_e('Congratulations, you&rsquo;re logged in.', 'usp'); ?></p>
 				<p>
-					<a href="<?php echo wp_logout_url(get_permalink()); ?>"><?php esc_html_e('Log out', 'usp-pro'); ?></a><span class="usp-sep"> | </span>
-					<?php if (current_user_can('manage_options')) echo '<a href="'. admin_url() .'">'. esc_html__('Admin', 'usp-pro') .'</a>'; 
-					else echo '<a href="'. admin_url() .'profile.php">'. esc_html__('Profile', 'usp-pro') .'</a>'; ?>
+					<a href="<?php echo wp_logout_url(get_permalink()); ?>"><?php esc_html_e('Log out', 'usp'); ?></a><span class="usp-sep"> | </span>
+					<?php if (current_user_can('manage_options')) echo '<a href="'. admin_url() .'">'. esc_html__('Admin', 'usp') .'</a>'; 
+					else echo '<a href="'. admin_url() .'profile.php">'. esc_html__('Profile', 'usp') .'</a>'; ?>
 				</p>
 			</div>
 		</div>

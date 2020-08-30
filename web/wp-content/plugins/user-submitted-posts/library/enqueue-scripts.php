@@ -6,12 +6,13 @@ function usp_enqueueResources() {
 	
 	global $usp_options;
 	
-	$min_images  = isset($usp_options['min-images'])       ? $usp_options['min-images']       : null;
-	$include_js  = isset($usp_options['usp_include_js'])   ? $usp_options['usp_include_js']   : null;
-	$form_type   = isset($usp_options['usp_form_version']) ? $usp_options['usp_form_version'] : null;
-	$display_url = isset($usp_options['usp_display_url'])  ? $usp_options['usp_display_url']  : null;
-	$recaptcha   = isset($usp_options['usp_recaptcha'])    ? $usp_options['usp_recaptcha']    : null;
-	$multi_cats  = isset($usp_options['multiple-cats'])    ? $usp_options['multiple-cats']    : null;
+	$min_images    = isset($usp_options['min-images'])        ? $usp_options['min-images']        : null;
+	$include_js    = isset($usp_options['usp_include_js'])    ? $usp_options['usp_include_js']    : null;
+	$form_type     = isset($usp_options['usp_form_version'])  ? $usp_options['usp_form_version']  : null;
+	$display_url   = isset($usp_options['usp_display_url'])   ? $usp_options['usp_display_url']   : null;
+	$recaptcha     = isset($usp_options['usp_recaptcha'])     ? $usp_options['usp_recaptcha']     : null;
+	$multi_cats    = isset($usp_options['multiple-cats'])     ? $usp_options['multiple-cats']     : null;
+	$existing_tags = isset($usp_options['usp_existing_tags']) ? $usp_options['usp_existing_tags'] : null;
 	
 	$protocol = is_ssl() ? 'https://' : 'http://';
 	
@@ -78,7 +79,7 @@ function usp_enqueueResources() {
 			
 		}
 		
-		if ($multi_cats) {
+		if ($multi_cats || $existing_tags) {
 			
 			wp_enqueue_script('usp_chosen', $plugin_url .'/resources/jquery.chosen.js', array('jquery'), USP_VERSION);
 			

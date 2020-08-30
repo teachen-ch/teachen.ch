@@ -166,6 +166,42 @@ add_filter('the_content', 'usp_auto_display_email');
 
 
 
+function usp_auto_display_name($content) {
+	
+	global $usp_options;
+	
+	$enable = isset($usp_options['auto_display_name']) ? $usp_options['auto_display_name'] : 'disable';
+	
+	if (usp_is_public_submission() && ($enable === 'before' || $enable === 'after')) {
+		
+		$markup = isset($usp_options['auto_name_markup']) ? $usp_options['auto_name_markup'] : '';
+		
+		$author = apply_filters('usp_author_custom_field', get_post_meta(get_the_ID(), 'user_submit_name', true));
+		
+		if (!empty($author)) {
+			
+			$patterns = array();
+			$patterns[0] = "/%%author%%/";
+			
+			$replacements = array();
+			$replacements[0] = $author;
+			
+			$markup = preg_replace($patterns, $replacements, $markup);
+			
+			if     ($enable === 'before') $content = $markup . $content;
+			elseif ($enable === 'after')  $content = $content . $markup;
+			
+		}
+		
+	}
+	
+	return $content;
+	
+}
+add_filter('the_content', 'usp_auto_display_name');
+
+
+
 function usp_auto_display_url($content) {
 	
 	global $usp_options;

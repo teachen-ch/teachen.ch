@@ -9,9 +9,9 @@
 	Donate link: https://monzillamedia.com/donate.html
 	Contributors: specialk
 	Requires at least: 4.1
-	Tested up to: 5.4
-	Stable tag: 20200320
-	Version: 20200320
+	Tested up to: 5.5
+	Stable tag: 20200817
+	Version: 20200817
 	Requires PHP: 5.6.20
 	Text Domain: usp
 	Domain Path: /languages
@@ -40,7 +40,7 @@ if (!defined('ABSPATH')) die();
 
 
 define('USP_WP_VERSION', '4.1');
-define('USP_VERSION', '20200320');
+define('USP_VERSION', '20200817');
 define('USP_PLUGIN', esc_html__('User Submitted Posts', 'usp'));
 define('USP_PATH', plugin_basename(__FILE__));
 
@@ -95,6 +95,18 @@ function usp_require_wp_version() {
 	
 }
 add_action('admin_init', 'usp_require_wp_version');
+
+
+
+if (!current_theme_supports('post-thumbnails')) {
+	
+	if (isset($usp_options['usp_featured_images']) && $usp_options['usp_featured_images']) {
+		
+		add_theme_support('post-thumbnails');
+		
+	}
+	
+}
 
 
 
@@ -448,50 +460,6 @@ function usp_sanitize_content($content) {
 	return $content;
 	
 }
-
-
-
-if (!current_theme_supports('post-thumbnails')) {
-	
-	add_theme_support('post-thumbnails');
-	
-}
-function usp_display_featured_image() {
-	
-	global $post, $usp_options;
-	
-	if (is_object($post) && usp_is_public_submission($post->ID)) {
-		
-		if ((!has_post_thumbnail()) && ($usp_options['usp_featured_images'] == 1)) {
-			
-			$args = array(
-				'post_type'      => 'attachment', 
-				'post_mime_type' =>'image', 
-				'posts_per_page' => 0, 
-				'post_parent'    => $post->ID, 
-				'order'          =>'ASC'
-			);
-			
-			$attachments = get_posts($args);
-			
-			if ($attachments) {
-				
-				foreach ($attachments as $attachment) {
-					
-					set_post_thumbnail($post->ID, $attachment->ID);
-					
-					break;
-					
-				}
-				
-			}
-			
-		}
-		
-	}
-	
-}
-add_action('wp', 'usp_display_featured_image');
 
 
 
@@ -852,6 +820,7 @@ function usp_prepare_post($title, $content, $author_id, $author, $ip) {
 	$postData['post_content'] = $content;
 	$postData['post_author']  = $author_id;
 	$postData['post_status']  = apply_filters('usp_post_status', 'pending');
+	$postData['post_name']    = sanitize_title($title);
 	
 	$postType = isset($usp_options['usp_post_type']) ? $usp_options['usp_post_type'] : 'post';
 	
@@ -982,7 +951,7 @@ function usp_unique_filename($file) {
 	
 	$append = '-'. usp_random_string();
 	
-	$file = $dirname .'/'. $filename . $append . $extension;
+	$file = $dirname .'/'. $filename . $append .'.'. $extension;
 	
 	$file = apply_filters('usp_unique_filename', $file, $dirname, $basename, $extension, $filename);
 	
@@ -993,6 +962,8 @@ function usp_unique_filename($file) {
 
 
 function usp_attach_images($post_id, $newPost, $files, $file_count) {
+	
+	global $usp_options;
 	
 	do_action('usp_files_before', $files);
 	
@@ -1084,6 +1055,12 @@ function usp_attach_images($post_id, $newPost, $files, $file_count) {
 			
 			$attach_id = wp_insert_attachment($attachment, $file, $post_id);
 			
+			if (isset($usp_options['usp_featured_images']) && $usp_options['usp_featured_images']) {
+				
+				if (!has_post_thumbnail($post_id)) set_post_thumbnail($post_id, $attach_id);
+				
+			}
+			
 			$attach_data = wp_generate_attachment_metadata($attach_id, $file);
 			
 			wp_update_attachment_metadata($attach_id, $attach_data);
@@ -1133,6 +1110,9 @@ function usp_createPublicSubmission($title, $files, $ip, $author, $url, $email, 
 	$file_data          = usp_check_images($files, $newPost);
 	$file_count         = $file_data['file_count'];
 	$newPost['error']   = array_unique(array_merge($file_data['error'], $newPost['error']));
+	
+	$tags     = is_array($tags)     ? array_filter($tags)     : $tags;
+	$category = is_array($category) ? array_filter($category) : $category;
 	
 	if (isset($usp_options['usp_title'])    && ($usp_options['usp_title']    == 'show') && empty($title))    $newPost['error'][] = 'required-title';
 	if (isset($usp_options['usp_url'])      && ($usp_options['usp_url']      == 'show') && empty($url))      $newPost['error'][] = 'required-url';
@@ -1188,7 +1168,7 @@ function usp_createPublicSubmission($title, $files, $ip, $author, $url, $email, 
 	
 	$post_id = isset($newPost['id']) ? $newPost['id'] : null;
 	
-	if ($post_id) {
+	if ($post_id && !is_wp_error($post_id)) {
 		
 		$post = get_post($post_id);
 		
@@ -1218,7 +1198,7 @@ function usp_createPublicSubmission($title, $files, $ip, $author, $url, $email, 
 			
 			if (!empty($ip) && !$usp_options['disable_ip_tracking']) update_post_meta($post_id, 'user_submit_ip', $ip); 
 			
-			usp_send_mail_alert($post_id, $title, $content, $author, $email, $custom);
+			usp_send_mail_alert($post_id, $title, $content, $author, $email, $url, $custom);
 			
 		}
 		
@@ -1316,23 +1296,25 @@ function usp_validateEmail($email) {
 	
 }
 
-function usp_send_mail_alert($post_id, $title, $content, $author, $email, $custom) {
+function usp_send_mail_alert($post_id, $title, $content, $author, $email, $url, $custom) {
 	
 	global $usp_options;
 	
 	if (isset($usp_options['usp_email_alerts']) && $usp_options['usp_email_alerts']) {
 		
-		$blog_url     = get_bloginfo('url');              // %%blog_url%%
-		$blog_name    = get_bloginfo('name');             // %%blog_name%%
-		$post_url     = get_permalink($post_id);          // %%post_url%%
-		$admin_url    = admin_url();                      // %%admin_url%%
-		$post_title   = $title;                           // %%post_title%%
-		$post_content = $content;                         // %%post_content%%
-		$post_author  = $author;                          // %%post_author%%
-		$user_email   = $email;                           // %%user_email%%
-		$edit_link    = get_edit_post_link($post_id, ''); // %%edit_link%%
+		$blog_url     = get_bloginfo('url');        // %%blog_url%%
+		$blog_name    = get_bloginfo('name');       // %%blog_name%%
+		$post_url     = get_permalink($post_id);    // %%post_url%%
+		$admin_url    = admin_url();                // %%admin_url%%
+		$post_title   = $title;                     // %%post_title%%
+		$post_content = $content;                   // %%post_content%%
+		$post_author  = $author;                    // %%post_author%%
+		$user_email   = $email;                     // %%user_email%%
+		$user_url     = $url;                       // %%user_url%%
+		$edit_link    = admin_url('post.php?post='. $post_id .'&action=edit'); // %%edit_link%%
 		
 		$patterns = array();
+		
 		$patterns[0]  = "/%%blog_url%%/";
 		$patterns[1]  = "/%%blog_name%%/";
 		$patterns[2]  = "/%%post_url%%/";
@@ -1341,10 +1323,12 @@ function usp_send_mail_alert($post_id, $title, $content, $author, $email, $custo
 		$patterns[5]  = "/%%post_content%%/";
 		$patterns[6]  = "/%%post_author%%/";
 		$patterns[7]  = "/%%user_email%%/";
-		$patterns[8]  = "/%%edit_link%%/";
-		$patterns[9]  = "/%%custom_field%%/";
+		$patterns[8]  = "/%%user_url%%/";
+		$patterns[9]  = "/%%edit_link%%/";
+		$patterns[10] = "/%%custom_field%%/";
 		
 		$replacements = array();
+		
 		$replacements[0]  = $blog_url;
 		$replacements[1]  = $blog_name;
 		$replacements[2]  = $post_url;
@@ -1353,8 +1337,9 @@ function usp_send_mail_alert($post_id, $title, $content, $author, $email, $custo
 		$replacements[5]  = $post_content;
 		$replacements[6]  = $post_author;
 		$replacements[7]  = $user_email;
-		$replacements[8]  = $edit_link;
-		$replacements[9]  = $custom;
+		$replacements[8]  = $user_url;
+		$replacements[9]  = $edit_link;
+		$replacements[10] = $custom;
 		
 		//
 		

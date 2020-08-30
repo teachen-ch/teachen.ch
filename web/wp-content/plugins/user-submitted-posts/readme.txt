@@ -9,9 +9,9 @@ Author URI: https://plugin-planet.com/
 Donate link: https://monzillamedia.com/donate.html
 Contributors: specialk
 Requires at least: 4.1
-Tested up to: 5.4
-Stable tag: 20200320
-Version: 20200320
+Tested up to: 5.5
+Stable tag: 20200817
+Version: 20200817
 Requires PHP: 5.6.20
 Text Domain: usp
 Domain Path: /languages
@@ -109,6 +109,7 @@ USP also includes a Login/Register Form, and three shortcodes to control access 
 * Choose which categories users are allowed to select
 * Assign submitted posts to any registered user
 * Customizable success, error, and upload messages
+* Works with or without Gutenberg Block Editor
 
 *USP provides many options to help you create the perfect form!*
 
@@ -156,6 +157,7 @@ User Submitted Posts supports translation into any language. Current translation
 	Punjabi               - usp-pa_IN
 	Polish                - usp-pl_PL
 	Portuguese (Brazil)   - usp-pt_BR
+	Portuguese (Portugal) - usp-pt_PT
 	Romanian              - usp-ro_RO
 	Russian               - usp-ru_RU
 	Slovenian             - usp-sl_SI
@@ -166,7 +168,7 @@ User Submitted Posts supports translation into any language. Current translation
 	Chinese (Simplified)  - usp-zh_CN
 	Chinese (Traditional) - usp-zh_TW
 
-Need a translation into your language? [Let me know!](https://perishablepress.com/contact/)
+Note: most of the default translations are made via Google Translate. So they are automated and may be a little rough. Feel free to make your own translation as desired. Need a translation into your language? [Let me know!](https://perishablepress.com/contact/)
 
 
 **Privacy**
@@ -177,7 +179,6 @@ __Cookies:__ This plugin uses simple cookies to enable dynamic form functionalit
 
 __Services:__ This plugin provides an option to enable Google reCaptcha, which is provided by Google as a third-party service. For details on privacy and more, please refer to official documentation for [Google reCaptcha](https://developers.google.com/recaptcha/). No other outside services or locations are accessed/used by this plugin.
 
-> Works perfectly with or without Gutenberg Block Editor
 
 
 **Pro Version**
@@ -196,7 +197,7 @@ Pro version includes many, many more features and settings, with unlimited custo
 2. Configure your options via the plugin settings
 3. Display the form via shortcode or template tag
 
-[More info on installing WP plugins](https://codex.wordpress.org/Managing_Plugins#Installing_Plugins)
+[More info on installing WP plugins](https://wordpress.org/support/article/managing-plugins/#installing-plugins)
 
 
 **Usage**
@@ -344,7 +345,9 @@ So the shortcode attributes can be used to customize the post list as desired. N
 
 __`[usp_gallery]`__
 
-Displays a gallery of all submitted images for the current post. Customize via the follwing attributes:
+__Note:__ This shortcode works only when added to a submitted post. It does nothing when added anywhere else.
+
+Displays a gallery of all submitted images for the current post. Customize via the following attributes:
 
 	$size   = image size as thumbnail, medium, large or full -> default = thumbnail
 	$before = text/markup displayed before the image URL     -> default = {a href='%%url%%'}{img src='
@@ -684,7 +687,7 @@ Save changes and done.
 
 **How to disable fancy category/tag select script?**
 
-USP uses the Chosen.js library to enhance the behavior and appearance of the Category and Tag fields. The enhanced fields will be displayed only when:
+USP uses the Chosen.js library to enhance the behavior and appearance of the Category and Tag fields. The enhanced fields will be displayed when either/both of the following are true:
 
 * The option "Multiple Categories" is enabled (for Category field)
 * The option "Use Existing Tags" is enabled (for Tag field)
@@ -734,6 +737,30 @@ Links, tweets and likes also appreciated. Thanks! :)
 
 If you like USP, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/user-submitted-posts/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
+
+**20200817**
+
+* Adds option to auto-display submitted name
+* Adds filter hook `hook usp_name_custom_field`
+* Adds `%%user_url%%` (user-submitted URL) for email alerts
+* Improves cookie functionality for select fields
+* Improves logic for enabling post-thumbnail support
+* Improves logic for setting featured images when enabled
+* Login form displays "Register" tab only if registration is enabled
+* Removes function `usp_display_featured_image()`
+* Bugfix: users allowed to select placeholder value
+* Bugfix: fancy select script maybe not loading
+* Bugfix: `post_name` empty for Draft and Pending status
+* Bugfix: `%%edit_link%%` returning empty for non-logged-in users
+* Bugfix: form forgetting entered values when returned with an error
+* Bugfix: dot `.` missing from filename extension in custom fields
+* Bugfix: corrects several incorrect localization domain
+* Adds pt_PT translation (Thanks [@ipublicis](https://profiles.wordpress.org/ipublicis/))
+* Updates all default language translation files
+* Updates default translation template
+* Refines plugin setting page styles
+* Refines readme/documentation
+* Tests on WordPress 5.5
 
 **20200320**
 
