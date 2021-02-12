@@ -58,7 +58,7 @@ add_shortcode('usp-reset-button', 'usp_reset_button_shortcode');
 		https://plugin-planet.com/usp-pro-display-list-submitted-posts/
 	
 */
-function usp_display_posts($attr, $content = null) {
+function usp_display_posts($attr = array(), $content = null) {
 	
 	global $post;
 	

@@ -16,6 +16,7 @@ msgid "Our default theme for 2020 is designed to take full advantage of the flex
 msgstr "Unser Standard-Theme für 2020 ist so konzipiert, dass es die Flexibilität des Block-Editors voll ausschöpft. Unternehmen und Organisationen bietet es die Möglichkeit, dynamische Landing-Pages mit unzähligen Layouts durch Nutzung der Gruppen- und Spaltenblöcke zu erstellen. Die zentrierte Inhaltsspalte und aufeinander abgestimmte Typografie machen es auch für traditionelle Blogs perfekt. Vollständige Editor-Stile geben  eine gute Vorstellung davon, wie die Inhalte aussehen werden, noch bevor man sie veröffentlicht. Du kannst deiner Website eine persönliche Note verleihen, indem du die Hintergrundfarben und die Akzentfarbe im Customizer änderst. Das Farbspektrum aller Elemente auf deiner Website wird automatisch auf der Grundlage der von dir gewählten Farben berechnet, was auch hohen Farbkontrast - und somit barierrefreie Zugänglichkeit - für deine Besucher gewährleistet."
 
 #. Theme Name of the theme
+#: inc/block-patterns.php:20
 msgid "Twenty Twenty"
 msgstr "Twenty Twenty"
 
@@ -37,7 +38,7 @@ msgstr "In"
 msgid "Join the Club"
 msgstr "Mitglied werden"
 
-#: inc/starter-content.php:148
+#: inc/starter-content.php:148 inc/block-patterns.php:45
 msgid "Members get access to exclusive exhibits and sales. Our memberships cost $99.99 and are billed annually."
 msgstr "Alle Mitglieder erhalten Zugang zu exklusiven Ausstellungen und Angeboten. Die Mitgliedschaft kostet 99.99&nbsp;€ und wird jährlich abgerechnet."
 
@@ -49,7 +50,7 @@ msgstr "Werde Mitglied und erhalte exklusive Angebote!"
 msgid "From Signac to Matisse"
 msgstr "Von Signac bis Matisse"
 
-#: inc/starter-content.php:99
+#: inc/starter-content.php:99 inc/block-patterns.php:168
 msgid "The Life I Deserve"
 msgstr "Leben und leben lassen"
 
@@ -63,6 +64,8 @@ msgstr "Kreative Schauplätze"
 
 #: inc/starter-content.php:73 inc/starter-content.php:88
 #: inc/starter-content.php:105 inc/starter-content.php:120
+#: inc/block-patterns.php:78 inc/block-patterns.php:160
+#: inc/block-patterns.php:174
 msgid "Read More"
 msgstr "Weiterlesen"
 
@@ -78,7 +81,7 @@ msgstr "Die Ausstellungen werden vom „Museum der Zukunft“ in Zusammenarbeit 
 msgid "With seven floors of striking architecture, UMoMA shows exhibitions of international contemporary art, sometimes along with art historical retrospectives. Existential, political and philosophical issues are intrinsic to our programme. As visitor you are invited to guided tours artist talks, lectures, film screenings and other events with free admission"
 msgstr "Auf sieben Etagen beeindruckender Architektur zeigt das neue Museum diverse Ausstellungen internationaler und zeitgenössischer Kunst, teilweise im Rahmen kunsthistorischer Retrospektiven. Existenzielle, politische und philosophische Fragen sind Bestandteil unseres Programms. Unsere Besucher sind herzlich eingeladen zu Führungen, Künstlergesprächen, Vorträgen, Filmvorführungen und anderen Veranstaltungen mit teils freiem Eintritt."
 
-#: inc/starter-content.php:67
+#: inc/starter-content.php:67 inc/block-patterns.php:154
 msgid "Works and Days"
 msgstr "Werke und Tage"
 
@@ -118,14 +121,6 @@ msgstr "Einstellungen für das Seitentemplate „Cover-Template“. Füge ein Be
 msgid "Apply a custom color for links, buttons, featured images."
 msgstr "Wähle eine individuelle Farbe für Links, Buttons und Beitragsbilder."
 
-#: classes/class-twentytwenty-customize.php:126
-msgid "Custom"
-msgstr "Individuell"
-
-#: classes/class-twentytwenty-customize.php:125
-msgid "Default"
-msgstr "Standard"
-
 #: classes/class-twentytwenty-customize.php:123
 msgid "Primary Color"
 msgstr "Primärfarbe"
@@ -155,7 +150,8 @@ msgstr "Hoch %s"
 msgid "To the top %s"
 msgstr "Nach oben %s"
 
-#. translators: Copyright date format, see https://www.php.net/date
+#. translators: Copyright date format, see
+#. https://www.php.net/manual/datetime.format.php
 #: footer.php:25
 msgctxt "copyright date format"
 msgid "Y"
@@ -165,7 +161,7 @@ msgstr "Y"
 msgid "404 not found"
 msgstr "404 - Datei nicht gefunden"
 
-#: template-parts/content-cover.php:138 template-parts/content.php:48
+#: template-parts/content.php:48 template-parts/content-cover.php:138
 msgid "Pages:"
 msgstr "Seiten:"
 
@@ -177,15 +173,11 @@ msgstr "Social-Links-Menü"
 msgid "Comments are closed."
 msgstr "Kommentare sind geschlossen."
 
-#: functions.php:494
-msgid "Secondary"
-msgstr "Sekundär"
-
-#: functions.php:261
+#: functions.php:265
 msgid "Footer Menu"
 msgstr "Footer-Menü"
 
-#: template-parts/content-cover.php:138 template-parts/content.php:48
+#: template-parts/content.php:48 template-parts/content-cover.php:138
 msgid "Page"
 msgstr "Seite"
 
@@ -198,7 +190,7 @@ msgstr "Footer"
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "<span class=\"screen-reader-text\">%s</span> bearbeiten"
 
-#: inc/starter-content.php:177 inc/starter-content.php:187 functions.php:489
+#: inc/starter-content.php:177 inc/starter-content.php:187
 msgid "Primary"
 msgstr "Primär"
 
@@ -206,16 +198,16 @@ msgstr "Primär"
 msgid "Comments"
 msgstr "Kommentare"
 
-#: classes/class-twentytwenty-walker-comment.php:92
+#: classes/class-twentytwenty-walker-comment.php:98
 msgid "Your comment is awaiting moderation."
 msgstr "Dein Kommentar wartet auf Freigabe."
 
-#: classes/class-twentytwenty-walker-comment.php:77
+#: classes/class-twentytwenty-walker-comment.php:82
 msgid "Edit"
 msgstr "Bearbeiten"
 
 #. translators: 1: Comment date, 2: Comment time.
-#: classes/class-twentytwenty-walker-comment.php:69
+#: classes/class-twentytwenty-walker-comment.php:68
 msgid "%1$s at %2$s"
 msgstr "%1$s um %2$s"
 
@@ -242,14 +234,6 @@ msgstr "Suche schliessen"
 #: template-parts/modal-menu.php:117
 msgid "Expanded Social links"
 msgstr "Erweiterte Social-Media-Links"
-
-#: template-parts/modal-menu.php:73
-msgid "Mobile"
-msgstr "Mobile"
-
-#: template-parts/modal-menu.php:48
-msgid "Expanded"
-msgstr "Erweitert"
 
 #: template-parts/modal-menu.php:21
 msgid "Close Menu"
@@ -307,107 +291,99 @@ msgstr "Beitragsdatum"
 msgid "Post author"
 msgstr "Beitragsautor"
 
-#: header.php:88
-msgid "Horizontal"
-msgstr "Horizontal"
-
 #: header.php:76 header.php:137
 msgid "Menu"
 msgstr "Menü"
-
-#: header.php:53 header.php:157
-msgid "Search"
-msgstr "Suche"
 
 #: template-parts/content.php:36
 msgid "Continue reading"
 msgstr "Weiterlesen"
 
-#: functions.php:546
+#: functions.php:550
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:545
+#: functions.php:549
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr "Grösser"
 
-#: functions.php:540
+#: functions.php:544
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr "L"
 
-#: functions.php:539
+#: functions.php:543
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr "Gross"
 
-#: functions.php:534
+#: functions.php:538
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr "M"
 
-#: functions.php:533
+#: functions.php:537
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr "Normal"
 
-#: functions.php:528
+#: functions.php:532
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr "S"
 
-#: functions.php:527
+#: functions.php:531
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr "Klein"
 
-#: functions.php:512
+#: functions.php:516
 msgid "Background Color"
 msgstr "Hintergrundfarbe"
 
-#: functions.php:499
+#: functions.php:503
 msgid "Subtle Background"
 msgstr "Dezenter Hintergrund"
 
-#: functions.php:484
+#: functions.php:488
 msgid "Accent Color"
 msgstr "Akzentfarbe"
 
-#: functions.php:379
+#: functions.php:383
 msgid "Widgets in this area will be displayed in the second column in the footer."
 msgstr "Widgets in diesem Bereich werden in der zweiten Spalte des Footers angezeigt."
 
-#: functions.php:377
+#: functions.php:381
 msgid "Footer #2"
 msgstr "Footer #2"
 
-#: functions.php:367
+#: functions.php:371
 msgid "Widgets in this area will be displayed in the first column in the footer."
 msgstr "Widgets in diesem Bereich werden in der ersten Spalte des Footers angezeigt."
 
-#: functions.php:365
+#: functions.php:369
 msgid "Footer #1"
 msgstr "Footer #1"
 
-#: functions.php:340
+#: functions.php:344
 msgid "Skip to the content"
 msgstr "Direkt zum Inhalt wechseln"
 
-#: functions.php:262
+#: functions.php:266
 msgid "Social Menu"
 msgstr "Social-Media-Menü"
 
-#: functions.php:260
+#: functions.php:264
 msgid "Mobile Menu"
 msgstr "Mobile-Menü"
 
-#: functions.php:259
+#: functions.php:263
 msgid "Desktop Expanded Menu"
 msgstr "Erweitertes Desktop-Menü"
 
-#: functions.php:258
+#: functions.php:262
 msgid "Desktop Horizontal Menu"
 msgstr "Horizontales Desktop-Menü"
 
@@ -450,7 +426,7 @@ msgstr "Untermenü anzeigen"
 msgid "#%d (no title)"
 msgstr "#%d (kein Titel)"
 
-#: classes/class-twentytwenty-walker-comment.php:127
+#: classes/class-twentytwenty-walker-comment.php:133
 msgid "By Post Author"
 msgstr "Vom Beitragsautor"
 

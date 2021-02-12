@@ -9,9 +9,9 @@ Author URI: https://plugin-planet.com/
 Donate link: https://monzillamedia.com/donate.html
 Contributors: specialk
 Requires at least: 4.1
-Tested up to: 5.5
-Stable tag: 20200817
-Version: 20200817
+Tested up to: 5.6
+Stable tag: 20201120
+Version: 20201120
 Requires PHP: 5.6.20
 Text Domain: usp
 Domain Path: /languages
@@ -57,7 +57,7 @@ USP also includes a Login/Register Form, and three shortcodes to control access 
 *User Submitted Posts is the first and best plugin for front-end content!*
 
 
-**Core Features**
+### Core Features ###
 
 * Includes a fast & secure post-submission form
 * Includes a simple login/register/password form
@@ -75,7 +75,7 @@ USP also includes a Login/Register Form, and three shortcodes to control access 
 *Boost your site value with user-generated content!*
 
 
-**Form Features**
+### Form Features ###
 
 * Google reCAPTCHA: v2 ("I am not a bot") or v3 (hidden recaptcha)
 * Built-in client-side form validation with [Parsley](https://parsleyjs.org/)
@@ -93,7 +93,7 @@ USP also includes a Login/Register Form, and three shortcodes to control access 
 *USP is simple to use and built with clean, secure code via the WP API!*
 
 
-**More Features**
+### More Features ###
 
 * Translated into 20+ languages
 * Automatically detects logged-in users
@@ -114,7 +114,7 @@ USP also includes a Login/Register Form, and three shortcodes to control access 
 *USP provides many options to help you create the perfect form!*
 
 
-**Image Uploads**
+### Image Uploads ###
 
 * Optionally enable visitors to upload any number of images
 * Specify minimum & maximum allowed images for each post
@@ -125,7 +125,7 @@ USP also includes a Login/Register Form, and three shortcodes to control access 
 * Includes shortcodes to display submitted images
 
 
-**Post Management**
+### Post Management ###
 
 * Custom Fields saved w/ each post: name, IP, URL, and image URLs
 * Set posts to any status: Draft, Pending, Publish, or Moderate
@@ -134,7 +134,7 @@ USP also includes a Login/Register Form, and three shortcodes to control access 
 *Plus much more! Too many features to list them all!*
 
 
-**Translations**
+### Translations ###
 
 User Submitted Posts supports translation into any language. Current translations include (no particular order):
 
@@ -168,10 +168,10 @@ User Submitted Posts supports translation into any language. Current translation
 	Chinese (Simplified)  - usp-zh_CN
 	Chinese (Traditional) - usp-zh_TW
 
-Note: most of the default translations are made via Google Translate. So they are automated and may be a little rough. Feel free to make your own translation as desired. Need a translation into your language? [Let me know!](https://perishablepress.com/contact/)
+__Note:__ most of the default translations are made via Google Translate. So they are automated and may be a little rough. Feel free to make your own translation as desired. Need a translation into your language? [Let me know!](https://perishablepress.com/contact/)
 
 
-**Privacy**
+### Privacy ###
 
 __User Data:__ User Submitted Posts (USP) enables users to submit post content. It collects data _only_ from users who voluntarily submit content via the USP form. The only involuntary data that is collected is the IP address of the person submitting the form. The plugin provides an option to disable IP collection completely.
 
@@ -181,7 +181,7 @@ __Services:__ This plugin provides an option to enable Google reCaptcha, which i
 
 
 
-**Pro Version**
+### Pro Version ###
 
 __USP Pro__ now available at [Plugin Planet](https://plugin-planet.com/usp-pro/)!
 
@@ -191,7 +191,7 @@ Pro version includes many, many more features and settings, with unlimited custo
 
 == Installation ==
 
-**Installation**
+### How to install the plugin ###
 
 1. Upload the plugin to your blog and activate
 2. Configure your options via the plugin settings
@@ -200,7 +200,7 @@ Pro version includes many, many more features and settings, with unlimited custo
 [More info on installing WP plugins](https://wordpress.org/support/article/managing-plugins/#installing-plugins)
 
 
-**Usage**
+### How to use the plugin ###
 
 To display the form on any WP Post, Page, or widget, add the shortcode:
 
@@ -211,7 +211,7 @@ Or, to display the form anywhere in your theme, add the template tag:
 	<?php if (function_exists('user_submitted_posts')) user_submitted_posts(); ?>
 
 
-**Customizing the form**
+### Customizing the form ###
 
 There are three main ways of customizing the form:
 
@@ -245,7 +245,7 @@ Check out the [complete list of action hooks for User Submitted Posts](https://p
 More info about [WordPress Actions and Filters](https://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters)
 
 
-**Custom Submission Form**
+### Custom Submission Form ###
 
 Out of the box, User Submitted Posts provides a highly configurable submission form. Simply visit the plugin settings to control which fields are displayed, set the Challenge Question, configure submitted images, and much more. 
 
@@ -268,7 +268,7 @@ Alternately, you can set the option "Form style" to "HTML5 Form + Disable CSS" t
 Or, to go further with unlimited custom forms, [check out USP Pro](https://plugin-planet.com/usp-pro/) :)
 
 
-**Displaying submitted posts**
+### Displaying submitted posts ###
 
 User-submitted posts are handled by WordPress as regular WP Posts. So they are displayed along with your other posts according to your theme design. Additionally, each submitted post includes a set of Custom Fields that include the following information:
 
@@ -294,17 +294,17 @@ And here are some tutorials that may help with custom display of submitted image
 Also, here is a [Helper Plugin to display Custom Fields](https://plugin-planet.com/usp-pro-custom-field-helper-plugin/). It originally is designed for use with USP Pro, but also works great with the free version of USP.
 
 
-**Auto Display Images**
+### Auto Display Images ###
 
 To automatically display submitted images on the frontend, visit the plugin settings, "Images Auto-Display" and select whether to display the images before or after post content. Save changes.
 
 
-**Featured Images**
+### Featured Images ###
 
 To set submitted images as Featured Images (aka Post Thumbnails) for submitted posts, visit the plugin settings, "Image Uploads" and check the box to enable "Featured Image". Save changes.
 
 
-**Shortcodes**
+### Shortcodes ###
 
 User Submitted Posts provides a set of useful shortcodes. Check out the "Display the Form" panel in the plugin settings for examples and more information.
 
@@ -326,7 +326,15 @@ Displays the post-submit form. This shortcode does not accept any attributes.
 
 __`[usp-login-form]`__
 
-Displays the user-login form. This shortcode does not accept any attributes.
+Displays the login/register/password form. This shortcode does not accept any attributes.
+
+To add Google reCaptcha to the form, you can use any good reCaptcha plugin. Here are a few examples:
+
+* [reCAPTCHA Lite](https://wordpress.org/plugins/recaptcha-lite/)
+* [Smart Captcha (reCAPTCHA)](https://wordpress.org/plugins/smart-recaptcha/)
+* [reCaptcha by BestWebSoft](https://wordpress.org/plugins/google-captcha/)
+
+These are not endorsements for these plugins. They have been tested and work with the USP login/register/password form. 
 
 
 __`[usp_display_posts]`__
@@ -407,8 +415,7 @@ Limits access to logged-in users. Example:
 This shortcode accepts an optional `deny` attribute. The `deny` attribute displays a message to users who are denied access. Tip: to include markup in the deny message, you can use `{tag}` to display `<tag>`. Check out the "Display the Form" panel in the plugin settings for examples and more info.
 
 
-
-**Template tags**
+### Template tags ###
 
 User Submitted Posts provides a set of useful template tags:
 
@@ -430,7 +437,7 @@ User Submitted Posts provides a set of useful template tags:
 	
 	/*
 		Display a configurable list of submitted posts
-		Usage: <?php if (function_exists('usp_display_posts')) usp_display_posts(); ?>
+		Usage: <?php if (function_exists('usp_display_posts')) echo usp_display_posts(); ?>
 	*/
 	
 	usp_display_posts()
@@ -511,7 +518,7 @@ These template tags should work out of the box when included in your theme templ
 The source code for these tags is located in `/library/template-tags.php` and `shortcode-login.php`.
 
 
-**Upgrades**
+### Upgrades ###
 
 To upgrade User Submitted Posts, remove the old version and replace with the new version. Or just click "Update" from the Plugins screen and let WordPress do it for you automatically.
 
@@ -520,17 +527,17 @@ __Important!__ The `/custom/` directory is deprecated. If you are using a custom
 __Note:__ uninstalling the plugin from the WP Plugins screen results in the removal of all settings from the WP database. Submitted posts are NOT removed if you deactivate the plugin, reset default options, or uninstall the plugins; that is, all submitted posts must be removed manually.
 
 
-**Restore Default Options**
+### Restore Default Options ###
 
 To restore default plugin options, either uninstall/reinstall the plugin, or visit the plugin settings &gt; Restore Default Options.
 
 
-**Uninstalling**
+### Uninstalling ###
 
 User Submitted Posts cleans up after itself. All plugin settings will be removed from your database when the plugin is uninstalled via the Plugins screen. Submitted posts are NOT removed if you deactivate the plugin, reset default options, or uninstall the plugins; that is, _all submitted posts must be removed manually_.
 
 
-**Pro Version**
+### Pro Version ###
 
 Pro version of USP now available! USP Pro includes many more awesome features and settings, with unlimited custom forms, infinite custom fields, multimedia file uploads, and much, much more.
 
@@ -538,7 +545,7 @@ Pro version of USP now available! USP Pro includes many more awesome features an
 * [Read what users are saying about USP Pro &raquo;](https://plugin-planet.com/testimonials/)
 
 
-**Like the plugin?**
+### Like the plugin? ###
 
 If you like USP, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/user-submitted-posts/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
@@ -637,7 +644,7 @@ User Submitted Posts uses the WordPress API to keep everything secure, fast, and
 The free version of USP supports uploads of images only, but some hosted videos may be included in the submitted content (textarea) by simply including the video URL on its own line. See [this page](https://codex.wordpress.org/Embeds) for more info. Note that [USP Pro](https://plugin-planet.com/usp-pro/) enables users to [upload video and much more](https://plugin-planet.com/usp-pro-allowed-file-types/#file-formats).
 
 
-**How do I reset the plugin settings? Will it erase all of my submitted posts?**
+**How do I reset the plugin settings?**
 
 To reset plugin settings to factory defaults:
 
@@ -646,15 +653,17 @@ To reset plugin settings to factory defaults:
 3. Deactivate the plugin and then reactivate it
 4. Plugin settings now are restored to defaults
 
-And no, restoring default settings does not delete any submitted posts. Even if you completely remove the plugin, the submitted posts will not be deleted. You have to remove them manually, if desired.
+Restoring default settings does not delete any submitted posts. Even if you completely remove the plugin, the submitted posts will not be deleted. You have to remove them manually, if desired.
 
 
-**How do I enable the "Add Media" button for all users (even if not registered)?**
+**How do I enable the "Add Media" button for all users?**
 
-Users must have sufficient capabilities to access the Media Library and the "Add Media" button. This is a security measure aimed at preventing foul play. The Pro version of USP provides an option to [enable Add Media uploads for all user levels](https://plugin-planet.com/usp-pro-enable-non-admin-users-upload-media/).
+Question: How do I enable the "Add Media" button for all users (even if not registered)?
+
+Answer: Users must have sufficient capabilities to access the Media Library and the "Add Media" button. This is a security measure aimed at preventing foul play. The Pro version of USP provides an option to [enable Add Media uploads for all user levels](https://plugin-planet.com/usp-pro-enable-non-admin-users-upload-media/).
 
 
-**Can you explain how the setting "Registered Username" works?**
+**Can you explain the setting "Registered Username"?**
 
 When "Registered Username" is enabled:
 
@@ -724,7 +733,7 @@ And/or purchase one of my premium WordPress plugins:
 * [BBQ Pro](https://plugin-planet.com/bbq-pro/) - Super fast WordPress firewall
 * [Blackhole Pro](https://plugin-planet.com/blackhole-pro/) - Automatically block bad bots
 * [Banhammer Pro](https://plugin-planet.com/banhammer-pro/) - Monitor traffic and ban the bad guys
-* [GA Google Analytics Pro](https://plugin-planet.com/ga-google-analytics-pro/) - Connect your WordPress to Google Analytics
+* [GA Google Analytics Pro](https://plugin-planet.com/ga-google-analytics-pro/) - Connect WordPress to Google Analytics
 * [USP Pro](https://plugin-planet.com/usp-pro/) - Unlimited front-end forms
 
 Links, tweets and likes also appreciated. Thanks! :)
@@ -737,6 +746,27 @@ Links, tweets and likes also appreciated. Thanks! :)
 
 If you like USP, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/user-submitted-posts/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
+
+**20201120**
+
+* Adds support for disabling comments
+* Fixes bug with `usp_display_posts()`
+* Fixes some PHP Notices "array offset"
+* Improves appearance of the settings page
+* Improves/updates readme.txt/documentation
+* Tests on PHP 7.4 and 8.0
+* Tests on WordPress 5.6
+
+**20200911**
+
+* Fixes bug where line breaks and new lines were not saved
+* Tests on WordPress 5.5 + 5.6 (alpha)
+
+**20200906**
+
+* Fixes JavaScript error with select/dropdown fields
+* Updates JavaScript Cookie script to latest version
+* Tests on WordPress 5.5 + 5.6 (alpha)
 
 **20200817**
 

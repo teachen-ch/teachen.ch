@@ -801,7 +801,7 @@ function usp_add_defaults() {
 	
 	$tmp = get_option('usp_options');
 	
-	if (($tmp['default_options'] == '1') || (!is_array($tmp))) {
+	if ((isset($tmp['default_options']) && $tmp['default_options'] == '1') || (!is_array($tmp))) {
 		
 		$arr = array(
 			'usp_version'          => USP_VERSION,
@@ -896,7 +896,7 @@ function usp_delete_plugin_options() {
 	delete_option('usp_options');
 	
 }
-if ($usp_options['default_options'] == 1) {
+if (isset($usp_options['default_options']) && $usp_options['default_options'] == 1) {
 	
 	register_deactivation_hook(dirname(dirname(__FILE__)).'/user-submitted-posts.php', 'usp_delete_plugin_options');
 	
@@ -1573,36 +1573,32 @@ function usp_render_form() {
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[min-images]"><?php esc_html_e('Minimum number of images', 'usp'); ?></label></th>
-										<td>
-											<input name="usp_options[min-images]" type="number" step="1" min="0" max="999" maxlength="3" value="<?php if (isset($usp_options['min-images'])) echo esc_attr($usp_options['min-images']); ?>" />
-											<span class="mm-item-caption"><?php esc_html_e('Specify the minimum number of images', 'usp'); ?></span>
-										</td>
+										<td><input name="usp_options[min-images]" type="number" class="small-text" step="1" min="0" max="999" maxlength="3" value="<?php if (isset($usp_options['min-images'])) echo esc_attr($usp_options['min-images']); ?>" />
+										<span class="mm-item-caption"><?php esc_html_e('Specify the minimum number of images', 'usp'); ?></span></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[max-images]"><?php esc_html_e('Maximum number of images', 'usp'); ?></label></th>
-										<td>
-											<input name="usp_options[max-images]" type="number" step="1" min="0" max="999" maxlength="3" value="<?php if (isset($usp_options['max-images'])) echo esc_attr($usp_options['max-images']); ?>" />
-											<span class="mm-item-caption"><?php esc_html_e('Specify the maximum number of images', 'usp'); ?></span>
-										</td>
+										<td><input name="usp_options[max-images]" type="number" class="small-text" step="1" min="0" max="999" maxlength="3" value="<?php if (isset($usp_options['max-images'])) echo esc_attr($usp_options['max-images']); ?>" />
+										<span class="mm-item-caption"><?php esc_html_e('Specify the maximum number of images', 'usp'); ?></span></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[min-image-width]"><?php esc_html_e('Minimum image width', 'usp'); ?></label></th>
-										<td><input class="input-short" type="text" size="5" maxlength="100" name="usp_options[min-image-width]" value="<?php if (isset($usp_options['min-image-width'])) echo esc_attr($usp_options['min-image-width']); ?>" />
+										<td><input name="usp_options[min-image-width]" type="number" class="small-text" step="1" min="0" max="999999999" maxlength="9" value="<?php if (isset($usp_options['min-image-width'])) echo esc_attr($usp_options['min-image-width']); ?>" />
 										<span class="mm-item-caption"><?php esc_html_e('Specify a minimum width (in pixels) for uploaded images', 'usp'); ?></span></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[min-image-height]"><?php esc_html_e('Minimum image height', 'usp'); ?></label></th>
-										<td><input class="input-short" type="text" size="5" maxlength="100" name="usp_options[min-image-height]" value="<?php if (isset($usp_options['min-image-height'])) echo esc_attr($usp_options['min-image-height']); ?>" />
+										<td><input name="usp_options[min-image-height]" type="number" class="small-text" step="1" min="0" max="999999999" maxlength="9" value="<?php if (isset($usp_options['min-image-height'])) echo esc_attr($usp_options['min-image-height']); ?>" />
 										<span class="mm-item-caption"><?php esc_html_e('Specify a minimum height (in pixels) for uploaded images', 'usp'); ?></span></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[max-image-width]"><?php esc_html_e('Maximum image width', 'usp'); ?></label></th>
-										<td><input class="input-short" type="text" size="5" maxlength="100" name="usp_options[max-image-width]" value="<?php if (isset($usp_options['max-image-width'])) echo esc_attr($usp_options['max-image-width']); ?>" />
+										<td><input name="usp_options[max-image-width]" type="number" class="small-text" step="1" min="0" max="999999999" maxlength="9" value="<?php if (isset($usp_options['max-image-width'])) echo esc_attr($usp_options['max-image-width']); ?>" />
 										<span class="mm-item-caption"><?php esc_html_e('Specify a maximum width (in pixels) for uploaded images', 'usp'); ?></span></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[max-image-height]"><?php esc_html_e('Maximum image height', 'usp'); ?></label></th>
-										<td><input class="input-short" type="text" size="5" maxlength="100" name="usp_options[max-image-height]" value="<?php if (isset($usp_options['max-image-height'])) echo esc_attr($usp_options['max-image-height']); ?>" />
+										<td><input name="usp_options[max-image-height]" type="number" class="small-text" step="1" min="0" max="999999999" maxlength="9" value="<?php if (isset($usp_options['max-image-height'])) echo esc_attr($usp_options['max-image-height']); ?>" />
 										<span class="mm-item-caption"><?php esc_html_e('Specify a maximum height (in pixels) for uploaded images', 'usp'); ?></span></td>
 									</tr>
 									<tr>
@@ -1721,7 +1717,7 @@ function usp_render_form() {
 							<p><span class="code mm-code">[usp_display_posts]</span></p>
 							
 							<p><?php esc_html_e('Or, use the template tag to display a list of submitted posts anywhere in your theme template:', 'usp'); ?></p>
-							<p><span class="code mm-code">&lt;?php if (function_exists('usp_display_posts')) usp_display_posts(); ?&gt;</span></p>
+							<p><span class="code mm-code">&lt;?php if (function_exists('usp_display_posts')) echo usp_display_posts(); ?&gt;</span></p>
 							
 							<p><?php esc_html_e('Here are some examples showing how to configure this shortcode:', 'usp'); ?></p>
 <pre>[usp_display_posts]                           : default displays all submitted posts by all authors

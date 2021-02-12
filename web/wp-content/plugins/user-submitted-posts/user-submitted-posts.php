@@ -9,9 +9,9 @@
 	Donate link: https://monzillamedia.com/donate.html
 	Contributors: specialk
 	Requires at least: 4.1
-	Tested up to: 5.5
-	Stable tag: 20200817
-	Version: 20200817
+	Tested up to: 5.6
+	Stable tag: 20201120
+	Version: 20201120
 	Requires PHP: 5.6.20
 	Text Domain: usp
 	Domain Path: /languages
@@ -40,7 +40,7 @@ if (!defined('ABSPATH')) die();
 
 
 define('USP_WP_VERSION', '4.1');
-define('USP_VERSION', '20200817');
+define('USP_VERSION', '20201120');
 define('USP_PLUGIN', esc_html__('User Submitted Posts', 'usp'));
 define('USP_PATH', plugin_basename(__FILE__));
 
@@ -191,6 +191,22 @@ function usp_get_custom_checkbox() {
 
 
 
+function usp_get_comment_status() {
+	
+	global $usp_options;
+	
+	$post_type = isset($usp_options['usp_post_type']) ? $usp_options['usp_post_type'] : 'post';
+	
+	$post_type = apply_filters('usp_post_type', $post_type);
+	
+	$default = get_default_comment_status($post_type);
+	
+	return isset($_POST['user-submitted-comments']) ? 'closed' : $default;
+	
+}
+
+
+
 function usp_get_submitted_category() {
 	
 	$category = isset($_POST['user-submitted-category']) ? $_POST['user-submitted-category'] : '';
@@ -305,6 +321,8 @@ function usp_checkForPublicSubmission() {
 		
 		$checkbox = usp_get_custom_checkbox();
 		
+		$comments = usp_get_comment_status();
+		
 		$category = usp_get_submitted_category();
 		
 		$tags = usp_get_submitted_tags();
@@ -318,7 +336,7 @@ function usp_checkForPublicSubmission() {
 		$verify   = isset($_POST['user-submitted-verify'])   ? sanitize_text_field($_POST['user-submitted-verify'])   : '';
 		$content  = isset($_POST['user-submitted-content'])  ? usp_sanitize_content($_POST['user-submitted-content']) : '';
 		
-		$result = usp_createPublicSubmission($title, $files, $ip, $author, $url, $email, $tags, $captcha, $verify, $content, $category, $custom, $checkbox);
+		$result = usp_createPublicSubmission($title, $files, $ip, $author, $url, $email, $tags, $captcha, $verify, $content, $category, $custom, $checkbox, $comments);
 		
 		$post_id = false; 
 		
@@ -816,11 +834,11 @@ function usp_prepare_post($title, $content, $author_id, $author, $ip) {
 	global $usp_options;
 	
 	$postData = array();
-	$postData['post_title']   = $title;
-	$postData['post_content'] = $content;
-	$postData['post_author']  = $author_id;
-	$postData['post_status']  = apply_filters('usp_post_status', 'pending');
-	$postData['post_name']    = sanitize_title($title);
+	$postData['post_title']    = $title;
+	$postData['post_content']  = $content;
+	$postData['post_author']   = $author_id;
+	$postData['post_status']   = apply_filters('usp_post_status', 'pending');
+	$postData['post_name']     = sanitize_title($title);
 	
 	$postType = isset($usp_options['usp_post_type']) ? $usp_options['usp_post_type'] : 'post';
 	
@@ -1095,7 +1113,7 @@ function usp_attach_images($post_id, $newPost, $files, $file_count) {
 
 
 
-function usp_createPublicSubmission($title, $files, $ip, $author, $url, $email, $tags, $captcha, $verify, $content, $category, $custom, $checkbox) {
+function usp_createPublicSubmission($title, $files, $ip, $author, $url, $email, $tags, $captcha, $verify, $content, $category, $custom, $checkbox, $comments) {
 	
 	global $usp_options;
 	
@@ -1173,6 +1191,8 @@ function usp_createPublicSubmission($title, $files, $ip, $author, $url, $email, 
 		$post = get_post($post_id);
 		
 		$post->post_status = $new_status;
+		
+		$post->comment_status = $comments;
 		
 		wp_update_post($post);
 		

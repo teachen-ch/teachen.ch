@@ -45,6 +45,7 @@ jQuery(document).ready(function($) {
 			$('.usp-submit').css('cursor', 'wait');
 			$('.usp-submit').attr('disabled', true);
 		}
+		usp_remember();
 	});
 	$('.usp-captcha .usp-input').change(function(e) { 
 		usp_captcha_check(e);
@@ -78,6 +79,7 @@ jQuery(document).ready(function($) {
 			var name = $(this).attr('id');
 			var cookie = Cookies.get(name);
 			if (cookie) {
+				cookie = decodeURIComponent(cookie);
 				if (type == 'checkbox') {
 					if (cookie == 1) {
 						$(this).val(1).prop('checked', 1);
@@ -85,8 +87,12 @@ jQuery(document).ready(function($) {
 						$(this).val(0).prop('checked', 0);
 					}
 				} else if (type == 'select') {
-					if (window.usp_multiple_cats == 1) {
-						$.each(Cookies.getJSON(name), function(i,e) {
+					if (name == 'user-submitted-tags' && window.usp_existing_tags == 1) {
+						$.each(cookie.split(','), function(i,e) {
+							$('#user-submitted-tags option[value="'+ e +'"]').attr('selected', 'selected');
+						});
+					} else if (name == 'user-submitted-category' && window.usp_multiple_cats == 1) {
+						$.each(cookie.split(','), function(i,e) {
 							$('#user-submitted-category option[value="'+ e +'"]').attr('selected', 'selected');
 						});
 					} else {
@@ -98,6 +104,7 @@ jQuery(document).ready(function($) {
 			}
 			$(this).on('change', function() {
 				if (type == 'checkbox') {
+					
 					if ($(this).is(':checked')) {
 						var value = 1;
 						$(this).val(1).prop('checked', 1);
@@ -108,7 +115,7 @@ jQuery(document).ready(function($) {
 				} else {
 					var value = $(this).val();
 				}
-				Cookies.set(name, value, { path: '/', expires: 365, sameSite: 'strict' });
+				Cookies.set(name, encodeURIComponent(value), { path: '/', expires: 365000, sameSite: 'strict' });
 			});
 		});
 	}

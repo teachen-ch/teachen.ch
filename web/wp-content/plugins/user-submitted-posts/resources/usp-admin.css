@@ -58,7 +58,8 @@
 .mm-table-wrap input[type=text] { width: 80%; font-size: 13px; }
 .mm-table-wrap input[type=checkbox], .wp-admin p input[type=checkbox] { margin-top: -3px; }
 .mm-table-wrap textarea { width: 90%; font-size: 13px; }
-.mm-table-wrap .input-short[type=text] { width: 77px; }
+.mm-table-wrap .input-short[type=text],
+.mm-table-wrap .small-text[type=number] { width: 100px; }
 .mm-radio-inputs, .mm-checkbox-inputs { margin: 7px 0; }
 
 /* Code & Captions */
