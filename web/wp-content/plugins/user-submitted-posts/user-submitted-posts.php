@@ -3,15 +3,15 @@
 	Plugin Name: User Submitted Posts
 	Plugin URI: https://perishablepress.com/user-submitted-posts/
 	Description: Enables your visitors to submit posts and images from anywhere on your site.
-	Tags: guest post, user post, anonymous post, frontend post, guest author,  frontend content, frontend post, frontend upload, generated content, guest blog, guest blogging, guest publish, guest upload, post sharing, post submission, public post, share posts, submit post, user generated, user submit, user submitted post, visitor post
+	Tags: guest post, user post, anonymous post, frontend post, public post, share post, submit post, visitor post, user submitted post, upload
 	Author: Jeff Starr
 	Author URI: https://plugin-planet.com/
 	Donate link: https://monzillamedia.com/donate.html
 	Contributors: specialk
 	Requires at least: 4.1
-	Tested up to: 5.6
-	Stable tag: 20201120
-	Version: 20201120
+	Tested up to: 5.8
+	Stable tag: 20210719
+	Version: 20210719
 	Requires PHP: 5.6.20
 	Text Domain: usp
 	Domain Path: /languages
@@ -32,7 +32,7 @@
 	You should have received a copy of the GNU General Public License
 	with this program. If not, visit: https://www.gnu.org/licenses/
 	
-	Copyright 2020 Monzilla Media. All rights reserved.
+	Copyright 2021 Monzilla Media. All rights reserved.
 */
 
 if (!defined('ABSPATH')) die();
@@ -40,7 +40,7 @@ if (!defined('ABSPATH')) die();
 
 
 define('USP_WP_VERSION', '4.1');
-define('USP_VERSION', '20201120');
+define('USP_VERSION', '20210719');
 define('USP_PLUGIN', esc_html__('User Submitted Posts', 'usp'));
 define('USP_PATH', plugin_basename(__FILE__));
 
@@ -153,7 +153,14 @@ function usp_get_submitted_title() {
 	
 	$title = usp_get_default_title();
 	
-	if (isset($_POST['user-submitted-title'])) $title = sanitize_text_field($_POST['user-submitted-title']);
+	$allow_tags   = apply_filters('usp_title_tags_allow', false);
+	$allowed_tags = apply_filters('usp_title_tags_allowed', '<em><i><strong><b>');
+	
+	if (isset($_POST['user-submitted-title'])) {
+		
+		$title = $allow_tags ? strip_tags($_POST['user-submitted-title'], $allowed_tags) : sanitize_text_field($_POST['user-submitted-title']);
+		
+	}
 	
 	if ($option === 'optn' && empty($title)) $title = usp_get_default_title();
 	

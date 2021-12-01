@@ -117,6 +117,8 @@ function usp_display_posts($attr = array(), $content = null) {
 		
 	}
 	
+	$args = apply_filters('usp_display_posts_args', $args);
+	
 	$submitted_posts = get_posts($args);
 	
 	$display_posts = '<ul>';

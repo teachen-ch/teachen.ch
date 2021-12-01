@@ -111,13 +111,19 @@ function usp_enqueue_recaptcha() {
 		$recaptcha = isset($usp_options['recaptcha_public'])  ? $usp_options['recaptcha_public']  : '';
 		$version   = isset($usp_options['recaptcha_version']) ? $usp_options['recaptcha_version'] : 2;
 		
+		$query = apply_filters('usp_recaptcha_querystring', '');
+		
 		if ($version == 3) {
 			
-			wp_enqueue_script('usp_recaptcha', 'https://www.google.com/recaptcha/api.js?render='. $recaptcha, array(), null);
+			$query = !empty($query) ? '&hl='. $query : '';
+			
+			wp_enqueue_script('usp_recaptcha', 'https://www.google.com/recaptcha/api.js?render='. $recaptcha . $query, array(), null);
 			
 		} else {
 			
-			wp_enqueue_script('usp_recaptcha', 'https://www.google.com/recaptcha/api.js', array(), USP_VERSION);
+			$query = !empty($query) ? '?hl='. $query : '';
+			
+			wp_enqueue_script('usp_recaptcha', 'https://www.google.com/recaptcha/api.js'. $query, array(), USP_VERSION);
 			
 		}
 		

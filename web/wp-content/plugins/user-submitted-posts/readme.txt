@@ -3,15 +3,15 @@
 Plugin Name: User Submitted Posts
 Plugin URI: https://perishablepress.com/user-submitted-posts/
 Description: Enables your visitors to submit posts and images from anywhere on your site.
-Tags: guest post, user post, anonymous post, frontend post, guest author,  frontend content, frontend post, frontend upload, generated content, guest blog, guest blogging, guest publish, guest upload, post sharing, post submission, public post, share posts, submit post, user generated, user submit, user submitted post, visitor post
+Tags: guest post, user post, anonymous post, frontend post, public post, share post, submit post, visitor post, user submitted post, upload
 Author: Jeff Starr
 Author URI: https://plugin-planet.com/
 Donate link: https://monzillamedia.com/donate.html
 Contributors: specialk
 Requires at least: 4.1
-Tested up to: 5.6
-Stable tag: 20201120
-Version: 20201120
+Tested up to: 5.8
+Stable tag: 20210719
+Version: 20210719
 Requires PHP: 5.6.20
 Text Domain: usp
 Domain Path: /languages
@@ -437,7 +437,7 @@ User Submitted Posts provides a set of useful template tags:
 	
 	/*
 		Display a configurable list of submitted posts
-		Usage: <?php if (function_exists('usp_display_posts')) echo usp_display_posts(); ?>
+		Usage: <?php if (function_exists('usp_display_posts')) echo usp_display_posts(array('userid' => 'all', 'numposts' => -1)); ?>
 	*/
 	
 	usp_display_posts()
@@ -708,6 +708,21 @@ If you want to disable the fancy Chosen script for these fields, you can do so b
 Save changes and done.
 
 
+**How to change the language for Google reCaptcha?**
+
+By default, the Google reCaptcha field is displayed in English. To change that to some other language, first locate the two-digit abbreviation for your language [here](https://developers.google.com/recaptcha/docs/language). Then add the following code to your theme (or child theme) functions.php, or add via simple custom plugin:
+
+`function usp_recaptcha_querystring($query) { return 'en'; }
+add_filter('usp_recaptcha_querystring', 'usp_recaptcha_querystring');`
+
+Notice where it says `en`, that is the two-character language code you want to replace with your own. Then save changes and done.
+
+
+**Where can I check out a demo of the USP form?**
+
+There is a simplified [USP Demo](https://perishablepress.com/wp/wp-content/online/pages/user-submitted-posts-demo.html) at Perishable Press. Note the demo form is non-functional, just there to give you a general idea. The actual form provided by the plugin has more features, functionality, etc.
+
+
 **More FAQs**
 
 Want to read some more FAQs? Check out the [USP FAQs at Perishable Press](https://perishablepress.com/faqs-user-submitted-posts/)
@@ -746,6 +761,26 @@ Links, tweets and likes also appreciated. Thanks! :)
 
 If you like USP, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/user-submitted-posts/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
+
+**20210719**
+
+* Adds CSS classes to Login/Register form
+* Adds `selected="true"` to default category option
+* Adds filter hook `usp_title_tags_allow`
+* Adds filter hook `usp_title_tags_allowed`
+* Adds filter hook `usp_display_posts_args`
+* Updates icon on plugin homepage
+* Tests on WordPress 5.8
+
+**20210212**
+
+* Adds support to change reCaptcha language
+* Adds filter hook `usp_recaptcha_querystring`
+* Updates deprecated functions for newer versions of jQuery
+* Fixes bug where "Please select" could be chosen as category/tag
+* Improves description/label for "Add another image" setting
+* Improves documentation on settings page and readme.txt
+* Tests on WordPress 5.7
 
 **20201120**
 

@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 			return false;
 		}
 	};
-	$('#usp_form').submit(function(e) {
+	$('#usp_form').on('submit', function(e) {
 		usp_captcha_check(e);
 		if ($(this).parsley().isValid()) {
 			$('.usp-submit').css('cursor', 'wait');
@@ -47,7 +47,7 @@ jQuery(document).ready(function($) {
 		}
 		usp_remember();
 	});
-	$('.usp-captcha .usp-input').change(function(e) { 
+	$('.usp-captcha .usp-input').on('change', function(e) {
 		usp_captcha_check(e);
 	});
 	function usp_captcha_check(e) {
@@ -166,7 +166,8 @@ jQuery(document).ready(function($) {
 		var y = parseInt($('#usp-max-images').val());
 		if (x === 0) x = 1;
 		if (x >= y) $('#usp_add-another').hide();
-		$('#usp_add-another').click(function(e) {
+		
+		$('#usp_add-another').on('click', function(e) {
 			e.preventDefault();
 			x++;
 			var link = $(this);

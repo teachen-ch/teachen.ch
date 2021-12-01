@@ -1569,7 +1569,7 @@ function usp_render_form() {
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[usp_add_another]"><?php esc_html_e('&ldquo;Add another image&rdquo; link', 'usp'); ?></label></th>
 										<td><textarea class="textarea" rows="3" cols="50" name="usp_options[usp_add_another]"><?php if (isset($usp_options['usp_add_another'])) echo esc_textarea($usp_options['usp_add_another']); ?></textarea>
-										<div class="mm-item-caption"><?php esc_html_e('Custom markup for the &ldquo;Add another image&rdquo; link. Leave blank to use the default markup (recommended).', 'usp'); ?></div></td>
+										<div class="mm-item-caption"><?php esc_html_e('Custom HTML/markup for the &ldquo;Add another image&rdquo; link. Leave blank to use the default markup (recommended).', 'usp'); ?></div></td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[min-images]"><?php esc_html_e('Minimum number of images', 'usp'); ?></label></th>
@@ -1717,7 +1717,7 @@ function usp_render_form() {
 							<p><span class="code mm-code">[usp_display_posts]</span></p>
 							
 							<p><?php esc_html_e('Or, use the template tag to display a list of submitted posts anywhere in your theme template:', 'usp'); ?></p>
-							<p><span class="code mm-code">&lt;?php if (function_exists('usp_display_posts')) echo usp_display_posts(); ?&gt;</span></p>
+							<p><span class="code mm-code">&lt;?php if (function_exists('usp_display_posts')) echo usp_display_posts(array('userid' => 'all', 'numposts' => -1)); ?&gt;</span></p>
 							
 							<p><?php esc_html_e('Here are some examples showing how to configure this shortcode:', 'usp'); ?></p>
 <pre>[usp_display_posts]                           : default displays all submitted posts by all authors

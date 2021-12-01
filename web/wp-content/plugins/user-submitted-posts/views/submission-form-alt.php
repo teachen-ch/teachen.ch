@@ -70,7 +70,7 @@ else :
 		<fieldset class="usp-tags">
 			<label for="user-submitted-tags"><?php esc_html_e('Post Tags', 'usp'); ?></label>
 			<select id="user-submitted-tags" name="user-submitted-tags[]"<?php if (usp_check_required('usp_tags')) echo $usp_required; ?> class="usp-select usp-multiple" multiple="multiple">
-				<option value=""><?php esc_attr_e('Please select some tags..', 'usp'); ?></option>
+				<option value="" disabled><?php esc_attr_e('Please select some tags..', 'usp'); ?></option>
 				<?php echo usp_get_tag_options(); ?>
 			</select>
 		</fieldset>
@@ -98,7 +98,7 @@ else :
 		<fieldset class="usp-category">
 			<label for="user-submitted-category"><?php esc_html_e('Post Category', 'usp'); ?></label>
 			<select id="user-submitted-category"<?php if (usp_check_required('usp_category')) echo $usp_required; echo $multiple_cats . $category_class; ?> name="user-submitted-category[]">
-				<option value=""><?php esc_html_e('Please select a category..', 'usp'); ?></option>
+				<option value="" selected="true" disabled><?php esc_html_e('Please select a category..', 'usp'); ?></option>
 				<?php echo usp_get_cat_options(); ?>
 			</select>
 		</fieldset>
