@@ -990,6 +990,8 @@ function usp_validate_options($input) {
 	if (isset($input['custom_checkbox_name'])) $input['custom_checkbox_name'] = wp_filter_nohtml_kses($input['custom_checkbox_name']); else $input['custom_checkbox_name'] = null;
 	if (isset($input['custom_checkbox_err']))  $input['custom_checkbox_err']  = wp_filter_nohtml_kses($input['custom_checkbox_err']);  else $input['custom_checkbox_err']  = null;
 	
+	if (isset($input['usp_featured_image_default'])) $input['usp_featured_image_default'] = wp_filter_nohtml_kses($input['usp_featured_image_default']); else $input['usp_featured_image_default'] = null;
+	
 	// dealing with kses
 	global $allowedposttags;
 	$allowed_atts = array(
@@ -1560,6 +1562,14 @@ function usp_render_form() {
 										<th scope="row"><label class="description" for="usp_options[usp_featured_images]"><?php esc_html_e('Featured Image', 'usp'); ?></label></th>
 										<td><input type="checkbox" value="1" name="usp_options[usp_featured_images]" <?php if (isset($usp_options['usp_featured_images'])) checked('1', $usp_options['usp_featured_images']); ?> />
 										<span class="mm-item-caption"><?php esc_html_e('Set submitted images as Featured Images. Requires theme support for Featured Images (aka Post Thumbnails)', 'usp'); ?></span></td>
+									</tr>
+									<tr>
+										<th scope="row"><label class="description" for="usp_options[usp_featured_image_default]"><?php esc_html_e('Default Featured Image', 'usp'); ?></label></th>
+										<td>
+											<input id="upload_image" type="text" size="36" name="usp_options[usp_featured_image_default]" value="<?php if (isset($usp_options['usp_featured_image_default'])) echo esc_attr($usp_options['usp_featured_image_default']); ?>" />
+											<input id="upload_image_button" class="button" type="button" value="Upload Image" />
+											<div class="mm-item-caption"><?php esc_html_e('Choose a default Featured Image (optional). After selecting an image, scroll down and click the &ldquo;Save Settings&rdquo; button.', 'usp'); ?></div>
+										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label class="description" for="usp_options[upload-message]"><?php esc_html_e('Upload Message', 'usp'); ?></label></th>

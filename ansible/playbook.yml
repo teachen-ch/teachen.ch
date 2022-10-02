@@ -1,13 +1,35 @@
 - hosts: all
   gather_facts: False
 
+  vars:
+    certbot_auto_renew_user: root
+    certbot_auto_renew_minute: "0"
+    certbot_auto_renew_hour: "5"
+    certbot_admin_email: voty@teachen.ch
+    certbot_create_if_missing: true
+    certbot_package: certbot
+    certbot_certs:
+      - domains:
+          - "{{ server_name }}"
+          - "www.{{server_name}}"
+          - "{{old_server_name}}"
+          - "www.{{old_server_name}}"
+
   tasks:
     - apt: { name: [python3-setuptools, python-pip], state: present }
     - pip: { name: PyMySQL }
+    - name: Include variables depending on OS distribution
+      include_vars: "{{ item }}"
+      with_first_found:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_os_family }}.yml"
+        - "Defaults.yml"
   become: yes
 
 - hosts: wp
   roles:
+    - ansible-role-certbot
     - server
     - php
     - wordpress

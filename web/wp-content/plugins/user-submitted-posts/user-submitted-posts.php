@@ -8,10 +8,10 @@
 	Author URI: https://plugin-planet.com/
 	Donate link: https://monzillamedia.com/donate.html
 	Contributors: specialk
-	Requires at least: 4.1
-	Tested up to: 5.8
-	Stable tag: 20210719
-	Version: 20210719
+	Requires at least: 4.6
+	Tested up to: 6.0
+	Stable tag: 20220517
+	Version:    20220517
 	Requires PHP: 5.6.20
 	Text Domain: usp
 	Domain Path: /languages
@@ -32,15 +32,15 @@
 	You should have received a copy of the GNU General Public License
 	with this program. If not, visit: https://www.gnu.org/licenses/
 	
-	Copyright 2021 Monzilla Media. All rights reserved.
+	Copyright 2022 Monzilla Media. All rights reserved.
 */
 
 if (!defined('ABSPATH')) die();
 
 
 
-define('USP_WP_VERSION', '4.1');
-define('USP_VERSION', '20210719');
+define('USP_WP_VERSION', '4.6');
+define('USP_VERSION', '20220517');
 define('USP_PLUGIN', esc_html__('User Submitted Posts', 'usp'));
 define('USP_PATH', plugin_basename(__FILE__));
 
@@ -62,7 +62,7 @@ function usp_i18n_init() {
 	load_plugin_textdomain('usp', false, dirname(plugin_basename(__FILE__)) .'/languages/');
 	
 }
-add_action('plugins_loaded', 'usp_i18n_init');
+add_action('init', 'usp_i18n_init');
 
 
 
@@ -1105,6 +1105,20 @@ function usp_attach_images($post_id, $newPost, $files, $file_count) {
 				$newPost['error'][] = 'file-upload';
 				
 				unset($newPost['id']);
+				
+			}
+			
+		}
+		
+	} else {
+		
+		if (isset($usp_options['usp_featured_image_default']) && !empty($usp_options['usp_featured_image_default'])) {
+			
+			$default_image = attachment_url_to_postid($usp_options['usp_featured_image_default']);
+			
+			if (!empty($default_image) && isset($usp_options['usp_featured_images']) && $usp_options['usp_featured_images']) {
+				
+				if (!has_post_thumbnail($post_id)) set_post_thumbnail($post_id, $default_image);
 				
 			}
 			

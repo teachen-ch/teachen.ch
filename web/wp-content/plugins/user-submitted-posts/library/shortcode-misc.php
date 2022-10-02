@@ -64,8 +64,9 @@ function usp_display_posts($attr = array(), $content = null) {
 	
 	extract(shortcode_atts(array(
 		
-		'userid'   => 'all',
-		'numposts' => -1
+		'userid'    => 'all',
+		'post_type' => 'post',
+		'numposts'  => -1,
 		
 	), $attr));
 	
@@ -74,6 +75,7 @@ function usp_display_posts($attr = array(), $content = null) {
 		$args = array(
 			'author'         => $userid,
 			'posts_per_page' => $numposts,
+			'post_type'      => $post_type,
 			'meta_key'       => 'is_submission',
 			'meta_value'     => '1'
 		);
@@ -82,6 +84,7 @@ function usp_display_posts($attr = array(), $content = null) {
 		
 		$args = array(
 			'posts_per_page' => $numposts,
+			'post_type'      => $post_type,
 			'meta_key'       => 'is_submission',
 			'meta_value'     => '1'
 		);
@@ -91,6 +94,7 @@ function usp_display_posts($attr = array(), $content = null) {
 		$args = array(
 			'author'         => get_current_user_id(),
 			'posts_per_page' => $numposts,
+			'post_type'      => $post_type,
 			'meta_key'       => 'is_submission',
 			'meta_value'     => '1'
 		);
@@ -99,6 +103,7 @@ function usp_display_posts($attr = array(), $content = null) {
 		
 		$args = array(
 			'posts_per_page' => $numposts,
+			'post_type'      => $post_type,
 			
 			'meta_query' => array(
 				

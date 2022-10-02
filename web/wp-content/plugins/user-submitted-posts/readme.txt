@@ -8,10 +8,10 @@ Author: Jeff Starr
 Author URI: https://plugin-planet.com/
 Donate link: https://monzillamedia.com/donate.html
 Contributors: specialk
-Requires at least: 4.1
-Tested up to: 5.8
-Stable tag: 20210719
-Version: 20210719
+Requires at least: 4.6
+Tested up to: 6.0
+Stable tag: 20220517
+Version:    20220517
 Requires PHP: 5.6.20
 Text Domain: usp
 Domain Path: /languages
@@ -168,7 +168,7 @@ User Submitted Posts supports translation into any language. Current translation
 	Chinese (Simplified)  - usp-zh_CN
 	Chinese (Traditional) - usp-zh_TW
 
-__Note:__ most of the default translations are made via Google Translate. So they are automated and may be a little rough. Feel free to make your own translation as desired. Need a translation into your language? [Let me know!](https://perishablepress.com/contact/)
+__Note:__ most of the default translations are made via Google Translate. So they are automated and may be a little rough. Feel free to make your own translation as desired. Need a translation into your language? [Let me know!](https://plugin-planet.com/support/#contact)
 
 
 ### Privacy ###
@@ -347,6 +347,7 @@ Displays a list of all submitted posts. This shortcode accepts two optional attr
 	[usp_display_posts userid="Pat Smith"]        : displays all submitted posts by author name "Pat Smith"
 	[usp_display_posts userid="all"]              : displays all submitted posts by all users/authors
 	[usp_display_posts userid="all" numposts="5"] : limit to 5 posts from all users
+	[usp_display_posts post_type="page"]          : display only submitted pages
 
 So the shortcode attributes can be used to customize the post list as desired. Note that the Pro version of USP provides many more options for the [display-posts shortcode](https://plugin-planet.com/usp-pro-display-list-submitted-posts/).
 
@@ -710,7 +711,7 @@ Save changes and done.
 
 **How to change the language for Google reCaptcha?**
 
-By default, the Google reCaptcha field is displayed in English. To change that to some other language, first locate the two-digit abbreviation for your language [here](https://developers.google.com/recaptcha/docs/language). Then add the following code to your theme (or child theme) functions.php, or add via simple custom plugin:
+By default, the Google reCaptcha field is displayed in English. To change that to some other language, first locate the two-digit abbreviation for your language [here](https://developers.google.com/recaptcha/docs/language). Then add the following code to your theme (or child theme) functions.php, or add via [custom plugin](https://digwp.com/2022/02/custom-code-wordpress/):
 
 `function usp_recaptcha_querystring($query) { return 'en'; }
 add_filter('usp_recaptcha_querystring', 'usp_recaptcha_querystring');`
@@ -723,6 +724,16 @@ Notice where it says `en`, that is the two-character language code you want to r
 There is a simplified [USP Demo](https://perishablepress.com/wp/wp-content/online/pages/user-submitted-posts-demo.html) at Perishable Press. Note the demo form is non-functional, just there to give you a general idea. The actual form provided by the plugin has more features, functionality, etc.
 
 
+**How to allow blank targets in post content?**
+
+By default, USP removes any `target="_blank"` attributes in submitted post content. This is a recommended security feature. It is possible however to allow blank targets:
+
+`function usp_content_patterns($array) { return array(); }
+add_filter('usp_content_patterns', 'usp_content_patterns');`
+
+That code can be added via theme (or child theme) functions.php, or add via [custom plugin](https://digwp.com/2022/02/custom-code-wordpress/).
+
+
 **More FAQs**
 
 Want to read some more FAQs? Check out the [USP FAQs at Perishable Press](https://perishablepress.com/faqs-user-submitted-posts/)
@@ -730,7 +741,7 @@ Want to read some more FAQs? Check out the [USP FAQs at Perishable Press](https:
 
 **Questions? Feedback?**
 
-Send any questions or feedback via my [contact form](https://perishablepress.com/contact/). Thanks! :)
+Send any questions or feedback via my [contact form](https://plugin-planet.com/support/#contact). Thanks! :)
 
 
 
@@ -742,6 +753,7 @@ I develop and maintain this free plugin with love for the WordPress community. T
 * [Digging into WordPress](https://digwp.com/)
 * [.htaccess made easy](https://htaccessbook.com/)
 * [WordPress Themes In Depth](https://wp-tao.com/wordpress-themes-book/)
+* [Wizard's SQL Recipes for WordPress](https://books.perishablepress.com/downloads/wizards-collection-sql-recipes-wordpress/)
 
 And/or purchase one of my premium WordPress plugins:
 
@@ -761,6 +773,20 @@ Links, tweets and likes also appreciated. Thanks! :)
 
 If you like USP, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/user-submitted-posts/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
+
+**20220517**
+
+* Tests on WordPress 6.0
+
+**20220123**
+
+* Updates support panel
+* Improves loading of translations
+* Adds option to select a default Featured Image
+* Adds `post_type` attribute to `[usp_display_posts]`
+* Updates some links to external resources
+* Changes minimum required WP version to 4.6
+* Tests on WordPress 5.9
 
 **20210719**
 

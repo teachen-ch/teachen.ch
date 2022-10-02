@@ -237,6 +237,7 @@ function usp_load_admin_styles($hook) {
 		
 		wp_enqueue_style('usp_admin_styles', $base .'/resources/usp-admin.css', array(), USP_VERSION, 'all');
 		wp_enqueue_script('usp_admin_script', $base .'/resources/jquery.usp.admin.js', array('jquery'), USP_VERSION, false);
+		wp_enqueue_media();
 		
 	}
 	
